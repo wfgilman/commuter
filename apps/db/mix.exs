@@ -26,7 +26,8 @@ defmodule Db.MixProject do
   defp deps do
     [
       {:ecto_sql, "~> 3.0"},
-      {:postgrex, "~> 0.14"}
+      {:postgrex, "~> 0.14"},
+      {:nimble_csv, "~> 0.5"}
     ]
   end
 end

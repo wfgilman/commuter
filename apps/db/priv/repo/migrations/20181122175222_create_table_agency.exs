@@ -3,15 +3,15 @@ defmodule Db.Repo.Migrations.CreateTableAgency do
 
   def change do
     create table("agency") do
-      add :agency_id, :string
-      add :agency_name, :string
-      add :agency_url, :string
-      add :agency_timezone, :string
-      add :agency_lang, :string
+      add :code, :string
+      add :name, :string
+      add :url, :string
+      add :timezone, :string
+      add :lang, :string
 
       timestamps()
     end
 
-    create unique_index("agency", [:agency_id])
+    create unique_index("agency", [:code])
   end
 end
