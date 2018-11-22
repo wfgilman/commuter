@@ -1,5 +1,6 @@
 defmodule Db.Model.Agency do
   use Ecto.Schema
+  
   schema "agency" do
     field :code, :string
     field :name, :string

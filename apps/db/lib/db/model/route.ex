@@ -1,5 +1,6 @@
 defmodule Db.Model.Route do
   use Ecto.Schema
+  
   schema "route" do
     field :code, :string
     field :name, :string
