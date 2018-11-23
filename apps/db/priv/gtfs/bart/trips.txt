@@ -1,0 +1,2512 @@
+route_id,service_id,trip_id,trip_headsign,direction_id,block_id,shape_id,wheelchair_accessible,bikes_allowed
+01,WKDY,3610403WKDY,San Francisco International Airport,0,,01_shp,1,1
+01,SAT,3730559SAT,Millbrae,0,,01_shp,1,1
+01,SUN,3650800SUN,Millbrae,0,,01_shp,1,1
+01,WKDY,3630418WKDY,San Francisco International Airport,0,,01_shp,1,1
+01,SAT,3750558SAT,Millbrae,0,,01_shp,1,1
+01,SUN,3670758SUN,Millbrae,0,,01_shp,1,1
+01,WKDY,3650433WKDY,San Francisco International Airport,0,,01_shp,1,1
+01,SAT,3770618SAT,Millbrae,0,,01_shp,1,1
+01,SUN,3690818SUN,Millbrae,0,,01_shp,1,1
+01,WKDY,3670448WKDY,San Francisco International Airport,0,,01_shp,1,1
+01,SAT,3790638SAT,Millbrae,0,,01_shp,1,1
+01,SUN,3710838SUN,Millbrae,0,,01_shp,1,1
+01,WKDY,3690503WKDY,San Francisco International Airport,0,,01_shp,1,1
+01,SAT,3610658SAT,Millbrae,0,,01_shp,1,1
+01,SUN,3730858SUN,Millbrae,0,,01_shp,1,1
+01,WKDY,3710518WKDY,San Francisco International Airport,0,,01_shp,1,1
+01,SAT,3630718SAT,Millbrae,0,,01_shp,1,1
+01,SUN,3750918SUN,Millbrae,0,,01_shp,1,1
+01,WKDY,3730533WKDY,San Francisco International Airport,0,,01_shp,1,1
+01,SAT,3650738SAT,Millbrae,0,,01_shp,1,1
+01,SUN,3770938SUN,Millbrae,0,,01_shp,1,1
+01,WKDY,3750548WKDY,San Francisco International Airport,0,,01_shp,1,1
+01,SAT,3670758SAT,Millbrae,0,,01_shp,1,1
+01,SUN,3790958SUN,Millbrae,0,,01_shp,1,1
+01,WKDY,3210613WKDY,Montgomery St.,0,,01_shp,1,1
+01,SAT,3690818SAT,Millbrae,0,,01_shp,1,1
+01,SUN,3611018SUN,Millbrae,0,,01_shp,1,1
+01,WKDY,3770603WKDY,San Francisco International Airport,0,,01_shp,1,1
+01,SAT,3710838SAT,Millbrae,0,,01_shp,1,1
+01,SUN,3631038SUN,Millbrae,0,,01_shp,1,1
+01,WKDY,3230628WKDY,Montgomery St.,0,,01_shp,1,1
+01,SAT,3730858SAT,Millbrae,0,,01_shp,1,1
+01,SUN,3651058SUN,Millbrae,0,,01_shp,1,1
+01,WKDY,3790618WKDY,San Francisco International Airport,0,,01_shp,1,1
+01,SAT,3750918SAT,Millbrae,0,,01_shp,1,1
+01,SUN,3671118SUN,Millbrae,0,,01_shp,1,1
+01,WKDY,3250643WKDY,Montgomery St.,0,,01_shp,1,1
+01,SAT,3770938SAT,Millbrae,0,,01_shp,1,1
+01,SUN,3691138SUN,Millbrae,0,,01_shp,1,1
+01,WKDY,3810633WKDY,San Francisco International Airport,0,,01_shp,1,1
+01,SAT,3790958SAT,Millbrae,0,,01_shp,1,1
+01,SUN,3711158SUN,Millbrae,0,,01_shp,1,1
+01,WKDY,3270642WKDY,Montgomery St.,0,,01_shp,1,1
+01,SAT,3611018SAT,Millbrae,0,,01_shp,1,1
+01,SUN,3731218SUN,Millbrae,0,,01_shp,1,1
+01,WKDY,3830648WKDY,San Francisco International Airport,0,,01_shp,1,1
+01,SAT,3631038SAT,Millbrae,0,,01_shp,1,1
+01,SUN,3751238SUN,Millbrae,0,,01_shp,1,1
+01,WKDY,3290659WKDY,San Francisco International Airport,0,,01_shp,1,1
+01,SAT,3651058SAT,Millbrae,0,,01_shp,1,1
+01,SUN,3771258SUN,Millbrae,0,,01_shp,1,1
+01,WKDY,3310657WKDY,Montgomery St.,0,,01_shp,1,1
+01,SAT,3671118SAT,Millbrae,0,,01_shp,1,1
+01,SUN,3791318SUN,Millbrae,0,,01_shp,1,1
+01,WKDY,3850703WKDY,San Francisco International Airport,0,,01_shp,1,1
+01,SAT,3691138SAT,Millbrae,0,,01_shp,1,1
+01,SUN,3611338SUN,Millbrae,0,,01_shp,1,1
+01,WKDY,3330714WKDY,Millbrae,0,,01_shp,1,1
+01,SAT,3711158SAT,Millbrae,0,,01_shp,1,1
+01,SUN,3631358SUN,Millbrae,0,,01_shp,1,1
+01,WKDY,3210727WKDY,Montgomery St.,0,,01_shp,1,1
+01,SAT,3731218SAT,Millbrae,0,,01_shp,1,1
+01,SUN,3651418SUN,Millbrae,0,,01_shp,1,1
+01,WKDY,3610718WKDY,San Francisco International Airport,0,,01_shp,1,1
+01,SAT,3751238SAT,Millbrae,0,,01_shp,1,1
+01,SUN,3671438SUN,Millbrae,0,,01_shp,1,1
+01,WKDY,3350729WKDY,Millbrae,0,,01_shp,1,1
+01,SAT,3771258SAT,Millbrae,0,,01_shp,1,1
+01,SUN,3691458SUN,Millbrae,0,,01_shp,1,1
+01,WKDY,3230742WKDY,Daly City,0,,01_shp,1,1
+01,SAT,3791318SAT,Millbrae,0,,01_shp,1,1
+01,SUN,3711518SUN,Millbrae,0,,01_shp,1,1
+01,WKDY,3630733WKDY,San Francisco International Airport,0,,01_shp,1,1
+01,SAT,3611338SAT,Millbrae,0,,01_shp,1,1
+01,SUN,3731538SUN,Millbrae,0,,01_shp,1,1
+01,WKDY,3250757WKDY,Daly City,0,,01_shp,1,1
+01,SAT,3631358SAT,Millbrae,0,,01_shp,1,1
+01,SUN,3751558SUN,Millbrae,0,,01_shp,1,1
+01,WKDY,3650748WKDY,San Francisco International Airport,0,,01_shp,1,1
+01,SAT,3651418SAT,Millbrae,0,,01_shp,1,1
+01,SUN,3771618SUN,Millbrae,0,,01_shp,1,1
+01,WKDY,3270812WKDY,Daly City,0,,01_shp,1,1
+01,SAT,3671438SAT,Millbrae,0,,01_shp,1,1
+01,SUN,3791638SUN,Millbrae,0,,01_shp,1,1
+01,WKDY,3670803WKDY,San Francisco International Airport,0,,01_shp,1,1
+01,SAT,3691458SAT,Millbrae,0,,01_shp,1,1
+01,SUN,3611658SUN,Millbrae,0,,01_shp,1,1
+01,WKDY,3310827WKDY,Daly City,0,,01_shp,1,1
+01,SAT,3711518SAT,Millbrae,0,,01_shp,1,1
+01,SUN,3631718SUN,Millbrae,0,,01_shp,1,1
+01,WKDY,3690818WKDY,San Francisco International Airport,0,,01_shp,1,1
+01,SAT,3731538SAT,Millbrae,0,,01_shp,1,1
+01,SUN,3651738SUN,Millbrae,0,,01_shp,1,1
+01,WKDY,3210842WKDY,Daly City,0,,01_shp,1,1
+01,SAT,3751558SAT,Millbrae,0,,01_shp,1,1
+01,SUN,3671758SUN,Millbrae,0,,01_shp,1,1
+01,WKDY,3710833WKDY,San Francisco International Airport,0,,01_shp,1,1
+01,SAT,3771618SAT,Millbrae,0,,01_shp,1,1
+01,SUN,3691818SUN,Millbrae,0,,01_shp,1,1
+01,WKDY,3730848WKDY,San Francisco International Airport,0,,01_shp,1,1
+01,SAT,3791638SAT,Millbrae,0,,01_shp,1,1
+01,SUN,3711838SUN,Millbrae,0,,01_shp,1,1
+01,WKDY,3750903WKDY,San Francisco International Airport,0,,01_shp,1,1
+01,SAT,3611658SAT,Millbrae,0,,01_shp,1,1
+01,SUN,3731858SUN,Millbrae,0,,01_shp,1,1
+01,WKDY,3770918WKDY,San Francisco International Airport,0,,01_shp,1,1
+01,SAT,3631718SAT,Millbrae,0,,01_shp,1,1
+01,SUN,3751918SUN,Millbrae,0,,01_shp,1,1
+01,WKDY,3790933WKDY,San Francisco International Airport,0,,01_shp,1,1
+01,SAT,3651738SAT,Millbrae,0,,01_shp,1,1
+01,SUN,3771938SUN,Millbrae,0,,01_shp,1,1
+01,WKDY,3810948WKDY,San Francisco International Airport,0,,01_shp,1,1
+01,SAT,3671758SAT,Millbrae,0,,01_shp,1,1
+01,SUN,3791958SUN,Millbrae,0,,01_shp,1,1
+01,WKDY,3831003WKDY,San Francisco International Airport,0,,01_shp,1,1
+01,SAT,3691818SAT,Millbrae,0,,01_shp,1,1
+01,SUN,3612018SUN,Millbrae,0,,01_shp,1,1
+01,WKDY,3851018WKDY,San Francisco International Airport,0,,01_shp,1,1
+01,SAT,3711838SAT,Millbrae,0,,01_shp,1,1
+01,SUN,3632038SUN,Millbrae,0,,01_shp,1,1
+01,WKDY,3611033WKDY,San Francisco International Airport,0,,01_shp,1,1
+01,SAT,3731858SAT,Millbrae,0,,01_shp,1,1
+01,SUN,3652058SUN,Millbrae,0,,01_shp,1,1
+01,WKDY,3631048WKDY,San Francisco International Airport,0,,01_shp,1,1
+01,SAT,3751918SAT,Millbrae,0,,01_shp,1,1
+01,SUN,3672118SUN,Millbrae,0,,01_shp,1,1
+01,WKDY,3651103WKDY,San Francisco International Airport,0,,01_shp,1,1
+01,SAT,3771938SAT,Millbrae,0,,01_shp,1,1
+01,SUN,3692138SUN,Millbrae,0,,01_shp,1,1
+01,WKDY,3671118WKDY,San Francisco International Airport,0,,01_shp,1,1
+01,SAT,3791958SAT,Millbrae,0,,01_shp,1,1
+01,SUN,3712158SUN,Millbrae,0,,01_shp,1,1
+01,WKDY,3691133WKDY,San Francisco International Airport,0,,01_shp,1,1
+01,SAT,3612018SAT,Millbrae,0,,01_shp,1,1
+01,SUN,3732218SUN,Millbrae,0,,01_shp,1,1
+01,WKDY,3711148WKDY,San Francisco International Airport,0,,01_shp,1,1
+01,SAT,3632038SAT,Millbrae,0,,01_shp,1,1
+01,SUN,3752238SUN,Millbrae,0,,01_shp,1,1
+01,WKDY,3731203WKDY,San Francisco International Airport,0,,01_shp,1,1
+01,SAT,3652058SAT,Millbrae,0,,01_shp,1,1
+01,SUN,3772258SUN,Millbrae,0,,01_shp,1,1
+01,WKDY,3751218WKDY,San Francisco International Airport,0,,01_shp,1,1
+01,SAT,3672118SAT,Millbrae,0,,01_shp,1,1
+01,SUN,3792318SUN,Millbrae,0,,01_shp,1,1
+01,WKDY,3771233WKDY,San Francisco International Airport,0,,01_shp,1,1
+01,SAT,3692138SAT,Millbrae,0,,01_shp,1,1
+01,SUN,3612338SUN,Millbrae,0,,01_shp,1,1
+01,WKDY,3791248WKDY,San Francisco International Airport,0,,01_shp,1,1
+01,SAT,3712158SAT,Millbrae,0,,01_shp,1,1
+01,SUN,3630000SUN,San Francisco International Airport,0,,01_shp,1,1
+01,WKDY,3811303WKDY,San Francisco International Airport,0,,01_shp,1,1
+01,SAT,3732218SAT,Millbrae,0,,01_shp,1,1
+01,WKDY,3831318WKDY,San Francisco International Airport,0,,01_shp,1,1
+01,SAT,3752238SAT,Millbrae,0,,01_shp,1,1
+01,WKDY,3851333WKDY,San Francisco International Airport,0,,01_shp,1,1
+01,SAT,3772258SAT,Millbrae,0,,01_shp,1,1
+01,WKDY,3611348WKDY,San Francisco International Airport,0,,01_shp,1,1
+01,SAT,3792318SAT,Millbrae,0,,01_shp,1,1
+01,WKDY,3631403WKDY,San Francisco International Airport,0,,01_shp,1,1
+01,SAT,3612338SAT,Millbrae,0,,01_shp,1,1
+01,WKDY,3651418WKDY,San Francisco International Airport,0,,01_shp,1,1
+01,SAT,3630000SAT,San Francisco International Airport,0,,01_shp,1,1
+01,WKDY,3671433WKDY,San Francisco International Airport,0,,01_shp,1,1
+01,WKDY,3691448WKDY,San Francisco International Airport,0,,01_shp,1,1
+01,WKDY,3711503WKDY,San Francisco International Airport,0,,01_shp,1,1
+01,WKDY,3731518WKDY,San Francisco International Airport,0,,01_shp,1,1
+01,WKDY,3751533WKDY,San Francisco International Airport,0,,01_shp,1,1
+01,WKDY,3771548WKDY,San Francisco International Airport,0,,01_shp,1,1
+01,WKDY,3791603WKDY,San Francisco International Airport,0,,01_shp,1,1
+01,WKDY,3211628WKDY,24th St. Mission,0,,01_shp,1,1
+01,WKDY,3811618WKDY,San Francisco International Airport,0,,01_shp,1,1
+01,WKDY,3231643WKDY,24th St. Mission,0,,01_shp,1,1
+01,WKDY,3831633WKDY,San Francisco International Airport,0,,01_shp,1,1
+01,WKDY,3251658WKDY,24th St. Mission,0,,01_shp,1,1
+01,WKDY,3851648WKDY,San Francisco International Airport,0,,01_shp,1,1
+01,WKDY,3271713WKDY,24th St. Mission,0,,01_shp,1,1
+01,WKDY,3611703WKDY,San Francisco International Airport,0,,01_shp,1,1
+01,WKDY,3291728WKDY,24th St. Mission,0,,01_shp,1,1
+01,WKDY,3631718WKDY,San Francisco International Airport,0,,01_shp,1,1
+01,WKDY,3651733WKDY,San Francisco International Airport,0,,01_shp,1,1
+01,WKDY,3671748WKDY,San Francisco International Airport,0,,01_shp,1,1
+01,WKDY,3691803WKDY,Millbrae,0,,01_shp,1,1
+01,WKDY,3711818WKDY,San Francisco International Airport,0,,01_shp,1,1
+01,WKDY,3731833WKDY,San Francisco International Airport,0,,01_shp,1,1
+01,WKDY,3751848WKDY,San Francisco International Airport,0,,01_shp,1,1
+01,WKDY,3771903WKDY,San Francisco International Airport,0,,01_shp,1,1
+01,WKDY,3791918WKDY,San Francisco International Airport,0,,01_shp,1,1
+01,WKDY,3811937WKDY,Millbrae,0,,01_shp,1,1
+01,WKDY,3851957WKDY,Millbrae,0,,01_shp,1,1
+01,WKDY,3612017WKDY,Millbrae,0,,01_shp,1,1
+01,WKDY,3632037WKDY,Millbrae,0,,01_shp,1,1
+01,WKDY,3672057WKDY,Millbrae,0,,01_shp,1,1
+01,WKDY,3712117WKDY,Millbrae,0,,01_shp,1,1
+01,WKDY,3732137WKDY,Millbrae,0,,01_shp,1,1
+01,WKDY,3752157WKDY,Millbrae,0,,01_shp,1,1
+01,WKDY,3772217WKDY,Millbrae,0,,01_shp,1,1
+01,WKDY,3792237WKDY,Millbrae,0,,01_shp,1,1
+01,WKDY,3812257WKDY,Millbrae,0,,01_shp,1,1
+01,WKDY,3852317WKDY,Millbrae,0,,01_shp,1,1
+01,WKDY,3612337WKDY,Millbrae,0,,01_shp,1,1
+01,WKDY,3630000WKDY,San Francisco International Airport,0,,01_shp,1,1
+11,WKDY,5150413WKDY,Daly City,0,,11_shp,1,1
+11,SAT,5010606SAT,Daly City,0,,11_shp,1,1
+11,SUN,5130806SUN,Daly City,0,,11_shp,1,1
+11,WKDY,5170428WKDY,Daly City,0,,11_shp,1,1
+11,SAT,5030600SAT,Daly City,0,,11_shp,1,1
+11,SUN,5010800SUN,Daly City,0,,11_shp,1,1
+11,WKDY,5190443WKDY,Daly City,0,,11_shp,1,1
+11,SAT,5050620SAT,Daly City,0,,11_shp,1,1
+11,SUN,5030820SUN,Daly City,0,,11_shp,1,1
+11,WKDY,5010458WKDY,Daly City,0,,11_shp,1,1
+11,SAT,5070640SAT,Daly City,0,,11_shp,1,1
+11,SUN,5050840SUN,Daly City,0,,11_shp,1,1
+11,WKDY,5030513WKDY,Daly City,0,,11_shp,1,1
+11,SAT,5090700SAT,Daly City,0,,11_shp,1,1
+11,SUN,5070900SUN,Daly City,0,,11_shp,1,1
+11,WKDY,5050528WKDY,Daly City,0,,11_shp,1,1
+11,SAT,5110720SAT,Daly City,0,,11_shp,1,1
+11,SUN,5090920SUN,Daly City,0,,11_shp,1,1
+11,WKDY,5070543WKDY,Daly City,0,,11_shp,1,1
+11,SAT,5130740SAT,Daly City,0,,11_shp,1,1
+11,SUN,5110940SUN,Daly City,0,,11_shp,1,1
+11,WKDY,5090558WKDY,Daly City,0,,11_shp,1,1
+11,SAT,5010800SAT,Daly City,0,,11_shp,1,1
+11,SUN,5131000SUN,Daly City,0,,11_shp,1,1
+11,WKDY,5110613WKDY,Daly City,0,,11_shp,1,1
+11,SAT,5030820SAT,Daly City,0,,11_shp,1,1
+11,SUN,5011020SUN,Daly City,0,,11_shp,1,1
+11,WKDY,5130628WKDY,Daly City,0,,11_shp,1,1
+11,SAT,5050840SAT,Daly City,0,,11_shp,1,1
+11,SUN,5031040SUN,Daly City,0,,11_shp,1,1
+11,WKDY,5150643WKDY,Daly City,0,,11_shp,1,1
+11,SAT,5070900SAT,Daly City,0,,11_shp,1,1
+11,SUN,5051100SUN,Daly City,0,,11_shp,1,1
+11,WKDY,5170658WKDY,Daly City,0,,11_shp,1,1
+11,SAT,5090920SAT,Daly City,0,,11_shp,1,1
+11,SUN,5071120SUN,Daly City,0,,11_shp,1,1
+11,WKDY,5190713WKDY,Daly City,0,,11_shp,1,1
+11,SAT,5110940SAT,Daly City,0,,11_shp,1,1
+11,SUN,5091140SUN,Daly City,0,,11_shp,1,1
+11,WKDY,5010728WKDY,Daly City,0,,11_shp,1,1
+11,SAT,5131000SAT,Daly City,0,,11_shp,1,1
+11,SUN,5111200SUN,Daly City,0,,11_shp,1,1
+11,WKDY,5030743WKDY,Daly City,0,,11_shp,1,1
+11,SAT,5011020SAT,Daly City,0,,11_shp,1,1
+11,SUN,5131220SUN,Daly City,0,,11_shp,1,1
+11,WKDY,5050758WKDY,Daly City,0,,11_shp,1,1
+11,SAT,5031040SAT,Daly City,0,,11_shp,1,1
+11,SUN,5011240SUN,Daly City,0,,11_shp,1,1
+11,WKDY,5070813WKDY,Daly City,0,,11_shp,1,1
+11,SAT,5051100SAT,Daly City,0,,11_shp,1,1
+11,SUN,5031300SUN,Daly City,0,,11_shp,1,1
+11,WKDY,5090828WKDY,Daly City,0,,11_shp,1,1
+11,SAT,5071120SAT,Daly City,0,,11_shp,1,1
+11,SUN,5051320SUN,Daly City,0,,11_shp,1,1
+11,WKDY,5110843WKDY,Daly City,0,,11_shp,1,1
+11,SAT,5091140SAT,Daly City,0,,11_shp,1,1
+11,SUN,5071340SUN,Daly City,0,,11_shp,1,1
+11,WKDY,5130858WKDY,Daly City,0,,11_shp,1,1
+11,SAT,5111200SAT,Daly City,0,,11_shp,1,1
+11,SUN,5091400SUN,Daly City,0,,11_shp,1,1
+11,WKDY,5150913WKDY,Daly City,0,,11_shp,1,1
+11,SAT,5131220SAT,Daly City,0,,11_shp,1,1
+11,SUN,5111420SUN,Daly City,0,,11_shp,1,1
+11,WKDY,5170928WKDY,Daly City,0,,11_shp,1,1
+11,SAT,5011240SAT,Daly City,0,,11_shp,1,1
+11,SUN,5131440SUN,Daly City,0,,11_shp,1,1
+11,WKDY,5190943WKDY,Daly City,0,,11_shp,1,1
+11,SAT,5031300SAT,Daly City,0,,11_shp,1,1
+11,SUN,5011500SUN,Daly City,0,,11_shp,1,1
+11,WKDY,5010958WKDY,Daly City,0,,11_shp,1,1
+11,SAT,5051320SAT,Daly City,0,,11_shp,1,1
+11,SUN,5031520SUN,Daly City,0,,11_shp,1,1
+11,WKDY,5031013WKDY,Daly City,0,,11_shp,1,1
+11,SAT,5071340SAT,Daly City,0,,11_shp,1,1
+11,SUN,5051540SUN,Daly City,0,,11_shp,1,1
+11,WKDY,5051028WKDY,Daly City,0,,11_shp,1,1
+11,SAT,5091400SAT,Daly City,0,,11_shp,1,1
+11,SUN,5071600SUN,Daly City,0,,11_shp,1,1
+11,WKDY,5071043WKDY,Daly City,0,,11_shp,1,1
+11,SAT,5111420SAT,Daly City,0,,11_shp,1,1
+11,SUN,5091620SUN,Daly City,0,,11_shp,1,1
+11,WKDY,5091058WKDY,Daly City,0,,11_shp,1,1
+11,SAT,5131440SAT,Daly City,0,,11_shp,1,1
+11,SUN,5111640SUN,Daly City,0,,11_shp,1,1
+11,WKDY,5111113WKDY,Daly City,0,,11_shp,1,1
+11,SAT,5011500SAT,Daly City,0,,11_shp,1,1
+11,SUN,5131700SUN,Daly City,0,,11_shp,1,1
+11,WKDY,5131128WKDY,Daly City,0,,11_shp,1,1
+11,SAT,5031520SAT,Daly City,0,,11_shp,1,1
+11,SUN,5011720SUN,Daly City,0,,11_shp,1,1
+11,WKDY,5151143WKDY,Daly City,0,,11_shp,1,1
+11,SAT,5051540SAT,Daly City,0,,11_shp,1,1
+11,SUN,5031740SUN,Daly City,0,,11_shp,1,1
+11,WKDY,5171158WKDY,Daly City,0,,11_shp,1,1
+11,SAT,5071600SAT,Daly City,0,,11_shp,1,1
+11,SUN,5051800SUN,Daly City,0,,11_shp,1,1
+11,WKDY,5191213WKDY,Daly City,0,,11_shp,1,1
+11,SAT,5091620SAT,Daly City,0,,11_shp,1,1
+11,SUN,5071820SUN,Daly City,0,,11_shp,1,1
+11,WKDY,5011228WKDY,Daly City,0,,11_shp,1,1
+11,SAT,5111640SAT,Daly City,0,,11_shp,1,1
+11,SUN,5091840SUN,Daly City,0,,11_shp,1,1
+11,WKDY,5031243WKDY,Daly City,0,,11_shp,1,1
+11,SAT,5131700SAT,Daly City,0,,11_shp,1,1
+11,SUN,5111900SUN,Daly City,0,,11_shp,1,1
+11,WKDY,5051258WKDY,Daly City,0,,11_shp,1,1
+11,SAT,5011720SAT,Daly City,0,,11_shp,1,1
+11,SUN,5131920SUN,Daly City,0,,11_shp,1,1
+11,WKDY,5071313WKDY,Daly City,0,,11_shp,1,1
+11,SAT,5031740SAT,Daly City,0,,11_shp,1,1
+11,SUN,5011940SUN,Daly City,0,,11_shp,1,1
+11,WKDY,5091328WKDY,Daly City,0,,11_shp,1,1
+11,SAT,5051800SAT,Daly City,0,,11_shp,1,1
+11,SUN,5032000SUN,Daly City,0,,11_shp,1,1
+11,WKDY,5111343WKDY,Daly City,0,,11_shp,1,1
+11,SAT,5071820SAT,Daly City,0,,11_shp,1,1
+11,SUN,5052020SUN,Daly City,0,,11_shp,1,1
+11,WKDY,5131358WKDY,Daly City,0,,11_shp,1,1
+11,SAT,5091840SAT,Daly City,0,,11_shp,1,1
+11,SUN,5072040SUN,Daly City,0,,11_shp,1,1
+11,WKDY,5151413WKDY,Daly City,0,,11_shp,1,1
+11,SAT,5111900SAT,Daly City,0,,11_shp,1,1
+11,SUN,5092100SUN,Daly City,0,,11_shp,1,1
+11,WKDY,5171428WKDY,Daly City,0,,11_shp,1,1
+11,SAT,5131920SAT,Daly City,0,,11_shp,1,1
+11,SUN,5112120SUN,Daly City,0,,11_shp,1,1
+11,WKDY,5191443WKDY,Daly City,0,,11_shp,1,1
+11,SAT,5011940SAT,Daly City,0,,11_shp,1,1
+11,SUN,5132140SUN,Daly City,0,,11_shp,1,1
+11,WKDY,5011458WKDY,Daly City,0,,11_shp,1,1
+11,SAT,5032000SAT,Daly City,0,,11_shp,1,1
+11,SUN,5012200SUN,Daly City,0,,11_shp,1,1
+11,WKDY,5031513WKDY,Daly City,0,,11_shp,1,1
+11,SAT,5052020SAT,Daly City,0,,11_shp,1,1
+11,SUN,5032220SUN,Daly City,0,,11_shp,1,1
+11,WKDY,5051528WKDY,Daly City,0,,11_shp,1,1
+11,SAT,5072040SAT,Daly City,0,,11_shp,1,1
+11,SUN,5052240SUN,Daly City,0,,11_shp,1,1
+11,WKDY,5071543WKDY,Daly City,0,,11_shp,1,1
+11,SAT,5092100SAT,Daly City,0,,11_shp,1,1
+11,SUN,5072300SUN,Daly City,0,,11_shp,1,1
+11,WKDY,5091558WKDY,Daly City,0,,11_shp,1,1
+11,SAT,5112120SAT,Daly City,0,,11_shp,1,1
+11,SUN,5092320SUN,Daly City,0,,11_shp,1,1
+11,WKDY,5111613WKDY,Daly City,0,,11_shp,1,1
+11,SAT,5132140SAT,Daly City,0,,11_shp,1,1
+11,SUN,5112357SUN,Daly City,0,,11_shp,1,1
+11,WKDY,5131628WKDY,Daly City,0,,11_shp,1,1
+11,SAT,5012200SAT,Daly City,0,,11_shp,1,1
+11,SUN,9010044SUN,Bay Fair,0,,11_shp,1,1
+11,WKDY,5151643WKDY,Daly City,0,,11_shp,1,1
+11,SAT,5032220SAT,Daly City,0,,11_shp,1,1
+11,WKDY,5171658WKDY,Daly City,0,,11_shp,1,1
+11,SAT,5052240SAT,Daly City,0,,11_shp,1,1
+11,WKDY,5191713WKDY,Daly City,0,,11_shp,1,1
+11,SAT,5072300SAT,Daly City,0,,11_shp,1,1
+11,WKDY,5011728WKDY,Daly City,0,,11_shp,1,1
+11,SAT,5092327SAT,Daly City,0,,11_shp,1,1
+11,WKDY,5031743WKDY,Daly City,0,,11_shp,1,1
+11,SAT,5112357SAT,Daly City,0,,11_shp,1,1
+11,WKDY,5051758WKDY,Daly City,0,,11_shp,1,1
+11,SAT,9010044SAT,Bay Fair,0,,11_shp,1,1
+11,WKDY,5071813WKDY,Daly City,0,,11_shp,1,1
+11,WKDY,5091828WKDY,Daly City,0,,11_shp,1,1
+11,WKDY,5111843WKDY,Daly City,0,,11_shp,1,1
+11,WKDY,5131858WKDY,Daly City,0,,11_shp,1,1
+11,WKDY,5151914WKDY,Daly City,0,,11_shp,1,1
+11,WKDY,5171937WKDY,Daly City,0,,11_shp,1,1
+11,WKDY,5011959WKDY,Daly City,0,,11_shp,1,1
+11,WKDY,5032019WKDY,Daly City,0,,11_shp,1,1
+11,WKDY,5052039WKDY,Daly City,0,,11_shp,1,1
+11,WKDY,5072059WKDY,Daly City,0,,11_shp,1,1
+11,WKDY,5092119WKDY,Daly City,0,,11_shp,1,1
+11,WKDY,5132139WKDY,Daly City,0,,11_shp,1,1
+11,WKDY,5152159WKDY,Daly City,0,,11_shp,1,1
+11,WKDY,5172219WKDY,Daly City,0,,11_shp,1,1
+11,WKDY,5012239WKDY,Daly City,0,,11_shp,1,1
+11,WKDY,5032259WKDY,Daly City,0,,11_shp,1,1
+11,WKDY,5052319WKDY,Daly City,0,,11_shp,1,1
+11,WKDY,5072339WKDY,Daly City,0,,11_shp,1,1
+11,WKDY,5092355WKDY,Daly City,0,,11_shp,1,1
+11,WKDY,9010044WKDY,Bay Fair,0,,11_shp,1,1
+11,WKDY,5050407WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,SAT,5090557SAT,Dublin/Pleasanton,1,,12_shp,1,1
+11,SUN,5070748SUN,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5070422WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,SAT,5110608SAT,Dublin/Pleasanton,1,,12_shp,1,1
+11,SUN,5090808SUN,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5090437WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,SAT,5130628SAT,Dublin/Pleasanton,1,,12_shp,1,1
+11,SUN,5110828SUN,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5110452WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,SAT,5010648SAT,Dublin/Pleasanton,1,,12_shp,1,1
+11,SUN,5130848SUN,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5130507WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,SAT,5030708SAT,Dublin/Pleasanton,1,,12_shp,1,1
+11,SUN,5010908SUN,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5150522WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,SAT,5050728SAT,Dublin/Pleasanton,1,,12_shp,1,1
+11,SUN,5030928SUN,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5170537WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,SAT,5070748SAT,Dublin/Pleasanton,1,,12_shp,1,1
+11,SUN,5050948SUN,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5190552WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,SAT,5090808SAT,Dublin/Pleasanton,1,,12_shp,1,1
+11,SUN,5071008SUN,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5010607WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,SAT,5110828SAT,Dublin/Pleasanton,1,,12_shp,1,1
+11,SUN,5091028SUN,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5030622WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,SAT,5130848SAT,Dublin/Pleasanton,1,,12_shp,1,1
+11,SUN,5111048SUN,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5050637WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,SAT,5010908SAT,Dublin/Pleasanton,1,,12_shp,1,1
+11,SUN,5131108SUN,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5070652WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,SAT,5030928SAT,Dublin/Pleasanton,1,,12_shp,1,1
+11,SUN,5011128SUN,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5090707WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,SAT,5050948SAT,Dublin/Pleasanton,1,,12_shp,1,1
+11,SUN,5031148SUN,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5110722WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,SAT,5071008SAT,Dublin/Pleasanton,1,,12_shp,1,1
+11,SUN,5051208SUN,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5130737WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,SAT,5091028SAT,Dublin/Pleasanton,1,,12_shp,1,1
+11,SUN,5071228SUN,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5150752WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,SAT,5111048SAT,Dublin/Pleasanton,1,,12_shp,1,1
+11,SUN,5091248SUN,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5170807WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,SAT,5131108SAT,Dublin/Pleasanton,1,,12_shp,1,1
+11,SUN,5111308SUN,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5190822WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,SAT,5011128SAT,Dublin/Pleasanton,1,,12_shp,1,1
+11,SUN,5131328SUN,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5010837WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,SAT,5031148SAT,Dublin/Pleasanton,1,,12_shp,1,1
+11,SUN,5011348SUN,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5030852WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,SAT,5051208SAT,Dublin/Pleasanton,1,,12_shp,1,1
+11,SUN,5031408SUN,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5050907WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,SAT,5071228SAT,Dublin/Pleasanton,1,,12_shp,1,1
+11,SUN,5051428SUN,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5070922WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,SAT,5091248SAT,Dublin/Pleasanton,1,,12_shp,1,1
+11,SUN,5071448SUN,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5090937WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,SAT,5111308SAT,Dublin/Pleasanton,1,,12_shp,1,1
+11,SUN,5091508SUN,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5110952WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,SAT,5131328SAT,Dublin/Pleasanton,1,,12_shp,1,1
+11,SUN,5111528SUN,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5131007WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,SAT,5011348SAT,Dublin/Pleasanton,1,,12_shp,1,1
+11,SUN,5131548SUN,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5151022WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,SAT,5031408SAT,Dublin/Pleasanton,1,,12_shp,1,1
+11,SUN,5011608SUN,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5171037WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,SAT,5051428SAT,Dublin/Pleasanton,1,,12_shp,1,1
+11,SUN,5031628SUN,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5191052WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,SAT,5071448SAT,Dublin/Pleasanton,1,,12_shp,1,1
+11,SUN,5051648SUN,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5011107WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,SAT,5091508SAT,Dublin/Pleasanton,1,,12_shp,1,1
+11,SUN,5071708SUN,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5031122WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,SAT,5111528SAT,Dublin/Pleasanton,1,,12_shp,1,1
+11,SUN,5091728SUN,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5051137WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,SAT,5131548SAT,Dublin/Pleasanton,1,,12_shp,1,1
+11,SUN,5111748SUN,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5071152WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,SAT,5011608SAT,Dublin/Pleasanton,1,,12_shp,1,1
+11,SUN,5131808SUN,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5091207WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,SAT,5031628SAT,Dublin/Pleasanton,1,,12_shp,1,1
+11,SUN,5011828SUN,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5111222WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,SAT,5051648SAT,Dublin/Pleasanton,1,,12_shp,1,1
+11,SUN,5031848SUN,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5131237WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,SAT,5071708SAT,Dublin/Pleasanton,1,,12_shp,1,1
+11,SUN,5051908SUN,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5151252WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,SAT,5091728SAT,Dublin/Pleasanton,1,,12_shp,1,1
+11,SUN,5071928SUN,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5171307WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,SAT,5111748SAT,Dublin/Pleasanton,1,,12_shp,1,1
+11,SUN,5091948SUN,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5191322WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,SAT,5131808SAT,Dublin/Pleasanton,1,,12_shp,1,1
+11,SUN,5112008SUN,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5011337WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,SAT,5011828SAT,Dublin/Pleasanton,1,,12_shp,1,1
+11,SUN,5132028SUN,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5031352WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,SAT,5031848SAT,Dublin/Pleasanton,1,,12_shp,1,1
+11,SUN,5012048SUN,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5051407WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,SAT,5051908SAT,Dublin/Pleasanton,1,,12_shp,1,1
+11,SUN,5032108SUN,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5071422WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,SAT,5071928SAT,Dublin/Pleasanton,1,,12_shp,1,1
+11,SUN,5052128SUN,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5091437WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,SAT,5091948SAT,Dublin/Pleasanton,1,,12_shp,1,1
+11,SUN,5072148SUN,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5111452WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,SAT,5112008SAT,Dublin/Pleasanton,1,,12_shp,1,1
+11,SUN,5092208SUN,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5131507WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,SAT,5132028SAT,Dublin/Pleasanton,1,,12_shp,1,1
+11,SUN,5112228SUN,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5151522WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,SAT,5012048SAT,Dublin/Pleasanton,1,,12_shp,1,1
+11,SUN,5132248SUN,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5171537WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,SAT,5032108SAT,Dublin/Pleasanton,1,,12_shp,1,1
+11,SUN,5012308SUN,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5191552WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,SAT,5052128SAT,Dublin/Pleasanton,1,,12_shp,1,1
+11,SUN,5032328SUN,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5011607WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,SAT,5072148SAT,Dublin/Pleasanton,1,,12_shp,1,1
+11,SUN,5052359SUN,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5031622WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,SAT,5092208SAT,Dublin/Pleasanton,1,,12_shp,1,1
+11,SUN,9010112SUN,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5051637WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,SAT,5112228SAT,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5071652WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,SAT,5132248SAT,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5091707WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,SAT,5012308SAT,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5111722WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,SAT,5032328SAT,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5131737WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,SAT,5052358SAT,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5151752WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,SAT,9010112SAT,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5171807WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5191822WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5011837WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5031852WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5051908WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5071928WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5091948WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5132008WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5152028WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5172048WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5012108WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5032128WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5052148WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5072208WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5092228WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5132248WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5152308WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5172328WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,5012359WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+11,WKDY,9010112WKDY,Dublin/Pleasanton,1,,12_shp,1,1
+19,WKDY,8010448WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8010600SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8050800SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8030454WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8030606SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8010806SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8050500WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8050612SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8030812SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8010506WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8010618SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8050818SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8030512WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8030624SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8010824SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8050518WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8050630SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8030830SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8010524WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8010636SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8050836SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8030530WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8030642SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8010842SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8050536WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8050648SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8030848SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8010542WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8010654SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8050854SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8030548WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8030700SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8010900SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8050554WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8050706SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8030906SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8010600WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8010712SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8050912SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8030606WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8030718SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8010918SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8050612WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8050724SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8030924SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8010618WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8010730SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8050930SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8030624WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8030736SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8010936SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8050630WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8050742SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8030942SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8010636WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8010748SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8050948SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8030642WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8030754SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8010954SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8050648WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8050800SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8031000SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8010654WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8010806SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8051006SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8030700WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8030812SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8011012SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8050706WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8050818SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8031018SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8010712WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8010824SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8051024SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8030718WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8030830SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8011030SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8050724WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8050836SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8031036SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8010730WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8010842SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8051042SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8030736WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8030848SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8011048SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8050742WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8050854SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8031054SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8010748WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8010900SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8051100SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8030754WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8030906SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8011106SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8050800WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8050912SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8031112SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8010806WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8010918SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8051118SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8030812WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8030924SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8011124SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8050818WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8050930SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8031130SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8010824WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8010936SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8051136SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8030830WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8030942SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8011142SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8050836WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8050948SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8031148SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8010842WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8010954SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8051154SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8030848WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8031000SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8011200SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8050854WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8051006SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8031206SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8010900WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8011012SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8051212SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8030906WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8031018SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8011218SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8050912WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8051024SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8031224SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8010918WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8011030SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8051230SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8030924WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8031036SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8011236SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8050930WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8051042SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8031242SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8010936WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8011048SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8051248SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8030942WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8031054SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8011254SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8050948WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8051100SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8031300SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8010954WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8011106SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8051306SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8031000WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8031112SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8011312SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8051006WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8051118SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8031318SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8011012WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8011124SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8051324SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8031018WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8031130SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8011330SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8051024WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8051136SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8031336SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8011030WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8011142SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8051342SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8031036WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8031148SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8011348SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8051042WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8051154SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8031354SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8011048WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8011200SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8051400SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8031054WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8031206SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8011406SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8051100WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8051212SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8031412SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8011106WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8011218SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8051418SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8031112WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8031224SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8011424SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8051118WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8051230SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8031430SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8011124WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8011236SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8051436SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8031130WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8031242SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8011442SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8051136WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8051248SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8031448SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8011142WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8011254SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8051454SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8031148WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8031300SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8011500SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8051154WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8051306SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8031506SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8011200WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8011312SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8051512SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8031206WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8031318SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8011518SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8051212WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8051324SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8031524SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8011218WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8011330SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8051530SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8031224WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8031336SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8011536SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8051230WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8051342SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8031542SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8011236WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8011348SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8051548SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8031242WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8031354SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8011554SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8051248WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8051400SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8031600SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8011254WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8011406SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8051606SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8031300WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8031412SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8011612SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8051306WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8051418SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8031618SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8011312WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8011424SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8051624SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8031318WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8031430SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8011630SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8051324WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8051436SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8031636SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8011330WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8011442SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8051642SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8031336WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8031448SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8011648SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8051342WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8051454SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8031654SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8011348WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8011500SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8051700SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8031354WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8031506SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8011706SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8051400WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8051512SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8031712SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8011406WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8011518SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8051718SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8031412WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8031524SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8011724SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8051418WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8051530SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8031730SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8011424WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8011536SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8051736SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8031430WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8031542SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8011742SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8051436WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8051548SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8031748SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8011442WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8011554SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8051754SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8031448WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8031600SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8011800SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8051454WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8051606SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8031806SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8011500WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8011612SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8051812SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8031506WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8031618SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8011818SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8051512WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8051624SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8031824SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8011518WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8011630SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8051830SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8031524WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8031636SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8011836SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8051530WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8051642SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8031842SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8011536WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8011648SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8051848SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8031542WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8031654SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8011854SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8051548WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8051700SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8031900SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8011554WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8011706SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8051906SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8031600WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8031712SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8011912SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8051606WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8051718SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8031918SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8011612WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8011724SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8051924SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8031618WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8031730SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8011930SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8051624WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8051736SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8031936SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8011630WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8011742SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8051942SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8031636WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8031748SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8011948SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8051642WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8051754SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8031954SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8011648WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8011800SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8052000SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8031654WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8031806SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8012006SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8051700WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8051812SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8032012SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8011706WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8011818SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8052018SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8031712WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8031824SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8012024SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8051718WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8051830SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8032030SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8011724WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8011836SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8052036SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8031730WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8031842SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8012042SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8051736WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8051848SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8032048SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8011742WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8011854SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8052054SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8031748WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8031900SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8012100SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8051754WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8051906SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8032106SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8011800WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8011912SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8052112SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8031806WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8031918SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8012118SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8051812WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8051924SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8032124SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8011818WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8011930SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8052130SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8031824WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8031936SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8012136SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8051830WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8051942SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8032142SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8011836WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8011948SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8052148SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8031842WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8031954SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8012154SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8051848WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8052000SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8032200SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8011854WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8012006SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8052206SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8031900WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8032012SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8012212SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8051906WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8052018SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8032218SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8011912WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8012024SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8052224SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8031918WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8032030SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8012230SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8051924WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8052036SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8032236SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8011930WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8012042SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8052242SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8031936WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8032048SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8012248SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8051942WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8052054SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8032254SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8011948WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8012100SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8052302SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8031954WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8032106SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8052322SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8052000WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8052112SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8052342SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8012006WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8012118SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8050003SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8032012WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8032124SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8050023SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8052018WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8052130SAT,Coliseum,0,,19_shp,1,1
+19,SUN,8050043SUN,Coliseum,0,,19_shp,1,1
+19,WKDY,8012024WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8012136SAT,Coliseum,0,,19_shp,1,1
+19,WKDY,8032030WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8032142SAT,Coliseum,0,,19_shp,1,1
+19,WKDY,8052036WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8052148SAT,Coliseum,0,,19_shp,1,1
+19,WKDY,8012042WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8012154SAT,Coliseum,0,,19_shp,1,1
+19,WKDY,8032048WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8032200SAT,Coliseum,0,,19_shp,1,1
+19,WKDY,8052054WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8052206SAT,Coliseum,0,,19_shp,1,1
+19,WKDY,8012100WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8012212SAT,Coliseum,0,,19_shp,1,1
+19,WKDY,8032106WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8032218SAT,Coliseum,0,,19_shp,1,1
+19,WKDY,8052112WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8052224SAT,Coliseum,0,,19_shp,1,1
+19,WKDY,8012118WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8012230SAT,Coliseum,0,,19_shp,1,1
+19,WKDY,8032124WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8032236SAT,Coliseum,0,,19_shp,1,1
+19,WKDY,8052130WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8052242SAT,Coliseum,0,,19_shp,1,1
+19,WKDY,8012136WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8012248SAT,Coliseum,0,,19_shp,1,1
+19,WKDY,8032142WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8032254SAT,Coliseum,0,,19_shp,1,1
+19,WKDY,8052148WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8052302SAT,Coliseum,0,,19_shp,1,1
+19,WKDY,8012154WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8052322SAT,Coliseum,0,,19_shp,1,1
+19,WKDY,8032200WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8052342SAT,Coliseum,0,,19_shp,1,1
+19,WKDY,8052206WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8050003SAT,Coliseum,0,,19_shp,1,1
+19,WKDY,8012212WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8050023SAT,Coliseum,0,,19_shp,1,1
+19,WKDY,8032218WKDY,Coliseum,0,,19_shp,1,1
+19,SAT,8050043SAT,Coliseum,0,,19_shp,1,1
+19,WKDY,8052224WKDY,Coliseum,0,,19_shp,1,1
+19,WKDY,8012230WKDY,Coliseum,0,,19_shp,1,1
+19,WKDY,8032236WKDY,Coliseum,0,,19_shp,1,1
+19,WKDY,8052242WKDY,Coliseum,0,,19_shp,1,1
+19,WKDY,8012248WKDY,Coliseum,0,,19_shp,1,1
+19,WKDY,8032254WKDY,Coliseum,0,,19_shp,1,1
+19,WKDY,8052302WKDY,Coliseum,0,,19_shp,1,1
+19,WKDY,8052322WKDY,Coliseum,0,,19_shp,1,1
+19,WKDY,8052342WKDY,Coliseum,0,,19_shp,1,1
+19,WKDY,8050003WKDY,Coliseum,0,,19_shp,1,1
+19,WKDY,8050023WKDY,Coliseum,0,,19_shp,1,1
+19,WKDY,8050043WKDY,Coliseum,0,,19_shp,1,1
+01,WKDY,3730410WKDY,Antioch,1,,02_shp,1,1
+01,SAT,3610556SAT,Antioch,1,,02_shp,1,1
+01,SUN,3730756SUN,Antioch,1,,02_shp,1,1
+01,WKDY,3750351WKDY,Antioch,1,,02_shp,1,1
+01,SAT,3630601SAT,Antioch,1,,02_shp,1,1
+01,SUN,3750757SUN,Antioch,1,,02_shp,1,1
+01,WKDY,3770418WKDY,Antioch,1,,02_shp,1,1
+01,SAT,3650601SAT,Antioch,1,,02_shp,1,1
+01,SUN,3770801SUN,Antioch,1,,02_shp,1,1
+01,WKDY,3790433WKDY,Antioch,1,,02_shp,1,1
+01,SAT,3670621SAT,Antioch,1,,02_shp,1,1
+01,SUN,3790821SUN,Antioch,1,,02_shp,1,1
+01,WKDY,3810448WKDY,Antioch,1,,02_shp,1,1
+01,SAT,3690641SAT,Antioch,1,,02_shp,1,1
+01,SUN,3610841SUN,Antioch,1,,02_shp,1,1
+01,WKDY,3830503WKDY,Antioch,1,,02_shp,1,1
+01,SAT,3710701SAT,Antioch,1,,02_shp,1,1
+01,SUN,3630901SUN,Antioch,1,,02_shp,1,1
+01,WKDY,3850526WKDY,Antioch,1,,02_shp,1,1
+01,SAT,3730721SAT,Antioch,1,,02_shp,1,1
+01,SUN,3650921SUN,Antioch,1,,02_shp,1,1
+01,WKDY,3610541WKDY,Antioch,1,,02_shp,1,1
+01,SAT,3750741SAT,Antioch,1,,02_shp,1,1
+01,SUN,3670941SUN,Antioch,1,,02_shp,1,1
+01,WKDY,3630556WKDY,Antioch,1,,02_shp,1,1
+01,SAT,3770801SAT,Antioch,1,,02_shp,1,1
+01,SUN,3691001SUN,Antioch,1,,02_shp,1,1
+01,WKDY,3650611WKDY,Antioch,1,,02_shp,1,1
+01,SAT,3790821SAT,Antioch,1,,02_shp,1,1
+01,SUN,3711021SUN,Antioch,1,,02_shp,1,1
+01,WKDY,3210652WKDY,Pleasant Hill/Contra Costa Centre,1,,02_shp,1,1
+01,SAT,3610841SAT,Antioch,1,,02_shp,1,1
+01,SUN,3731041SUN,Antioch,1,,02_shp,1,1
+01,WKDY,3670626WKDY,Antioch,1,,02_shp,1,1
+01,SAT,3630901SAT,Antioch,1,,02_shp,1,1
+01,SUN,3751101SUN,Antioch,1,,02_shp,1,1
+01,WKDY,3230707WKDY,Pleasant Hill/Contra Costa Centre,1,,02_shp,1,1
+01,SAT,3650921SAT,Antioch,1,,02_shp,1,1
+01,SUN,3771121SUN,Antioch,1,,02_shp,1,1
+01,WKDY,3690641WKDY,Antioch,1,,02_shp,1,1
+01,SAT,3670941SAT,Antioch,1,,02_shp,1,1
+01,SUN,3791141SUN,Antioch,1,,02_shp,1,1
+01,WKDY,3250722WKDY,Pleasant Hill/Contra Costa Centre,1,,02_shp,1,1
+01,SAT,3691001SAT,Antioch,1,,02_shp,1,1
+01,SUN,3611201SUN,Antioch,1,,02_shp,1,1
+01,WKDY,3710656WKDY,Antioch,1,,02_shp,1,1
+01,SAT,3711021SAT,Antioch,1,,02_shp,1,1
+01,SUN,3631221SUN,Antioch,1,,02_shp,1,1
+01,WKDY,3270737WKDY,Pleasant Hill/Contra Costa Centre,1,,02_shp,1,1
+01,SAT,3731041SAT,Antioch,1,,02_shp,1,1
+01,SUN,3651241SUN,Antioch,1,,02_shp,1,1
+01,WKDY,3730711WKDY,Antioch,1,,02_shp,1,1
+01,SAT,3751101SAT,Antioch,1,,02_shp,1,1
+01,SUN,3671301SUN,Antioch,1,,02_shp,1,1
+01,WKDY,3310752WKDY,Pleasant Hill/Contra Costa Centre,1,,02_shp,1,1
+01,SAT,3771121SAT,Antioch,1,,02_shp,1,1
+01,SUN,3691321SUN,Antioch,1,,02_shp,1,1
+01,WKDY,3750726WKDY,Antioch,1,,02_shp,1,1
+01,SAT,3791141SAT,Antioch,1,,02_shp,1,1
+01,SUN,3711341SUN,Antioch,1,,02_shp,1,1
+01,WKDY,3210807WKDY,Pleasant Hill/Contra Costa Centre,1,,02_shp,1,1
+01,SAT,3611201SAT,Antioch,1,,02_shp,1,1
+01,SUN,3731401SUN,Antioch,1,,02_shp,1,1
+01,WKDY,3770741WKDY,Antioch,1,,02_shp,1,1
+01,SAT,3631221SAT,Antioch,1,,02_shp,1,1
+01,SUN,3751421SUN,Antioch,1,,02_shp,1,1
+01,WKDY,3790756WKDY,Antioch,1,,02_shp,1,1
+01,SAT,3651241SAT,Antioch,1,,02_shp,1,1
+01,SUN,3771441SUN,Antioch,1,,02_shp,1,1
+01,WKDY,3810811WKDY,Antioch,1,,02_shp,1,1
+01,SAT,3671301SAT,Antioch,1,,02_shp,1,1
+01,SUN,3791501SUN,Antioch,1,,02_shp,1,1
+01,WKDY,3830826WKDY,Antioch,1,,02_shp,1,1
+01,SAT,3691321SAT,Antioch,1,,02_shp,1,1
+01,SUN,3611521SUN,Antioch,1,,02_shp,1,1
+01,WKDY,3850841WKDY,Antioch,1,,02_shp,1,1
+01,SAT,3711341SAT,Antioch,1,,02_shp,1,1
+01,SUN,3631541SUN,Antioch,1,,02_shp,1,1
+01,WKDY,3610856WKDY,Antioch,1,,02_shp,1,1
+01,SAT,3731401SAT,Antioch,1,,02_shp,1,1
+01,SUN,3651601SUN,Antioch,1,,02_shp,1,1
+01,WKDY,3630911WKDY,Antioch,1,,02_shp,1,1
+01,SAT,3751421SAT,Antioch,1,,02_shp,1,1
+01,SUN,3671621SUN,Antioch,1,,02_shp,1,1
+01,WKDY,3650926WKDY,Antioch,1,,02_shp,1,1
+01,SAT,3771441SAT,Antioch,1,,02_shp,1,1
+01,SUN,3691641SUN,Antioch,1,,02_shp,1,1
+01,WKDY,3670941WKDY,Antioch,1,,02_shp,1,1
+01,SAT,3791501SAT,Antioch,1,,02_shp,1,1
+01,SUN,3711701SUN,Antioch,1,,02_shp,1,1
+01,WKDY,3690956WKDY,Antioch,1,,02_shp,1,1
+01,SAT,3611521SAT,Antioch,1,,02_shp,1,1
+01,SUN,3731721SUN,Antioch,1,,02_shp,1,1
+01,WKDY,3711011WKDY,Antioch,1,,02_shp,1,1
+01,SAT,3631541SAT,Antioch,1,,02_shp,1,1
+01,SUN,3751741SUN,Antioch,1,,02_shp,1,1
+01,WKDY,3731026WKDY,Antioch,1,,02_shp,1,1
+01,SAT,3651601SAT,Antioch,1,,02_shp,1,1
+01,SUN,3771801SUN,Antioch,1,,02_shp,1,1
+01,WKDY,3751041WKDY,Antioch,1,,02_shp,1,1
+01,SAT,3671621SAT,Antioch,1,,02_shp,1,1
+01,SUN,3791821SUN,Antioch,1,,02_shp,1,1
+01,WKDY,3771056WKDY,Antioch,1,,02_shp,1,1
+01,SAT,3691641SAT,Antioch,1,,02_shp,1,1
+01,SUN,3611841SUN,Antioch,1,,02_shp,1,1
+01,WKDY,3791111WKDY,Antioch,1,,02_shp,1,1
+01,SAT,3711701SAT,Antioch,1,,02_shp,1,1
+01,SUN,3631901SUN,Antioch,1,,02_shp,1,1
+01,WKDY,3811126WKDY,Antioch,1,,02_shp,1,1
+01,SAT,3731721SAT,Antioch,1,,02_shp,1,1
+01,SUN,3651921SUN,Antioch,1,,02_shp,1,1
+01,WKDY,3831141WKDY,Pittsburg/Bay Point,1,,02_shp,1,1
+01,SAT,3751741SAT,Antioch,1,,02_shp,1,1
+01,SUN,3671941SUN,Antioch,1,,02_shp,1,1
+01,WKDY,3851156WKDY,Antioch,1,,02_shp,1,1
+01,SAT,3771801SAT,Antioch,1,,02_shp,1,1
+01,SUN,3692001SUN,Antioch,1,,02_shp,1,1
+01,WKDY,3611211WKDY,Antioch,1,,02_shp,1,1
+01,SAT,3791821SAT,Antioch,1,,02_shp,1,1
+01,SUN,3712021SUN,Antioch,1,,02_shp,1,1
+01,WKDY,3631226WKDY,Antioch,1,,02_shp,1,1
+01,SAT,3611841SAT,Antioch,1,,02_shp,1,1
+01,SUN,3732041SUN,Antioch,1,,02_shp,1,1
+01,WKDY,3651241WKDY,Antioch,1,,02_shp,1,1
+01,SAT,3631901SAT,Antioch,1,,02_shp,1,1
+01,SUN,3752101SUN,Antioch,1,,02_shp,1,1
+01,WKDY,3671256WKDY,Antioch,1,,02_shp,1,1
+01,SAT,3651921SAT,Antioch,1,,02_shp,1,1
+01,SUN,3772121SUN,Antioch,1,,02_shp,1,1
+01,WKDY,3691311WKDY,Antioch,1,,02_shp,1,1
+01,SAT,3671941SAT,Antioch,1,,02_shp,1,1
+01,SUN,3792141SUN,Antioch,1,,02_shp,1,1
+01,WKDY,3711326WKDY,Antioch,1,,02_shp,1,1
+01,SAT,3692001SAT,Antioch,1,,02_shp,1,1
+01,SUN,3612201SUN,Antioch,1,,02_shp,1,1
+01,WKDY,3731341WKDY,Antioch,1,,02_shp,1,1
+01,SAT,3712021SAT,Antioch,1,,02_shp,1,1
+01,SUN,3632221SUN,Antioch,1,,02_shp,1,1
+01,WKDY,3751356WKDY,Antioch,1,,02_shp,1,1
+01,SAT,3732041SAT,Antioch,1,,02_shp,1,1
+01,SUN,3652241SUN,Antioch,1,,02_shp,1,1
+01,WKDY,3771411WKDY,Antioch,1,,02_shp,1,1
+01,SAT,3752101SAT,Antioch,1,,02_shp,1,1
+01,SUN,3672301SUN,Antioch,1,,02_shp,1,1
+01,WKDY,3791426WKDY,Antioch,1,,02_shp,1,1
+01,SAT,3772121SAT,Antioch,1,,02_shp,1,1
+01,SUN,3692321SUN,Antioch,1,,02_shp,1,1
+01,WKDY,3811441WKDY,Antioch,1,,02_shp,1,1
+01,SAT,3792141SAT,Antioch,1,,02_shp,1,1
+01,SUN,3712347SUN,Antioch,1,,02_shp,1,1
+01,WKDY,3831456WKDY,Antioch,1,,02_shp,1,1
+01,SAT,3612201SAT,Antioch,1,,02_shp,1,1
+01,WKDY,3851511WKDY,Antioch,1,,02_shp,1,1
+01,SAT,3632221SAT,Antioch,1,,02_shp,1,1
+01,WKDY,3211529WKDY,Pleasant Hill/Contra Costa Centre,1,,02_shp,1,1
+01,SAT,3652241SAT,Antioch,1,,02_shp,1,1
+01,WKDY,3611526WKDY,Antioch,1,,02_shp,1,1
+01,SAT,3672301SAT,Antioch,1,,02_shp,1,1
+01,WKDY,3231544WKDY,Pleasant Hill/Contra Costa Centre,1,,02_shp,1,1
+01,SAT,3692321SAT,Antioch,1,,02_shp,1,1
+01,WKDY,3631541WKDY,Antioch,1,,02_shp,1,1
+01,SAT,3712347SAT,Antioch,1,,02_shp,1,1
+01,WKDY,3251559WKDY,Pleasant Hill/Contra Costa Centre,1,,02_shp,1,1
+01,WKDY,3651556WKDY,Antioch,1,,02_shp,1,1
+01,WKDY,3271614WKDY,Pleasant Hill/Contra Costa Centre,1,,02_shp,1,1
+01,WKDY,3671611WKDY,Antioch,1,,02_shp,1,1
+01,WKDY,3291629WKDY,Pleasant Hill/Contra Costa Centre,1,,02_shp,1,1
+01,WKDY,3691626WKDY,Antioch,1,,02_shp,1,1
+01,WKDY,3311649WKDY,Pittsburg/Bay Point,1,,02_shp,1,1
+01,WKDY,3711641WKDY,Antioch,1,,02_shp,1,1
+01,WKDY,3331659WKDY,North Concord/Martinez,1,,02_shp,1,1
+01,WKDY,3211714WKDY,Pittsburg/Bay Point,1,,02_shp,1,1
+01,WKDY,3731656WKDY,Antioch,1,,02_shp,1,1
+01,WKDY,3351714WKDY,North Concord/Martinez,1,,02_shp,1,1
+01,WKDY,3231729WKDY,Pittsburg/Bay Point,1,,02_shp,1,1
+01,WKDY,3751711WKDY,Antioch,1,,02_shp,1,1
+01,WKDY,3251744WKDY,Pittsburg/Bay Point,1,,02_shp,1,1
+01,WKDY,3771726WKDY,Antioch,1,,02_shp,1,1
+01,WKDY,3271759WKDY,Pittsburg/Bay Point,1,,02_shp,1,1
+01,WKDY,3791741WKDY,Antioch,1,,02_shp,1,1
+01,WKDY,3291814WKDY,Pittsburg/Bay Point,1,,02_shp,1,1
+01,WKDY,3811756WKDY,Antioch,1,,02_shp,1,1
+01,WKDY,3831811WKDY,Antioch,1,,02_shp,1,1
+01,WKDY,3851826WKDY,Antioch,1,,02_shp,1,1
+01,WKDY,3611841WKDY,Antioch,1,,02_shp,1,1
+01,WKDY,3631856WKDY,Antioch,1,,02_shp,1,1
+01,WKDY,3651911WKDY,Antioch,1,,02_shp,1,1
+01,WKDY,3671927WKDY,Antioch,1,,02_shp,1,1
+01,WKDY,3711947WKDY,Antioch,1,,02_shp,1,1
+01,WKDY,3732007WKDY,Antioch,1,,02_shp,1,1
+01,WKDY,3752027WKDY,Antioch,1,,02_shp,1,1
+01,WKDY,3772047WKDY,Antioch,1,,02_shp,1,1
+01,WKDY,3792107WKDY,Antioch,1,,02_shp,1,1
+01,WKDY,3812115WKDY,Antioch,1,,02_shp,1,1
+01,WKDY,3852135WKDY,Antioch,1,,02_shp,1,1
+01,WKDY,3612156WKDY,Antioch,1,,02_shp,1,1
+01,WKDY,3632216WKDY,Antioch,1,,02_shp,1,1
+01,WKDY,3672236WKDY,Antioch,1,,02_shp,1,1
+01,WKDY,3712256WKDY,Antioch,1,,02_shp,1,1
+01,WKDY,3732316WKDY,Antioch,1,,02_shp,1,1
+01,WKDY,3752344WKDY,Antioch,1,,02_shp,1,1
+19,WKDY,8030445WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8050603SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8030803SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8050451WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8010609SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8050809SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8010457WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8030615SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8010815SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8030503WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8050621SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8030821SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8050509WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8010627SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8050827SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8010515WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8030633SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8010833SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8030521WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8050639SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8030839SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8050527WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8010645SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8050845SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8010533WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8030651SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8010851SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8030539WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8050657SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8030857SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8050545WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8010703SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8050903SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8010551WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8030709SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8010909SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8030557WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8050715SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8030915SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8050603WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8010721SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8050921SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8010609WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8030727SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8010927SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8030615WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8050733SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8030933SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8050621WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8010739SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8050939SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8010627WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8030745SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8010945SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8030633WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8050751SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8030951SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8050639WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8010757SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8050957SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8010645WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8030803SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8011003SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8030651WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8050809SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8031009SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8050657WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8010815SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8051015SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8010703WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8030821SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8011021SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8030709WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8050827SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8031027SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8050715WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8010833SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8051033SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8010721WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8030839SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8011039SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8030727WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8050845SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8031045SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8050733WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8010851SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8051051SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8010739WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8030857SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8011057SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8030745WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8050903SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8031103SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8050751WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8010909SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8051109SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8010757WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8030915SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8011115SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8030803WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8050921SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8031121SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8050809WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8010927SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8051127SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8010815WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8030933SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8011133SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8030821WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8050939SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8031139SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8050827WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8010945SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8051145SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8010833WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8030951SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8011151SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8030839WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8050957SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8031157SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8050845WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8011003SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8051203SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8010851WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8031009SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8011209SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8030857WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8051015SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8031215SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8050903WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8011021SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8051221SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8010909WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8031027SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8011227SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8030915WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8051033SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8031233SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8050921WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8011039SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8051239SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8010927WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8031045SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8011245SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8030933WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8051051SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8031251SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8050939WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8011057SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8051257SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8010945WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8031103SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8011303SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8030951WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8051109SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8031309SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8050957WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8011115SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8051315SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8011003WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8031121SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8011321SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8031009WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8051127SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8031327SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8051015WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8011133SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8051333SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8011021WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8031139SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8011339SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8031027WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8051145SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8031345SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8051033WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8011151SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8051351SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8011039WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8031157SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8011357SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8031045WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8051203SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8031403SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8051051WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8011209SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8051409SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8011057WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8031215SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8011415SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8031103WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8051221SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8031421SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8051109WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8011227SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8051427SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8011115WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8031233SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8011433SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8031121WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8051239SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8031439SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8051127WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8011245SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8051445SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8011133WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8031251SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8011451SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8031139WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8051257SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8031457SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8051145WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8011303SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8051503SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8011151WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8031309SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8011509SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8031157WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8051315SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8031515SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8051203WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8011321SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8051521SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8011209WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8031327SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8011527SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8031215WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8051333SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8031533SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8051221WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8011339SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8051539SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8011227WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8031345SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8011545SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8031233WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8051351SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8031551SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8051239WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8011357SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8051557SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8011245WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8031403SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8011603SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8031251WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8051409SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8031609SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8051257WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8011415SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8051615SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8011303WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8031421SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8011621SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8031309WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8051427SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8031627SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8051315WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8011433SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8051633SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8011321WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8031439SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8011639SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8031327WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8051445SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8031645SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8051333WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8011451SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8051651SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8011339WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8031457SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8011657SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8031345WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8051503SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8031703SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8051351WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8011509SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8051709SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8011357WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8031515SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8011715SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8031403WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8051521SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8031721SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8051409WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8011527SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8051727SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8011415WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8031533SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8011733SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8031421WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8051539SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8031739SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8051427WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8011545SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8051745SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8011433WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8031551SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8011751SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8031439WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8051557SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8031757SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8051445WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8011603SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8051803SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8011451WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8031609SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8011809SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8031457WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8051615SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8031815SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8051503WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8011621SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8051821SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8011509WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8031627SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8011827SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8031515WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8051633SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8031833SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8051521WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8011639SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8051839SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8011527WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8031645SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8011845SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8031533WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8051651SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8031851SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8051539WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8011657SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8051857SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8011545WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8031703SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8011903SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8031551WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8051709SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8031909SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8051557WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8011715SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8051915SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8011603WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8031721SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8011921SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8031609WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8051727SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8031927SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8051615WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8011733SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8051933SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8011621WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8031739SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8011939SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8031627WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8051745SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8031945SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8051633WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8011751SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8051951SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8011639WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8031757SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8011957SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8031645WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8051803SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8032003SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8051651WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8011809SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8052009SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8011657WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8031815SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8012015SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8031703WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8051821SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8032021SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8051709WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8011827SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8052027SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8011715WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8031833SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8012033SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8031721WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8051839SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8032039SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8051727WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8011845SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8052045SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8011733WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8031851SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8012051SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8031739WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8051857SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8032057SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8051745WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8011903SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8052103SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8011751WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8031909SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8012109SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8031757WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8051915SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8032115SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8051803WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8011921SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8052121SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8011809WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8031927SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8012127SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8031815WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8051933SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8032133SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8051821WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8011939SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8052139SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8011827WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8031945SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8012145SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8031833WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8051951SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8032151SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8051839WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8011957SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8052157SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8011845WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8032003SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8012203SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8031851WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8052009SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8032209SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8051857WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8012015SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8052215SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8011903WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8032021SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8012221SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8031909WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8052027SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8032227SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8051915WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8012033SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8052233SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8011921WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8032039SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8012239SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8031927WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8052045SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8032245SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8051933WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8012051SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8052251SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8011939WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8032057SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8012257SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8031945WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8052103SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8052312SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8051951WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8012109SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8052332SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8011957WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8032115SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8052352SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8032003WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8052121SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8050013SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8052009WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8012127SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8050033SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8012015WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8032133SAT,Oakland International Airport,1,,20_shp,1,1
+19,SUN,8050115SUN,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8032021WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8052139SAT,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8052027WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8012145SAT,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8012033WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8032151SAT,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8032039WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8052157SAT,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8052045WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8012203SAT,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8012051WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8032209SAT,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8032057WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8052215SAT,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8052103WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8012221SAT,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8012109WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8032227SAT,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8032115WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8052233SAT,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8052121WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8012239SAT,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8012127WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8032245SAT,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8032133WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8052251SAT,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8052139WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8012257SAT,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8012145WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8052312SAT,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8032151WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8052332SAT,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8052157WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8052352SAT,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8012203WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8050013SAT,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8032209WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8050033SAT,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8052215WKDY,Oakland International Airport,1,,20_shp,1,1
+19,SAT,8050115SAT,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8012221WKDY,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8032227WKDY,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8052233WKDY,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8012239WKDY,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8032245WKDY,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8052251WKDY,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8012257WKDY,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8052312WKDY,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8052332WKDY,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8052352WKDY,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8050013WKDY,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8050033WKDY,Oakland International Airport,1,,20_shp,1,1
+19,WKDY,8050115WKDY,Oakland International Airport,1,,20_shp,1,1
+03,WKDY,2290357WKDY,Richmond,1,,03_shp,1,1
+03,SAT,2270600SAT,Richmond,1,,03_shp,1,1
+03,SUN,2230800SUN,Richmond,1,,03_shp,1,1
+03,WKDY,2310412WKDY,Richmond,1,,03_shp,1,1
+03,SAT,2290548SAT,Richmond,1,,03_shp,1,1
+03,SUN,2250748SUN,Richmond,1,,03_shp,1,1
+03,WKDY,2330427WKDY,Richmond,1,,03_shp,1,1
+03,SAT,2310608SAT,Richmond,1,,03_shp,1,1
+03,SUN,2270808SUN,Richmond,1,,03_shp,1,1
+03,WKDY,2350442WKDY,Richmond,1,,03_shp,1,1
+03,SAT,2330628SAT,Richmond,1,,03_shp,1,1
+03,SUN,2290828SUN,Richmond,1,,03_shp,1,1
+03,WKDY,2370457WKDY,Richmond,1,,03_shp,1,1
+03,SAT,2350648SAT,Richmond,1,,03_shp,1,1
+03,SUN,2310848SUN,Richmond,1,,03_shp,1,1
+03,WKDY,2390512WKDY,Richmond,1,,03_shp,1,1
+03,SAT,2210708SAT,Richmond,1,,03_shp,1,1
+03,SUN,2330908SUN,Richmond,1,,03_shp,1,1
+03,WKDY,2410527WKDY,Richmond,1,,03_shp,1,1
+03,SAT,2230728SAT,Richmond,1,,03_shp,1,1
+03,SUN,2350928SUN,Richmond,1,,03_shp,1,1
+03,WKDY,2210542WKDY,Richmond,1,,03_shp,1,1
+03,SAT,2250748SAT,Richmond,1,,03_shp,1,1
+03,SUN,2210948SUN,Richmond,1,,03_shp,1,1
+03,WKDY,2230557WKDY,Richmond,1,,03_shp,1,1
+03,SAT,2270808SAT,Richmond,1,,03_shp,1,1
+03,SUN,2231008SUN,Richmond,1,,03_shp,1,1
+03,WKDY,2250612WKDY,Richmond,1,,03_shp,1,1
+03,SAT,2290828SAT,Richmond,1,,03_shp,1,1
+03,SUN,2251028SUN,Richmond,1,,03_shp,1,1
+03,WKDY,2270627WKDY,Richmond,1,,03_shp,1,1
+03,SAT,2310848SAT,Richmond,1,,03_shp,1,1
+03,SUN,2271048SUN,Richmond,1,,03_shp,1,1
+03,WKDY,2290642WKDY,Richmond,1,,03_shp,1,1
+03,SAT,2330908SAT,Richmond,1,,03_shp,1,1
+03,SUN,2291108SUN,Richmond,1,,03_shp,1,1
+03,WKDY,2310657WKDY,Richmond,1,,03_shp,1,1
+03,SAT,2350928SAT,Richmond,1,,03_shp,1,1
+03,SUN,2311128SUN,Richmond,1,,03_shp,1,1
+03,WKDY,2330712WKDY,Richmond,1,,03_shp,1,1
+03,SAT,2210948SAT,Richmond,1,,03_shp,1,1
+03,SUN,2331148SUN,Richmond,1,,03_shp,1,1
+03,WKDY,2350727WKDY,Richmond,1,,03_shp,1,1
+03,SAT,2231008SAT,Richmond,1,,03_shp,1,1
+03,SUN,2351208SUN,Richmond,1,,03_shp,1,1
+03,WKDY,2370742WKDY,Richmond,1,,03_shp,1,1
+03,SAT,2251028SAT,Richmond,1,,03_shp,1,1
+03,SUN,2211228SUN,Richmond,1,,03_shp,1,1
+03,WKDY,2390757WKDY,Richmond,1,,03_shp,1,1
+03,SAT,2271048SAT,Richmond,1,,03_shp,1,1
+03,SUN,2231248SUN,Richmond,1,,03_shp,1,1
+03,WKDY,2410812WKDY,Richmond,1,,03_shp,1,1
+03,SAT,2291108SAT,Richmond,1,,03_shp,1,1
+03,SUN,2251308SUN,Richmond,1,,03_shp,1,1
+03,WKDY,2210827WKDY,Richmond,1,,03_shp,1,1
+03,SAT,2311128SAT,Richmond,1,,03_shp,1,1
+03,SUN,2271328SUN,Richmond,1,,03_shp,1,1
+03,WKDY,2230842WKDY,Richmond,1,,03_shp,1,1
+03,SAT,2331148SAT,Richmond,1,,03_shp,1,1
+03,SUN,2291348SUN,Richmond,1,,03_shp,1,1
+03,WKDY,2250857WKDY,Richmond,1,,03_shp,1,1
+03,SAT,2351208SAT,Richmond,1,,03_shp,1,1
+03,SUN,2311408SUN,Richmond,1,,03_shp,1,1
+03,WKDY,2270912WKDY,Richmond,1,,03_shp,1,1
+03,SAT,2211228SAT,Richmond,1,,03_shp,1,1
+03,SUN,2331428SUN,Richmond,1,,03_shp,1,1
+03,WKDY,2290927WKDY,Richmond,1,,03_shp,1,1
+03,SAT,2231248SAT,Richmond,1,,03_shp,1,1
+03,SUN,2351448SUN,Richmond,1,,03_shp,1,1
+03,WKDY,2310942WKDY,Richmond,1,,03_shp,1,1
+03,SAT,2251308SAT,Richmond,1,,03_shp,1,1
+03,SUN,2211508SUN,Richmond,1,,03_shp,1,1
+03,WKDY,2330957WKDY,Richmond,1,,03_shp,1,1
+03,SAT,2271328SAT,Richmond,1,,03_shp,1,1
+03,SUN,2231528SUN,Richmond,1,,03_shp,1,1
+03,WKDY,2351012WKDY,Richmond,1,,03_shp,1,1
+03,SAT,2291348SAT,Richmond,1,,03_shp,1,1
+03,SUN,2251548SUN,Richmond,1,,03_shp,1,1
+03,WKDY,2371027WKDY,Richmond,1,,03_shp,1,1
+03,SAT,2311408SAT,Richmond,1,,03_shp,1,1
+03,SUN,2271608SUN,Richmond,1,,03_shp,1,1
+03,WKDY,2391042WKDY,Richmond,1,,03_shp,1,1
+03,SAT,2331428SAT,Richmond,1,,03_shp,1,1
+03,SUN,2291628SUN,Richmond,1,,03_shp,1,1
+03,WKDY,2411057WKDY,Richmond,1,,03_shp,1,1
+03,SAT,2351448SAT,Richmond,1,,03_shp,1,1
+03,SUN,2311648SUN,Richmond,1,,03_shp,1,1
+03,WKDY,2211112WKDY,Richmond,1,,03_shp,1,1
+03,SAT,2211508SAT,Richmond,1,,03_shp,1,1
+03,SUN,2331708SUN,Richmond,1,,03_shp,1,1
+03,WKDY,2231127WKDY,Richmond,1,,03_shp,1,1
+03,SAT,2231528SAT,Richmond,1,,03_shp,1,1
+03,SUN,2351728SUN,Richmond,1,,03_shp,1,1
+03,WKDY,2251142WKDY,Richmond,1,,03_shp,1,1
+03,SAT,2251548SAT,Richmond,1,,03_shp,1,1
+03,SUN,2211748SUN,Richmond,1,,03_shp,1,1
+03,WKDY,2271157WKDY,Richmond,1,,03_shp,1,1
+03,SAT,2271608SAT,Richmond,1,,03_shp,1,1
+03,SUN,2231808SUN,Richmond,1,,03_shp,1,1
+03,WKDY,2291212WKDY,Richmond,1,,03_shp,1,1
+03,SAT,2291628SAT,Richmond,1,,03_shp,1,1
+03,SUN,2251828SUN,Richmond,1,,03_shp,1,1
+03,WKDY,2311227WKDY,Richmond,1,,03_shp,1,1
+03,SAT,2311648SAT,Richmond,1,,03_shp,1,1
+03,SUN,2271848SUN,Richmond,1,,03_shp,1,1
+03,WKDY,2331242WKDY,Richmond,1,,03_shp,1,1
+03,SAT,2331708SAT,Richmond,1,,03_shp,1,1
+03,SUN,2291908SUN,Richmond,1,,03_shp,1,1
+03,WKDY,2351257WKDY,Richmond,1,,03_shp,1,1
+03,SAT,2351728SAT,Richmond,1,,03_shp,1,1
+03,SUN,2311928SUN,Richmond,1,,03_shp,1,1
+03,WKDY,2371312WKDY,Richmond,1,,03_shp,1,1
+03,SAT,2211748SAT,Richmond,1,,03_shp,1,1
+03,SUN,2331948SUN,Richmond,1,,03_shp,1,1
+03,WKDY,2391327WKDY,Richmond,1,,03_shp,1,1
+03,SAT,2231808SAT,Richmond,1,,03_shp,1,1
+03,SUN,2352008SUN,Richmond,1,,03_shp,1,1
+03,WKDY,2411342WKDY,Richmond,1,,03_shp,1,1
+03,SAT,2251828SAT,Richmond,1,,03_shp,1,1
+03,SUN,2212028SUN,Richmond,1,,03_shp,1,1
+03,WKDY,2211357WKDY,Richmond,1,,03_shp,1,1
+03,SAT,2271848SAT,Richmond,1,,03_shp,1,1
+03,SUN,2232048SUN,Richmond,1,,03_shp,1,1
+03,WKDY,2231412WKDY,Richmond,1,,03_shp,1,1
+03,SAT,2291908SAT,Richmond,1,,03_shp,1,1
+03,SUN,2252108SUN,Richmond,1,,03_shp,1,1
+03,WKDY,2251427WKDY,Richmond,1,,03_shp,1,1
+03,SAT,2311928SAT,Richmond,1,,03_shp,1,1
+03,SUN,2272128SUN,Richmond,1,,03_shp,1,1
+03,WKDY,2271442WKDY,Richmond,1,,03_shp,1,1
+03,SAT,2331948SAT,Richmond,1,,03_shp,1,1
+03,SUN,2292148SUN,Richmond,1,,03_shp,1,1
+03,WKDY,2291457WKDY,Richmond,1,,03_shp,1,1
+03,SAT,2352008SAT,Richmond,1,,03_shp,1,1
+03,SUN,2312208SUN,Richmond,1,,03_shp,1,1
+03,WKDY,2311512WKDY,Richmond,1,,03_shp,1,1
+03,SAT,2212028SAT,Richmond,1,,03_shp,1,1
+03,SUN,2332228SUN,Richmond,1,,03_shp,1,1
+03,WKDY,2331527WKDY,Richmond,1,,03_shp,1,1
+03,SAT,2232048SAT,Richmond,1,,03_shp,1,1
+03,SUN,2352248SUN,Richmond,1,,03_shp,1,1
+03,WKDY,2351542WKDY,Richmond,1,,03_shp,1,1
+03,SAT,2252108SAT,Richmond,1,,03_shp,1,1
+03,SUN,2212308SUN,Richmond,1,,03_shp,1,1
+03,WKDY,2371557WKDY,Richmond,1,,03_shp,1,1
+03,SAT,2272128SAT,Richmond,1,,03_shp,1,1
+03,SUN,2232328SUN,Richmond,1,,03_shp,1,1
+03,WKDY,2391612WKDY,Richmond,1,,03_shp,1,1
+03,SAT,2292148SAT,Richmond,1,,03_shp,1,1
+03,SUN,2252355SUN,Richmond,1,,03_shp,1,1
+03,WKDY,2411627WKDY,Richmond,1,,03_shp,1,1
+03,SAT,2312208SAT,Richmond,1,,03_shp,1,1
+03,WKDY,2211642WKDY,Richmond,1,,03_shp,1,1
+03,SAT,2332228SAT,Richmond,1,,03_shp,1,1
+03,WKDY,2231657WKDY,Richmond,1,,03_shp,1,1
+03,SAT,2352248SAT,Richmond,1,,03_shp,1,1
+03,WKDY,2251712WKDY,Richmond,1,,03_shp,1,1
+03,SAT,2212308SAT,Richmond,1,,03_shp,1,1
+03,WKDY,2271727WKDY,Richmond,1,,03_shp,1,1
+03,SAT,2232328SAT,Richmond,1,,03_shp,1,1
+03,WKDY,2291742WKDY,Richmond,1,,03_shp,1,1
+03,SAT,2252355SAT,Richmond,1,,03_shp,1,1
+03,WKDY,2311757WKDY,Richmond,1,,03_shp,1,1
+03,WKDY,2331812WKDY,Richmond,1,,03_shp,1,1
+03,WKDY,2351827WKDY,Richmond,1,,03_shp,1,1
+03,WKDY,2371842WKDY,Richmond,1,,03_shp,1,1
+03,WKDY,2391857WKDY,Richmond,1,,03_shp,1,1
+03,WKDY,2411912WKDY,Richmond,1,,03_shp,1,1
+03,WKDY,2211928WKDY,Richmond,1,,03_shp,1,1
+03,WKDY,2251948WKDY,Richmond,1,,03_shp,1,1
+03,WKDY,2272008WKDY,Richmond,1,,03_shp,1,1
+03,WKDY,2292028WKDY,Richmond,1,,03_shp,1,1
+03,WKDY,2312048WKDY,Richmond,1,,03_shp,1,1
+03,WKDY,2352108WKDY,Richmond,1,,03_shp,1,1
+03,WKDY,2392128WKDY,Richmond,1,,03_shp,1,1
+03,WKDY,2412148WKDY,Richmond,1,,03_shp,1,1
+03,WKDY,2212208WKDY,Richmond,1,,03_shp,1,1
+03,WKDY,2252228WKDY,Richmond,1,,03_shp,1,1
+03,WKDY,2272248WKDY,Richmond,1,,03_shp,1,1
+03,WKDY,2292308WKDY,Richmond,1,,03_shp,1,1
+03,WKDY,2312328WKDY,Richmond,1,,03_shp,1,1
+03,WKDY,2352355WKDY,Richmond,1,,03_shp,1,1
+03,WKDY,2210420WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SAT,2210556SAT,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SUN,2330756SUN,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2230435WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SAT,2230616SAT,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SUN,2350816SUN,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2250450WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SAT,2250636SAT,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SUN,2210836SUN,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2270505WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SAT,2270656SAT,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SUN,2230856SUN,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2290520WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SAT,2290716SAT,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SUN,2250916SUN,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2310535WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SAT,2310736SAT,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SUN,2270936SUN,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2330550WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SAT,2330756SAT,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SUN,2290956SUN,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2350605WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SAT,2350816SAT,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SUN,2311016SUN,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2370620WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SAT,2210836SAT,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SUN,2331036SUN,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2390635WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SAT,2230856SAT,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SUN,2351056SUN,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2410650WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SAT,2250916SAT,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SUN,2211116SUN,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2210705WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SAT,2270936SAT,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SUN,2231136SUN,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2230720WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SAT,2290956SAT,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SUN,2251156SUN,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2250735WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SAT,2311016SAT,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SUN,2271216SUN,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2270750WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SAT,2331036SAT,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SUN,2291236SUN,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2290805WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SAT,2351056SAT,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SUN,2311256SUN,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2310820WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SAT,2211116SAT,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SUN,2331316SUN,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2330835WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SAT,2231136SAT,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SUN,2351336SUN,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2350850WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SAT,2251156SAT,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SUN,2211356SUN,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2370905WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SAT,2271216SAT,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SUN,2231416SUN,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2390920WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SAT,2291236SAT,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SUN,2251436SUN,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2410935WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SAT,2311256SAT,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SUN,2271456SUN,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2210950WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SAT,2331316SAT,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SUN,2291516SUN,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2231005WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SAT,2351336SAT,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SUN,2311536SUN,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2251020WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SAT,2211356SAT,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SUN,2331556SUN,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2271035WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SAT,2231416SAT,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SUN,2351616SUN,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2291050WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SAT,2251436SAT,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SUN,2211636SUN,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2311105WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SAT,2271456SAT,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SUN,2231656SUN,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2331120WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SAT,2291516SAT,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SUN,2251716SUN,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2351135WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SAT,2311536SAT,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SUN,2271736SUN,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2371150WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SAT,2331556SAT,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SUN,2291756SUN,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2391205WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SAT,2351616SAT,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SUN,2311816SUN,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2411220WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SAT,2211636SAT,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SUN,2331836SUN,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2211235WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SAT,2231656SAT,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SUN,2351856SUN,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2231250WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SAT,2251716SAT,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SUN,2211916SUN,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2251305WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SAT,2271736SAT,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SUN,2231936SUN,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2271320WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SAT,2291756SAT,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SUN,2251956SUN,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2291335WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SAT,2311816SAT,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SUN,2272016SUN,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2311350WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SAT,2331836SAT,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SUN,2292036SUN,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2331405WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SAT,2351856SAT,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SUN,2312056SUN,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2351420WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SAT,2211916SAT,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SUN,2332116SUN,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2371435WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SAT,2231936SAT,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SUN,2352136SUN,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2391450WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SAT,2251956SAT,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SUN,2212156SUN,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2411505WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SAT,2272016SAT,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SUN,2232216SUN,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2211520WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SAT,2292036SAT,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SUN,2252236SUN,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2231535WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SAT,2312056SAT,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SUN,2272256SUN,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2251550WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SAT,2332116SAT,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SUN,2292316SUN,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2271605WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SAT,2352136SAT,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SUN,2312336SUN,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2291620WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SAT,2212156SAT,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SUN,2332356SUN,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2311635WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SAT,2232216SAT,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SUN,2350017SUN,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2331650WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SAT,2252236SAT,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2351705WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SAT,2272256SAT,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2371720WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SAT,2292316SAT,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2391735WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SAT,2312336SAT,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2411750WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SAT,2332356SAT,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2211805WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,SAT,2350017SAT,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2231820WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2251835WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2271850WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2291905WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2311920WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2331935WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2351954WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2392015WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2412035WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2212055WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2252115WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2272135WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2292155WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2312215WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2352235WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2392255WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2412315WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2212335WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2252354WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+03,WKDY,2270017WKDY,Warm Springs/South Fremont,0,,04_shp,1,1
+05,WKDY,1010500WKDY,Daly City,1,,05_shp,1,1
+05,SAT,1010844SAT,Daly City,1,,05_shp,1,1
+05,WKDY,1030515WKDY,Daly City,1,,05_shp,1,1
+05,SAT,1030904SAT,Daly City,1,,05_shp,1,1
+05,WKDY,1050530WKDY,Daly City,1,,05_shp,1,1
+05,SAT,1050924SAT,Daly City,1,,05_shp,1,1
+05,WKDY,1070545WKDY,Daly City,1,,05_shp,1,1
+05,SAT,1070944SAT,Daly City,1,,05_shp,1,1
+05,WKDY,1090600WKDY,Daly City,1,,05_shp,1,1
+05,SAT,1091004SAT,Daly City,1,,05_shp,1,1
+05,WKDY,1110615WKDY,Daly City,1,,05_shp,1,1
+05,SAT,1111024SAT,Daly City,1,,05_shp,1,1
+05,WKDY,1130630WKDY,Daly City,1,,05_shp,1,1
+05,SAT,1131044SAT,Daly City,1,,05_shp,1,1
+05,WKDY,1150645WKDY,Daly City,1,,05_shp,1,1
+05,SAT,1011104SAT,Daly City,1,,05_shp,1,1
+05,WKDY,1170700WKDY,Daly City,1,,05_shp,1,1
+05,SAT,1031124SAT,Daly City,1,,05_shp,1,1
+05,WKDY,1190715WKDY,Daly City,1,,05_shp,1,1
+05,SAT,1051144SAT,Daly City,1,,05_shp,1,1
+05,WKDY,1010730WKDY,Daly City,1,,05_shp,1,1
+05,SAT,1071204SAT,Daly City,1,,05_shp,1,1
+05,WKDY,1030745WKDY,Daly City,1,,05_shp,1,1
+05,SAT,1091224SAT,Daly City,1,,05_shp,1,1
+05,WKDY,1050800WKDY,Daly City,1,,05_shp,1,1
+05,SAT,1111244SAT,Daly City,1,,05_shp,1,1
+05,WKDY,1070815WKDY,Daly City,1,,05_shp,1,1
+05,SAT,1131304SAT,Daly City,1,,05_shp,1,1
+05,WKDY,1090830WKDY,Daly City,1,,05_shp,1,1
+05,SAT,1011324SAT,Daly City,1,,05_shp,1,1
+05,WKDY,1110845WKDY,Daly City,1,,05_shp,1,1
+05,SAT,1031344SAT,Daly City,1,,05_shp,1,1
+05,WKDY,1130900WKDY,Daly City,1,,05_shp,1,1
+05,SAT,1051404SAT,Daly City,1,,05_shp,1,1
+05,WKDY,1150915WKDY,Daly City,1,,05_shp,1,1
+05,SAT,1071424SAT,Daly City,1,,05_shp,1,1
+05,WKDY,1170930WKDY,Daly City,1,,05_shp,1,1
+05,SAT,1091444SAT,Daly City,1,,05_shp,1,1
+05,WKDY,1190945WKDY,Daly City,1,,05_shp,1,1
+05,SAT,1111504SAT,Daly City,1,,05_shp,1,1
+05,WKDY,1011000WKDY,Daly City,1,,05_shp,1,1
+05,SAT,1131524SAT,Daly City,1,,05_shp,1,1
+05,WKDY,1031015WKDY,Daly City,1,,05_shp,1,1
+05,SAT,1011544SAT,Daly City,1,,05_shp,1,1
+05,WKDY,1051030WKDY,Daly City,1,,05_shp,1,1
+05,SAT,1031604SAT,Daly City,1,,05_shp,1,1
+05,WKDY,1071045WKDY,Daly City,1,,05_shp,1,1
+05,SAT,1051624SAT,Daly City,1,,05_shp,1,1
+05,WKDY,1091100WKDY,Daly City,1,,05_shp,1,1
+05,SAT,1071644SAT,Daly City,1,,05_shp,1,1
+05,WKDY,1111115WKDY,Daly City,1,,05_shp,1,1
+05,SAT,1091704SAT,Daly City,1,,05_shp,1,1
+05,WKDY,1131130WKDY,Daly City,1,,05_shp,1,1
+05,SAT,1111724SAT,Daly City,1,,05_shp,1,1
+05,WKDY,1151145WKDY,Daly City,1,,05_shp,1,1
+05,SAT,1131744SAT,Daly City,1,,05_shp,1,1
+05,WKDY,1171200WKDY,Daly City,1,,05_shp,1,1
+05,WKDY,1191215WKDY,Daly City,1,,05_shp,1,1
+05,WKDY,1011230WKDY,Daly City,1,,05_shp,1,1
+05,WKDY,1031245WKDY,Daly City,1,,05_shp,1,1
+05,WKDY,1051300WKDY,Daly City,1,,05_shp,1,1
+05,WKDY,1071315WKDY,Daly City,1,,05_shp,1,1
+05,WKDY,1091330WKDY,Daly City,1,,05_shp,1,1
+05,WKDY,1111345WKDY,Daly City,1,,05_shp,1,1
+05,WKDY,1131400WKDY,Daly City,1,,05_shp,1,1
+05,WKDY,1151415WKDY,Daly City,1,,05_shp,1,1
+05,WKDY,1171430WKDY,Daly City,1,,05_shp,1,1
+05,WKDY,1191445WKDY,Daly City,1,,05_shp,1,1
+05,WKDY,1011500WKDY,Daly City,1,,05_shp,1,1
+05,WKDY,1031515WKDY,Daly City,1,,05_shp,1,1
+05,WKDY,1051530WKDY,Daly City,1,,05_shp,1,1
+05,WKDY,1071545WKDY,Daly City,1,,05_shp,1,1
+05,WKDY,1091600WKDY,Daly City,1,,05_shp,1,1
+05,WKDY,1111615WKDY,Daly City,1,,05_shp,1,1
+05,WKDY,1131630WKDY,Daly City,1,,05_shp,1,1
+05,WKDY,1151645WKDY,Daly City,1,,05_shp,1,1
+05,WKDY,1171700WKDY,Daly City,1,,05_shp,1,1
+05,WKDY,1191715WKDY,Daly City,1,,05_shp,1,1
+05,WKDY,1011730WKDY,Daly City,1,,05_shp,1,1
+05,WKDY,1031745WKDY,Daly City,1,,05_shp,1,1
+05,WKDY,1010612WKDY,Warm Springs/South Fremont,0,,06_shp,1,1
+05,SAT,1010958SAT,Warm Springs/South Fremont,0,,06_shp,1,1
+05,WKDY,1030627WKDY,Warm Springs/South Fremont,0,,06_shp,1,1
+05,SAT,1031018SAT,Warm Springs/South Fremont,0,,06_shp,1,1
+05,WKDY,1050642WKDY,Warm Springs/South Fremont,0,,06_shp,1,1
+05,SAT,1051038SAT,Warm Springs/South Fremont,0,,06_shp,1,1
+05,WKDY,1070657WKDY,Warm Springs/South Fremont,0,,06_shp,1,1
+05,SAT,1071058SAT,Warm Springs/South Fremont,0,,06_shp,1,1
+05,WKDY,1090712WKDY,Warm Springs/South Fremont,0,,06_shp,1,1
+05,SAT,1091118SAT,Warm Springs/South Fremont,0,,06_shp,1,1
+05,WKDY,1110727WKDY,Warm Springs/South Fremont,0,,06_shp,1,1
+05,SAT,1111138SAT,Warm Springs/South Fremont,0,,06_shp,1,1
+05,WKDY,1130742WKDY,Warm Springs/South Fremont,0,,06_shp,1,1
+05,SAT,1131158SAT,Warm Springs/South Fremont,0,,06_shp,1,1
+05,WKDY,1150757WKDY,Warm Springs/South Fremont,0,,06_shp,1,1
+05,SAT,1011218SAT,Warm Springs/South Fremont,0,,06_shp,1,1
+05,WKDY,1170812WKDY,Warm Springs/South Fremont,0,,06_shp,1,1
+05,SAT,1031238SAT,Warm Springs/South Fremont,0,,06_shp,1,1
+05,WKDY,1190827WKDY,Warm Springs/South Fremont,0,,06_shp,1,1
+05,SAT,1051258SAT,Warm Springs/South Fremont,0,,06_shp,1,1
+05,WKDY,1010842WKDY,Warm Springs/South Fremont,0,,06_shp,1,1
+05,SAT,1071318SAT,Warm Springs/South Fremont,0,,06_shp,1,1
+05,WKDY,1030857WKDY,Warm Springs/South Fremont,0,,06_shp,1,1
+05,SAT,1091338SAT,Warm Springs/South Fremont,0,,06_shp,1,1
+05,WKDY,1050912WKDY,Warm Springs/South Fremont,0,,06_shp,1,1
+05,SAT,1111358SAT,Warm Springs/South Fremont,0,,06_shp,1,1
+05,WKDY,1070927WKDY,Warm Springs/South Fremont,0,,06_shp,1,1
+05,SAT,1131418SAT,Warm Springs/South Fremont,0,,06_shp,1,1
+05,WKDY,1090942WKDY,Warm Springs/South Fremont,0,,06_shp,1,1
+05,SAT,1011438SAT,Warm Springs/South Fremont,0,,06_shp,1,1
+05,WKDY,1110957WKDY,Warm Springs/South Fremont,0,,06_shp,1,1
+05,SAT,1031458SAT,Warm Springs/South Fremont,0,,06_shp,1,1
+05,WKDY,1131012WKDY,Warm Springs/South Fremont,0,,06_shp,1,1
+05,SAT,1051518SAT,Warm Springs/South Fremont,0,,06_shp,1,1
+05,WKDY,1151027WKDY,Warm Springs/South Fremont,0,,06_shp,1,1
+05,SAT,1071538SAT,Warm Springs/South Fremont,0,,06_shp,1,1
+05,WKDY,1171042WKDY,Warm Springs/South Fremont,0,,06_shp,1,1
+05,SAT,1091558SAT,Warm Springs/South Fremont,0,,06_shp,1,1
+05,WKDY,1191057WKDY,Warm Springs/South Fremont,0,,06_shp,1,1
+05,SAT,1111618SAT,Warm Springs/South Fremont,0,,06_shp,1,1
+05,WKDY,1011112WKDY,Warm Springs/South Fremont,0,,06_shp,1,1
+05,SAT,1131638SAT,Warm Springs/South Fremont,0,,06_shp,1,1
+05,WKDY,1031127WKDY,Warm Springs/South Fremont,0,,06_shp,1,1
+05,SAT,1011658SAT,Warm Springs/South Fremont,0,,06_shp,1,1
+05,WKDY,1051142WKDY,Warm Springs/South Fremont,0,,06_shp,1,1
+05,SAT,1031718SAT,Warm Springs/South Fremont,0,,06_shp,1,1
+05,WKDY,1071157WKDY,Warm Springs/South Fremont,0,,06_shp,1,1
+05,SAT,1051738SAT,Warm Springs/South Fremont,0,,06_shp,1,1
+05,WKDY,1091212WKDY,Warm Springs/South Fremont,0,,06_shp,1,1
+05,SAT,1071758SAT,Warm Springs/South Fremont,0,,06_shp,1,1
+05,WKDY,1111227WKDY,Warm Springs/South Fremont,0,,06_shp,1,1
+05,SAT,1091818SAT,Warm Springs/South Fremont,0,,06_shp,1,1
+05,WKDY,1131242WKDY,Warm Springs/South Fremont,0,,06_shp,1,1
+05,SAT,1111838SAT,Warm Springs/South Fremont,0,,06_shp,1,1
+05,WKDY,1151257WKDY,Warm Springs/South Fremont,0,,06_shp,1,1
+05,SAT,1131858SAT,Warm Springs/South Fremont,0,,06_shp,1,1
+05,WKDY,1171312WKDY,Warm Springs/South Fremont,0,,06_shp,1,1
+05,WKDY,1191327WKDY,Warm Springs/South Fremont,0,,06_shp,1,1
+05,WKDY,1011342WKDY,Warm Springs/South Fremont,0,,06_shp,1,1
+05,WKDY,1031357WKDY,Warm Springs/South Fremont,0,,06_shp,1,1
+05,WKDY,1051412WKDY,Warm Springs/South Fremont,0,,06_shp,1,1
+05,WKDY,1071427WKDY,Warm Springs/South Fremont,0,,06_shp,1,1
+05,WKDY,1091442WKDY,Warm Springs/South Fremont,0,,06_shp,1,1
+05,WKDY,1111457WKDY,Warm Springs/South Fremont,0,,06_shp,1,1
+05,WKDY,1131512WKDY,Warm Springs/South Fremont,0,,06_shp,1,1
+05,WKDY,1151527WKDY,Warm Springs/South Fremont,0,,06_shp,1,1
+05,WKDY,1171542WKDY,Warm Springs/South Fremont,0,,06_shp,1,1
+05,WKDY,1191557WKDY,Warm Springs/South Fremont,0,,06_shp,1,1
+05,WKDY,1011612WKDY,Warm Springs/South Fremont,0,,06_shp,1,1
+05,WKDY,1031627WKDY,Warm Springs/South Fremont,0,,06_shp,1,1
+05,WKDY,1051642WKDY,Warm Springs/South Fremont,0,,06_shp,1,1
+05,WKDY,1071657WKDY,Warm Springs/South Fremont,0,,06_shp,1,1
+05,WKDY,1091712WKDY,Warm Springs/South Fremont,0,,06_shp,1,1
+05,WKDY,1111727WKDY,Warm Springs/South Fremont,0,,06_shp,1,1
+05,WKDY,1131742WKDY,Warm Springs/South Fremont,0,,06_shp,1,1
+05,WKDY,1151757WKDY,Warm Springs/South Fremont,0,,06_shp,1,1
+05,WKDY,1171812WKDY,Warm Springs/South Fremont,0,,06_shp,1,1
+05,WKDY,1191827WKDY,Warm Springs/South Fremont,0,,06_shp,1,1
+05,WKDY,1011842WKDY,Warm Springs/South Fremont,0,,06_shp,1,1
+05,WKDY,1031857WKDY,Warm Springs/South Fremont,0,,06_shp,1,1
+07,WKDY,4430412WKDY,Millbrae,0,,07_shp,1,1
+07,SAT,4410846SAT,Daly City,0,,07_shp,1,1
+07,WKDY,4450427WKDY,Millbrae,0,,07_shp,1,1
+07,SAT,4430906SAT,Daly City,0,,07_shp,1,1
+07,WKDY,4470442WKDY,Millbrae,0,,07_shp,1,1
+07,SAT,4450926SAT,Daly City,0,,07_shp,1,1
+07,WKDY,4490457WKDY,Millbrae,0,,07_shp,1,1
+07,SAT,4470946SAT,Daly City,0,,07_shp,1,1
+07,WKDY,4510512WKDY,Millbrae,0,,07_shp,1,1
+07,SAT,4491006SAT,Daly City,0,,07_shp,1,1
+07,WKDY,4530527WKDY,Millbrae,0,,07_shp,1,1
+07,SAT,4511026SAT,Daly City,0,,07_shp,1,1
+07,WKDY,4550542WKDY,Millbrae,0,,07_shp,1,1
+07,SAT,4531046SAT,Daly City,0,,07_shp,1,1
+07,WKDY,4570557WKDY,Millbrae,0,,07_shp,1,1
+07,SAT,4411106SAT,Daly City,0,,07_shp,1,1
+07,WKDY,4590612WKDY,Millbrae,0,,07_shp,1,1
+07,SAT,4431126SAT,Daly City,0,,07_shp,1,1
+07,WKDY,4610627WKDY,Millbrae,0,,07_shp,1,1
+07,SAT,4451146SAT,Daly City,0,,07_shp,1,1
+07,WKDY,4410642WKDY,Millbrae,0,,07_shp,1,1
+07,SAT,4471206SAT,Daly City,0,,07_shp,1,1
+07,WKDY,4430657WKDY,Millbrae,0,,07_shp,1,1
+07,SAT,4491226SAT,Daly City,0,,07_shp,1,1
+07,WKDY,4450712WKDY,Millbrae,0,,07_shp,1,1
+07,SAT,4511246SAT,Daly City,0,,07_shp,1,1
+07,WKDY,4470727WKDY,Millbrae,0,,07_shp,1,1
+07,SAT,4531306SAT,Daly City,0,,07_shp,1,1
+07,WKDY,4490742WKDY,Millbrae,0,,07_shp,1,1
+07,SAT,4411326SAT,Daly City,0,,07_shp,1,1
+07,WKDY,4510757WKDY,Millbrae,0,,07_shp,1,1
+07,SAT,4431346SAT,Daly City,0,,07_shp,1,1
+07,WKDY,4530812WKDY,Millbrae,0,,07_shp,1,1
+07,SAT,4451406SAT,Daly City,0,,07_shp,1,1
+07,WKDY,4550827WKDY,Millbrae,0,,07_shp,1,1
+07,SAT,4471426SAT,Daly City,0,,07_shp,1,1
+07,WKDY,4570842WKDY,Millbrae,0,,07_shp,1,1
+07,SAT,4491446SAT,Daly City,0,,07_shp,1,1
+07,WKDY,4590857WKDY,Millbrae,0,,07_shp,1,1
+07,SAT,4511506SAT,Daly City,0,,07_shp,1,1
+07,WKDY,4610912WKDY,Millbrae,0,,07_shp,1,1
+07,SAT,4531526SAT,Daly City,0,,07_shp,1,1
+07,WKDY,4410927WKDY,Millbrae,0,,07_shp,1,1
+07,SAT,4411546SAT,Daly City,0,,07_shp,1,1
+07,WKDY,4430942WKDY,Millbrae,0,,07_shp,1,1
+07,SAT,4431606SAT,Daly City,0,,07_shp,1,1
+07,WKDY,4450957WKDY,Millbrae,0,,07_shp,1,1
+07,SAT,4451626SAT,Daly City,0,,07_shp,1,1
+07,WKDY,4471012WKDY,Millbrae,0,,07_shp,1,1
+07,SAT,4471646SAT,Daly City,0,,07_shp,1,1
+07,WKDY,4491027WKDY,Millbrae,0,,07_shp,1,1
+07,SAT,4491706SAT,Daly City,0,,07_shp,1,1
+07,WKDY,4511042WKDY,Millbrae,0,,07_shp,1,1
+07,SAT,4511726SAT,Daly City,0,,07_shp,1,1
+07,WKDY,4531057WKDY,Millbrae,0,,07_shp,1,1
+07,SAT,4531746SAT,Daly City,0,,07_shp,1,1
+07,WKDY,4551112WKDY,Millbrae,0,,07_shp,1,1
+07,WKDY,4571127WKDY,Millbrae,0,,07_shp,1,1
+07,WKDY,4591142WKDY,Millbrae,0,,07_shp,1,1
+07,WKDY,4611157WKDY,Millbrae,0,,07_shp,1,1
+07,WKDY,4411212WKDY,Millbrae,0,,07_shp,1,1
+07,WKDY,4431227WKDY,Millbrae,0,,07_shp,1,1
+07,WKDY,4451242WKDY,Millbrae,0,,07_shp,1,1
+07,WKDY,4471257WKDY,Millbrae,0,,07_shp,1,1
+07,WKDY,4491312WKDY,Millbrae,0,,07_shp,1,1
+07,WKDY,4511327WKDY,Millbrae,0,,07_shp,1,1
+07,WKDY,4531342WKDY,Millbrae,0,,07_shp,1,1
+07,WKDY,4551357WKDY,Millbrae,0,,07_shp,1,1
+07,WKDY,4571412WKDY,Millbrae,0,,07_shp,1,1
+07,WKDY,4591427WKDY,Millbrae,0,,07_shp,1,1
+07,WKDY,4611442WKDY,Millbrae,0,,07_shp,1,1
+07,WKDY,4411457WKDY,Millbrae,0,,07_shp,1,1
+07,WKDY,4431512WKDY,Millbrae,0,,07_shp,1,1
+07,WKDY,4451527WKDY,Millbrae,0,,07_shp,1,1
+07,WKDY,4471542WKDY,Millbrae,0,,07_shp,1,1
+07,WKDY,4491557WKDY,Millbrae,0,,07_shp,1,1
+07,WKDY,4511612WKDY,Millbrae,0,,07_shp,1,1
+07,WKDY,4531626WKDY,Millbrae,0,,07_shp,1,1
+07,WKDY,4551641WKDY,Millbrae,0,,07_shp,1,1
+07,WKDY,4571656WKDY,Millbrae,0,,07_shp,1,1
+07,WKDY,4591711WKDY,Millbrae,0,,07_shp,1,1
+07,WKDY,4611726WKDY,Millbrae,0,,07_shp,1,1
+07,WKDY,4411741WKDY,Millbrae,0,,07_shp,1,1
+07,WKDY,4431757WKDY,Millbrae,0,,07_shp,1,1
+07,WKDY,4451812WKDY,Millbrae,0,,07_shp,1,1
+07,WKDY,4471827WKDY,Millbrae,0,,07_shp,1,1
+07,WKDY,4491842WKDY,Millbrae,0,,07_shp,1,1
+07,WKDY,4511857WKDY,Millbrae,0,,07_shp,1,1
+07,WKDY,4531912WKDY,Millbrae,0,,07_shp,1,1
+07,WKDY,4551942WKDY,Millbrae,0,,07_shp,1,1
+07,WKDY,4410518WKDY,Richmond,1,,08_shp,1,1
+07,SAT,4410953SAT,Richmond,1,,08_shp,1,1
+07,WKDY,4430533WKDY,Richmond,1,,08_shp,1,1
+07,SAT,4431013SAT,Richmond,1,,08_shp,1,1
+07,WKDY,4450548WKDY,Richmond,1,,08_shp,1,1
+07,SAT,4451033SAT,Richmond,1,,08_shp,1,1
+07,WKDY,4470603WKDY,Richmond,1,,08_shp,1,1
+07,SAT,4471053SAT,Richmond,1,,08_shp,1,1
+07,WKDY,4490618WKDY,Richmond,1,,08_shp,1,1
+07,SAT,4491113SAT,Richmond,1,,08_shp,1,1
+07,WKDY,4510633WKDY,Richmond,1,,08_shp,1,1
+07,SAT,4511133SAT,Richmond,1,,08_shp,1,1
+07,WKDY,4530648WKDY,Richmond,1,,08_shp,1,1
+07,SAT,4531153SAT,Richmond,1,,08_shp,1,1
+07,WKDY,4550703WKDY,Richmond,1,,08_shp,1,1
+07,SAT,4411213SAT,Richmond,1,,08_shp,1,1
+07,WKDY,4570718WKDY,Richmond,1,,08_shp,1,1
+07,SAT,4431233SAT,Richmond,1,,08_shp,1,1
+07,WKDY,4590733WKDY,Richmond,1,,08_shp,1,1
+07,SAT,4451253SAT,Richmond,1,,08_shp,1,1
+07,WKDY,4610748WKDY,Richmond,1,,08_shp,1,1
+07,SAT,4471313SAT,Richmond,1,,08_shp,1,1
+07,WKDY,4410803WKDY,Richmond,1,,08_shp,1,1
+07,SAT,4491333SAT,Richmond,1,,08_shp,1,1
+07,WKDY,4430818WKDY,Richmond,1,,08_shp,1,1
+07,SAT,4511353SAT,Richmond,1,,08_shp,1,1
+07,WKDY,4450833WKDY,Richmond,1,,08_shp,1,1
+07,SAT,4531413SAT,Richmond,1,,08_shp,1,1
+07,WKDY,4470848WKDY,Richmond,1,,08_shp,1,1
+07,SAT,4411433SAT,Richmond,1,,08_shp,1,1
+07,WKDY,4490903WKDY,Richmond,1,,08_shp,1,1
+07,SAT,4431453SAT,Richmond,1,,08_shp,1,1
+07,WKDY,4510918WKDY,Richmond,1,,08_shp,1,1
+07,SAT,4451513SAT,Richmond,1,,08_shp,1,1
+07,WKDY,4530933WKDY,Richmond,1,,08_shp,1,1
+07,SAT,4471533SAT,Richmond,1,,08_shp,1,1
+07,WKDY,4550948WKDY,Richmond,1,,08_shp,1,1
+07,SAT,4491553SAT,Richmond,1,,08_shp,1,1
+07,WKDY,4571003WKDY,Richmond,1,,08_shp,1,1
+07,SAT,4511613SAT,Richmond,1,,08_shp,1,1
+07,WKDY,4591018WKDY,Richmond,1,,08_shp,1,1
+07,SAT,4531633SAT,Richmond,1,,08_shp,1,1
+07,WKDY,4611033WKDY,Richmond,1,,08_shp,1,1
+07,SAT,4411653SAT,Richmond,1,,08_shp,1,1
+07,WKDY,4411048WKDY,Richmond,1,,08_shp,1,1
+07,SAT,4431713SAT,Richmond,1,,08_shp,1,1
+07,WKDY,4431103WKDY,Richmond,1,,08_shp,1,1
+07,SAT,4451733SAT,Richmond,1,,08_shp,1,1
+07,WKDY,4451118WKDY,Richmond,1,,08_shp,1,1
+07,SAT,4471753SAT,Richmond,1,,08_shp,1,1
+07,WKDY,4471133WKDY,Richmond,1,,08_shp,1,1
+07,SAT,4491813SAT,Richmond,1,,08_shp,1,1
+07,WKDY,4491148WKDY,Richmond,1,,08_shp,1,1
+07,SAT,4511833SAT,Richmond,1,,08_shp,1,1
+07,WKDY,4511203WKDY,Richmond,1,,08_shp,1,1
+07,SAT,4531853SAT,Richmond,1,,08_shp,1,1
+07,WKDY,4531218WKDY,Richmond,1,,08_shp,1,1
+07,WKDY,4551233WKDY,Richmond,1,,08_shp,1,1
+07,WKDY,4571248WKDY,Richmond,1,,08_shp,1,1
+07,WKDY,4591303WKDY,Richmond,1,,08_shp,1,1
+07,WKDY,4611318WKDY,Richmond,1,,08_shp,1,1
+07,WKDY,4411333WKDY,Richmond,1,,08_shp,1,1
+07,WKDY,4431348WKDY,Richmond,1,,08_shp,1,1
+07,WKDY,4451403WKDY,Richmond,1,,08_shp,1,1
+07,WKDY,4471418WKDY,Richmond,1,,08_shp,1,1
+07,WKDY,4491433WKDY,Richmond,1,,08_shp,1,1
+07,WKDY,4511448WKDY,Richmond,1,,08_shp,1,1
+07,WKDY,4531503WKDY,Richmond,1,,08_shp,1,1
+07,WKDY,4551518WKDY,Richmond,1,,08_shp,1,1
+07,WKDY,4571533WKDY,Richmond,1,,08_shp,1,1
+07,WKDY,4591548WKDY,Richmond,1,,08_shp,1,1
+07,WKDY,4611603WKDY,Richmond,1,,08_shp,1,1
+07,WKDY,4411618WKDY,Richmond,1,,08_shp,1,1
+07,WKDY,4431633WKDY,Richmond,1,,08_shp,1,1
+07,WKDY,4451648WKDY,Richmond,1,,08_shp,1,1
+07,WKDY,4471703WKDY,Richmond,1,,08_shp,1,1
+07,WKDY,4491718WKDY,Richmond,1,,08_shp,1,1
+07,WKDY,4511733WKDY,Richmond,1,,08_shp,1,1
+07,WKDY,4531748WKDY,Richmond,1,,08_shp,1,1
+07,WKDY,4551803WKDY,Richmond,1,,08_shp,1,1
+07,WKDY,4571818WKDY,Richmond,1,,08_shp,1,1
+07,WKDY,4591833WKDY,Richmond,1,,08_shp,1,1
+07,WKDY,4611848WKDY,Richmond,1,,08_shp,1,1
+07,WKDY,4411903WKDY,Richmond,1,,08_shp,1,1
+07,WKDY,4431923WKDY,Richmond,1,,08_shp,1,1
+07,WKDY,4471943WKDY,Richmond,1,,08_shp,1,1
+07,WKDY,4492003WKDY,Richmond,1,,08_shp,1,1
+07,WKDY,4512023WKDY,Richmond,1,,08_shp,1,1
+07,WKDY,4532043WKDY,Richmond,1,,08_shp,1,1
+07,WKDY,4552103WKDY,Richmond,1,,08_shp,1,1

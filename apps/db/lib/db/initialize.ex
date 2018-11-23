@@ -4,6 +4,7 @@ defmodule Db.Initialize do
   @service_file "calendar.txt"
   @route_file "routes.txt"
   @station_file "stops.txt"
+  @trip_file "trips.txt"
 
   NimbleCSV.define(MyParser, separator: ["\t", ","], new_lines: ["\r", "\r\n", "\n"])
   NimbleCSV.define(AgencyParser, separator: "\t", newlines: ["\r", "\r\n", "\n"])
@@ -123,8 +124,40 @@ defmodule Db.Initialize do
         url: stop_url
       }
     end)
-    |> Enum.map(fn param ->
+    |> Enum.each(fn param ->
       Db.Repo.insert!(struct(Db.Model.Station, param))
+    end)
+  end
+
+  def load_trip do
+    routes = Db.Repo.all(Db.Model.Route)
+    services = Db.Repo.all(Db.Model.Service)
+
+    @trip_file
+    |> file_path(@app)
+    |> File.stream!()
+    |> MyParser.parse_stream()
+    |> Stream.map(fn [
+                       route_id,
+                       service_id,
+                       <<trip_id::bytes-size(7), _::binary>>,
+                       trip_headsign,
+                       direction_id,
+                       _block_id,
+                       _shape_id,
+                       _wheelchair,
+                       _bikes
+                     ] ->
+      %{
+        code: trip_id,
+        headsign: trip_headsign,
+        direction: map_direction(direction_id),
+        route_id: Enum.find(routes, &(&1.code == route_id)).id,
+        service_id: Enum.find(services, &(&1.code == service_id)).id
+      }
+    end)
+    |> Enum.each(fn param ->
+      Db.Repo.insert!(struct(Db.Model.Trip, param))
     end)
   end
 
@@ -139,4 +172,7 @@ defmodule Db.Initialize do
       "SUN" -> "Sunday"
     end
   end
+
+  defp map_direction("0"), do: "South"
+  defp map_direction("1"), do: "North"
 end
