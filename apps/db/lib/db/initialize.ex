@@ -8,6 +8,9 @@ defmodule Db.Initialize do
   NimbleCSV.define(MyParser, separator: ["\t", ","], new_lines: ["\r", "\r\n", "\n"])
   NimbleCSV.define(AgencyParser, separator: "\t", newlines: ["\r", "\r\n", "\n"])
 
+  @doc """
+  Load all GTFS data.
+  """
   def load do
     load_agency()
     load_service()
@@ -15,6 +18,9 @@ defmodule Db.Initialize do
     load_station()
   end
 
+  @doc """
+  Load Agencies.
+  """
   def load_agency do
     @agency_file
     |> file_path(@app)
@@ -34,6 +40,9 @@ defmodule Db.Initialize do
     end)
   end
 
+  @doc """
+  Load services.
+  """
   def load_service do
     @service_file
     |> file_path(@app)
@@ -50,6 +59,9 @@ defmodule Db.Initialize do
     end)
   end
 
+  @doc """
+  Load routes.
+  """
   def load_route do
     agency = Db.Repo.get_by(Db.Model.Agency, code: "BART")
 
@@ -57,7 +69,17 @@ defmodule Db.Initialize do
     |> file_path(@app)
     |> File.stream!()
     |> MyParser.parse_stream()
-    |> Stream.map(fn [route_id, _agency_id, route_short_name, route_long_name, _route_desc, _route_type, route_url, route_color, _route_text_color] ->
+    |> Stream.map(fn [
+                       route_id,
+                       _agency_id,
+                       route_short_name,
+                       route_long_name,
+                       _route_desc,
+                       _route_type,
+                       route_url,
+                       route_color,
+                       _route_text_color
+                     ] ->
       %{
         code: route_id,
         name: route_long_name,
@@ -67,17 +89,32 @@ defmodule Db.Initialize do
         agency_id: agency.id
       }
     end)
-    |> Enum.each( fn param ->
+    |> Enum.each(fn param ->
       Db.Repo.insert!(struct(Db.Model.Route, param))
     end)
   end
 
+  @doc """
+  Load stations.
+  """
   def load_station do
     @station_file
     |> file_path(@app)
     |> File.stream!()
     |> MyParser.parse_stream()
-    |> Stream.map(fn [stop_id, stop_name, _stop_desc, stop_lat, stop_lon, _zone_id, stop_url, _loc_type, _parent_station, _stop_tz, _wheelchair] ->
+    |> Stream.map(fn [
+                       stop_id,
+                       stop_name,
+                       _stop_desc,
+                       stop_lat,
+                       stop_lon,
+                       _zone_id,
+                       stop_url,
+                       _loc_type,
+                       _parent_station,
+                       _stop_tz,
+                       _wheelchair
+                     ] ->
       %{
         code: stop_id,
         name: stop_name,
