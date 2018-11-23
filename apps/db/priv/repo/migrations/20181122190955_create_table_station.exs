@@ -5,8 +5,8 @@ defmodule Db.Repo.Migrations.CreateTableStation do
     create table("station") do
       add :code, :string
       add :name, :string
-      add :lat, :decimal
-      add :lon, :decimal
+      add :lat, :float
+      add :lon, :float
       add :url, :string
 
       timestamps()
