@@ -1,10 +1,13 @@
 defmodule Db.Initialize do
+  import Ecto.Query
+
   @app :db
   @agency_file "agency.txt"
   @service_file "calendar.txt"
   @route_file "routes.txt"
   @station_file "stops.txt"
   @trip_file "trips.txt"
+  @schedule_file "stop_times.txt"
 
   NimbleCSV.define(MyParser, separator: ["\t", ","], new_lines: ["\r", "\r\n", "\n"])
   NimbleCSV.define(AgencyParser, separator: "\t", newlines: ["\r", "\r\n", "\n"])
@@ -129,6 +132,9 @@ defmodule Db.Initialize do
     end)
   end
 
+  @doc """
+  Load trips.
+  """
   def load_trip do
     routes = Db.Repo.all(Db.Model.Route)
     services = Db.Repo.all(Db.Model.Service)
@@ -161,6 +167,46 @@ defmodule Db.Initialize do
     end)
   end
 
+  @doc """
+  Load schedules.
+  """
+  def load_schedule do
+    trips =
+      Db.Repo.all(from(t in Db.Model.Trip, join: s in assoc(t, :service), preload: [service: s]))
+
+    stations = Db.Repo.all(Db.Model.Station)
+
+    @schedule_file
+    |> file_path(@app)
+    |> File.stream!()
+    |> MyParser.parse_stream()
+    |> Stream.map(fn [
+                       <<trip_id::bytes-size(7), service_id::binary>>,
+                       arrival_time,
+                       depart_time,
+                       stop_id,
+                       stop_sequence,
+                       stop_headsign,
+                       _pickup,
+                       _dropoff,
+                       _shape,
+                       _timepoint
+                     ] ->
+      %{
+        arrival_time: Time.from_iso8601!(standardize_time(arrival_time)),
+        departure_time: Time.from_iso8601!(standardize_time(depart_time)),
+        sequence: String.to_integer(stop_sequence),
+        headsign: stop_headsign,
+        trip_id: Enum.find(trips, &(&1.code == trip_id and &1.service.code == service_id)).id,
+        station_id: Enum.find(stations, &(&1.code == stop_id)).id
+      }
+    end)
+    |> Enum.map(fn param ->
+      IO.inspect(param)
+      Db.Repo.insert!(struct(Db.Model.Schedule, param))
+    end)
+  end
+
   defp priv_dir(app), do: "#{:code.priv_dir(app)}"
 
   defp file_path(filename, app), do: Path.join([priv_dir(app), "gtfs", "bart", filename])
@@ -175,4 +221,9 @@ defmodule Db.Initialize do
 
   defp map_direction("0"), do: "South"
   defp map_direction("1"), do: "North"
+
+  def standardize_time("24" <> time), do: "00" <> time
+  def standardize_time("25" <> time), do: "01" <> time
+  def standardize_time("26" <> time), do: "02" <> time
+  def standardize_time(time), do: time
 end
