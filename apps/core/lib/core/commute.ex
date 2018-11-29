@@ -1,13 +1,7 @@
-defmodule Core.Model.Commute do
-  use Ecto.Schema
+defmodule Core.Commute do
   import Ecto.Query
 
-  @primary_key false
-  embedded_schema do
-    field(:route_code, :string)
-    field(:route_name, :string)
-    field(:direction, :string)
-  end
+  defstruct [:route_code, :route_name, :direction]
 
   @doc """
   Get route and direction based on start and end station. Excludes transfers.
