@@ -70,5 +70,22 @@ defmodule Bart.Etd do
       |> Timex.to_datetime()
       |> DateTime.to_time()
     end)
+    |> Map.update!(:station, fn stations ->
+      Enum.map(stations, &update_types/1)
+    end)
+  end
+
+  defp update_types(%Bart.Etd.Station{etd: etd} = stations) do
+    %{stations | etd: Enum.map(etd, &update_types/1)}
+  end
+  defp update_types(%Bart.Etd.Station.Etd{estimate: estimates} = etds) do
+    %{etds | estimate: Enum.map(estimates, &update_types/1)}
+  end
+  defp update_types(%Bart.Etd.Station.Etd.Estimate{} = estimate) do
+    estimate
+    |> Map.update!(:delay, &String.to_integer/1)
+    |> Map.update!(:length, &String.to_integer/1)
+    |> Map.update!(:minutes, &String.to_integer/1)
+    |> Map.update!(:platform, &String.to_integer/1)
   end
 end
