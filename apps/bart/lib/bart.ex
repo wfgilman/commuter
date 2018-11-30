@@ -2,7 +2,8 @@ defmodule Bart do
   use HTTPoison.Base
 
   def make_request(method, endpoint, params) do
-    endpoint = "#{endpoint}.aspx?" <> encode_params(params)
+    p = Map.merge(params, %{json: "y"})
+    endpoint = "#{endpoint}.aspx?" <> encode_params(p)
     request(method, endpoint)
   end
 
