@@ -1,6 +1,10 @@
 defmodule Bart do
   use HTTPoison.Base
 
+  @doc """
+  Makes HTTP Request to Bart API
+  """
+  @spec make_request(atom, String.t, map) :: {:ok, HTTPoison.Response.t} | {:error, HTTPoison.Error.t}
   def make_request(method, endpoint, params) do
     p = Map.merge(params, %{json: "y"})
     endpoint = "#{endpoint}.aspx?" <> encode_params(p)
@@ -15,7 +19,7 @@ defmodule Bart do
     Poison.Parser.parse!(body)
   end
 
-  def encode_params(params) do
+  defp encode_params(params) do
     params
     |> Map.merge(%{key: Application.get_env(:bart, :api_key)})
     |> Map.to_list()
