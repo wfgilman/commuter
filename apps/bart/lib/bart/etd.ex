@@ -78,14 +78,25 @@ defmodule Bart.Etd do
   defp update_types(%Bart.Etd.Station{etd: etd} = stations) do
     %{stations | etd: Enum.map(etd, &update_types/1)}
   end
-  defp update_types(%Bart.Etd.Station.Etd{estimate: estimates} = etds) do
-    %{etds | estimate: Enum.map(estimates, &update_types/1)}
+
+  defp update_types(%Bart.Etd.Station.Etd{} = etd) do
+    etd
+    |> Map.update!(:limited, &String.to_integer/1)
+    |> Map.update!(:estimate, fn estimates ->
+      Enum.map(estimates, &update_types/1)
+    end)
   end
+
   defp update_types(%Bart.Etd.Station.Etd.Estimate{} = estimate) do
     estimate
     |> Map.update!(:delay, &String.to_integer/1)
     |> Map.update!(:length, &String.to_integer/1)
-    |> Map.update!(:minutes, &String.to_integer/1)
+    |> Map.update!(:minutes, fn minutes ->
+      case minutes do
+        "Leaving" -> 0
+        _ -> String.to_integer(minutes)
+      end
+    end)
     |> Map.update!(:platform, &String.to_integer/1)
   end
 end
