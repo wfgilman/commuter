@@ -3,7 +3,7 @@ defmodule Db.Model.Station do
 
   schema "station" do
     field(:code, :string)
-    field(:name, :string)
+    field(:name, Db.StationName)
     field(:lat, :float)
     field(:lon, :float)
     field(:url, :string)
