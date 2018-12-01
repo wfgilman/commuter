@@ -3,15 +3,22 @@ defmodule Core.Commute do
 
   defstruct [:route_code, :route_name, :direction]
 
+  @type t :: %__MODULE__{
+          route_code: String.t(),
+          route_name: String.t(),
+          direction: String.t()
+        }
+
   @doc """
   Get route and direction based on start and end station. Excludes transfers.
   """
-  def get(start_station, end_station) do
+  @spec get(String.t(), String.t()) :: [Core.Commute.t()]
+  def get(orig_station, dest_station) do
     from(t in Db.Model.Trip,
       join: r in assoc(t, :route),
-      join: ss in subquery(trips_through_station(start_station)),
+      join: ss in subquery(trips_through_station(orig_station)),
       on: ss.trip_id == t.id,
-      join: es in subquery(trips_through_station(end_station)),
+      join: es in subquery(trips_through_station(dest_station)),
       on: es.trip_id == t.id,
       where: ss.sequence < es.sequence,
       distinct: true,

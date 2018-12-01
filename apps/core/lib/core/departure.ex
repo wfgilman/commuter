@@ -1,81 +1,98 @@
 defmodule Core.Departure do
-  import Ecto.Query
-
   defstruct [
+    :std,
     :etd,
     :etd_min,
-    :delay_min,
     :eta,
+    :delay_min,
     :duration_min,
     :stops,
     :prior_stops,
+    :orig_code,
+    :orig_name,
     :dest_code,
     :dest_name,
-    :headsign
+    :headsign,
+    :length
   ]
 
-  def get(start_station, end_station, direction) do
-    from(s in Db.Model.Schedule,
-      join: st in assoc(s, :station),
-      join: tts in subquery(trips_through_station(start_station, direction)),
-      on: s.trip_id == tts.trip_id,
-      where: st.code in [^start_station, ^end_station],
-      select: %{
-        etd: over(min(s.departure_time), :trip),
-        eta: over(max(s.arrival_time), :trip),
-        first_stop_seq: over(min(s.sequence), :trip),
-        last_stop_seq: over(max(s.sequence), :trip),
-        start_station_code: over(min(st.code), :trip),
-        start_station_name: over(min(st.name), :trip),
-        end_station_code: over(max(st.code), :trip),
-        end_station_name: over(max(st.name), :trip),
-        headsign: s.headsign
-      },
-      windows: [trip: [partition_by: s.trip_id, order_by: s.sequence]]
-    )
-    |> Db.Repo.all()
-    |> Stream.reject(&(&1.first_stop_seq == &1.last_stop_seq))
-    |> Stream.map(fn depart ->
-      %{
-        etd: depart.etd,
-        etd_min: round(Time.diff(depart.etd, current_time()) / 60),
-        eta: depart.eta,
-        duration_min: round(Time.diff(depart.eta, depart.etd) / 60),
-        stops: depart.last_stop_seq - depart.first_stop_seq,
-        prior_stops: depart.first_stop_seq - 1,
-        dest_code: depart.end_station_code,
-        dest_name: depart.end_station_name,
-        headsign: depart.headsign
-      }
+  @type t :: %__MODULE__{
+          std: Time.t(),
+          etd: Time.t(),
+          etd_min: integer,
+          eta: Time.t(),
+          delay_min: integer,
+          duration_min: integer,
+          stops: integer,
+          prior_stops: integer,
+          orig_code: String.t(),
+          orig_name: String.t(),
+          dest_code: String.t(),
+          dest_name: String.t(),
+          headsign: String.t(),
+          length: integer
+        }
+
+  @doc """
+  Get scheduled departues adjusted for real-time estimates.
+  """
+  @spec get(String.t(), String.t(), String.t(), integer) :: [Core.Estimate.t()]
+  def get(orig_station, dest_station, direction, count \\ 10) do
+    rtd = Bart.Etd.get(orig_station, direction)
+    sch = Core.Schedule.get(orig_station, dest_station, direction, count)
+    combine(rtd, sch)
+  end
+
+  defp combine(rtd, sch) do
+    estimates = estimates_from_rtd(rtd)
+
+    sch
+    |> Enum.map(fn sched ->
+      case Enum.find(estimates, &fuzzy_match(sched.etd, &1.etd_sch)) do
+        nil ->
+          sched
+          |> Map.put(:std, sched.etd)
+          |> Map.put(:delay_min, 0)
+
+        est ->
+          sched
+          |> Map.put(:std, est.etd_sch)
+          |> Map.put(:etd, Time.truncate(est.etd_rt, :second))
+          |> Map.put(:etd_min, est.minutes)
+          |> Map.put(:delay_min, round(est.delay / 60))
+          |> Map.put(:eta, Time.truncate(Time.add(est.etd_rt, sched.duration_min * 60), :second))
+          |> Map.put(:length, est.length)
+      end
     end)
-    |> Enum.map(&struct(__MODULE__, &1))
+    |> Enum.map(fn s ->
+      struct(__MODULE__, Map.from_struct(s))
+    end)
   end
 
-  defp trips_through_station(station, direction) do
-    from(s in Db.Model.Schedule,
-      join: st in assoc(s, :station),
-      join: t in assoc(s, :trip),
-      join: svc in assoc(t, :service),
-      where: st.code == ^station and t.direction == ^direction and svc.code == ^current_service(),
-      where: s.departure_time > ^current_time(-10),
-      select: %{trip_id: s.trip_id}
+  defp estimates_from_rtd(%Bart.Etd{time: time} = rtd) do
+    t = nearest_minute(time)
+
+    rtd
+    |> Map.get(:station)
+    |> Enum.map(&Map.get(&1, :etd))
+    |> List.flatten()
+    |> Enum.map(&Map.get(&1, :estimate))
+    |> List.flatten()
+    |> Enum.map(&Map.put(&1, :etd_rt, Time.add(t, &1.minutes * 60, :second)))
+    |> Enum.map(
+      &Map.put(&1, :etd_sch, nearest_minute(Time.add(t, &1.minutes * 60 - &1.delay, :second)))
     )
+    |> Enum.sort_by(&Time.to_erl(&1.etd_sch), &<=/2)
   end
 
-  defp current_service do
-    NaiveDateTime.utc_now()
-    |> NaiveDateTime.add(-28_800, :second)
-    |> NaiveDateTime.to_date()
-    |> Date.day_of_week()
-    |> case do
-      6 -> "SAT"
-      7 -> "SUN"
-      _ -> "WKDY"
-    end
+  defp nearest_minute(time) do
+    {h, m, _} = Time.to_erl(time)
+    {:ok, t} = Time.new(h, m, 0)
+    t
   end
 
-  defp current_time(offset_min \\ 0) do
-    Time.utc_now()
-    |> Time.add(-28_800 + offset_min * 60, :second)
+  defp fuzzy_match(sch_etd, rtd_etd) do
+    diff = Time.diff(sch_etd, rtd_etd, :second)
+    abs(diff) <= 60
   end
 end

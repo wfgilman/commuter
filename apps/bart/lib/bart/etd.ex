@@ -46,12 +46,12 @@ defmodule Bart.Etd do
   @doc """
   Get Real-time station departures.
   """
-  @spec get(String.t, String.t) :: Bart.Etd.t
+  @spec get(String.t(), String.t()) :: Bart.Etd.t()
   def get(station_code, direction) do
     params = %{
       cmd: "etd",
       orig: station_code,
-      dir: direction_to_param(direction),
+      dir: direction_to_param(direction)
     }
 
     :get
