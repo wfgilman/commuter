@@ -32,15 +32,18 @@ defmodule Core.Schedule do
         }
 
   @doc """
-  Gets schedule of all trips between two stations; must provide direction.
+  Gets schedule of all trips between two stations.
   """
-  @spec get(String.t(), String.t(), String.t(), integer) :: [Core.Schedule.t()]
-  def get(orig_station, dest_station, direction, count) do
+  @spec get(String.t(), String.t(), integer) :: [Core.Schedule.t()]
+  def get(orig_station, dest_station, count) do
     from(s in Db.Model.Schedule,
       join: st in assoc(s, :station),
-      join: tts in subquery(trips_through_station(orig_station, direction)),
-      on: s.trip_id == tts.trip_id,
+      join: os in subquery(trips_through_station(orig_station)),
+      on: s.trip_id == os.trip_id,
+      join: ds in subquery(trips_through_station(dest_station)),
+      on: s.trip_id == ds.trip_id,
       where: st.code in [^orig_station, ^dest_station],
+      where: os.sequence < ds.sequence,
       select: %{
         etd: over(min(s.departure_time), :trip),
         eta: over(max(s.arrival_time), :trip),
@@ -50,10 +53,11 @@ defmodule Core.Schedule do
         orig_station_name: over(min(st.name), :trip),
         dest_station_code: over(max(st.code), :trip),
         dest_station_name: over(max(st.name), :trip),
-        final_dest_station_code: tts.final_dest_code,
+        final_dest_station_code: os.final_dest_code,
         headsign: s.headsign
       },
-      windows: [trip: [partition_by: s.trip_id, order_by: s.sequence]]
+      windows: [trip: [partition_by: s.trip_id, order_by: s.sequence]],
+      order_by: s.departure_time
     )
     |> Db.Repo.all()
     |> Stream.reject(&(&1.first_stop_seq == &1.last_stop_seq))
@@ -77,16 +81,21 @@ defmodule Core.Schedule do
     |> Enum.map(&struct(__MODULE__, &1))
   end
 
-  defp trips_through_station(station, direction) do
+  defp trips_through_station(station) do
     from(s in Db.Model.Schedule,
       join: st in assoc(s, :station),
       join: t in assoc(s, :trip),
       join: svc in assoc(t, :service),
       join: tls in assoc(t, :trip_last_station),
       join: fst in assoc(tls, :station),
-      where: st.code == ^station and t.direction == ^direction and svc.code == ^current_service(),
+      where: st.code == ^station,
+      where: svc.code == ^current_service(),
       where: s.departure_time > ^current_time(-10),
-      select: %{trip_id: s.trip_id, final_dest_code: fst.code}
+      select: %{
+        trip_id: s.trip_id,
+        sequence: s.sequence,
+        final_dest_code: fst.code
+      }
     )
   end
 

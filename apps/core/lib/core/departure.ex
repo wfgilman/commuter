@@ -38,10 +38,10 @@ defmodule Core.Departure do
   @doc """
   Get scheduled departues adjusted for real-time estimates.
   """
-  @spec get(String.t(), String.t(), String.t(), integer) :: [Core.Estimate.t()]
-  def get(orig_station, dest_station, direction, count \\ 10) do
-    rtd = Bart.Etd.get(orig_station, direction)
-    sch = Core.Schedule.get(orig_station, dest_station, direction, count)
+  @spec get(String.t(), String.t(), integer) :: [Core.Estimate.t()]
+  def get(orig_station, dest_station, count \\ 10) do
+    rtd = Bart.Etd.get(orig_station)
+    sch = Core.Schedule.get(orig_station, dest_station, count)
     combine(rtd, sch)
   end
 
