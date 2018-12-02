@@ -46,8 +46,8 @@ defmodule Bart.Etd do
   @doc """
   Get Real-time station departures.
   """
-  @spec get(String.t(), String.t()) :: Bart.Etd.t()
-  def get(station_code, direction) do
+  @spec get(String.t(), String.t() | nil) :: Bart.Etd.t()
+  def get(station_code, direction \\ nil) do
     params = %{
       cmd: "etd",
       orig: station_code,
@@ -61,6 +61,7 @@ defmodule Bart.Etd do
 
   defp direction_to_param("North"), do: "n"
   defp direction_to_param("South"), do: "s"
+  defp direction_to_param(nil), do: nil
 
   defp handle_resp({:ok, %{body: %{"root" => root}, status_code: 200}}) do
     Poison.Decode.decode(root,

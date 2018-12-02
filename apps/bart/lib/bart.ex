@@ -7,7 +7,13 @@ defmodule Bart do
   @spec make_request(atom, String.t(), map) ::
           {:ok, HTTPoison.Response.t()} | {:error, HTTPoison.Error.t()}
   def make_request(method, endpoint, params) do
-    p = Map.merge(params, %{json: "y"})
+    p =
+      params
+      |> Map.merge(%{json: "y"})
+      |> Map.to_list()
+      |> Enum.reject(fn {_k, v} -> is_nil(v) end)
+      |> Enum.into(%{})
+
     endpoint = "#{endpoint}.aspx?" <> encode_params(p)
     request(method, endpoint)
   end
