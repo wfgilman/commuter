@@ -74,21 +74,21 @@ defmodule Core.Departure do
     end)
   end
 
-  def flatten(%Bart.Etd{time: time} = rtd) do
+  defp flatten(%Bart.Etd{time: time} = rtd) do
     rtd.station
     |> Enum.map(&flatten(&1, nearest_minute(time)))
     |> List.flatten()
   end
 
-  def flatten(%Bart.Etd.Station{} = station, time) do
+  defp flatten(%Bart.Etd.Station{} = station, time) do
     Enum.map(station.etd, &flatten(&1, time))
   end
 
-  def flatten(%Bart.Etd.Station.Etd{abbreviation: dest_code} = etd, time) do
+  defp flatten(%Bart.Etd.Station.Etd{abbreviation: dest_code} = etd, time) do
     Enum.map(etd.estimate, &flatten(&1, time, dest_code))
   end
 
-  def flatten(%Bart.Etd.Station.Etd.Estimate{} = est, time, dest_code) do
+  defp flatten(%Bart.Etd.Station.Etd.Estimate{} = est, time, dest_code) do
     est
     |> Map.put(:etd_rt, Time.add(time, est.minutes * 60, :second))
     |> Map.put(:etd_sch, nearest_minute(Time.add(time, est.minutes * 60 - est.delay, :second)))
