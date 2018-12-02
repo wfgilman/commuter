@@ -17,6 +17,13 @@ defmodule ApiWeb.DepartureController do
     end
   end
 
-  defp to_int(nil), do: nil
+  def index(conn, _params) do
+    conn
+    |> put_status(400)
+    |> put_view(ApiWeb.ErrorView)
+    |> render("query_params.json")
+  end
+
+  defp to_int(nil), do: 10
   defp to_int(val), do: String.to_integer(val)
 end
