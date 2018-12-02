@@ -13,6 +13,7 @@ defmodule Core.Departure do
     :dest_code,
     :dest_name,
     :headsign,
+    :final_dest_code,
     :length
   ]
 
@@ -30,6 +31,7 @@ defmodule Core.Departure do
           dest_code: String.t(),
           dest_name: String.t(),
           headsign: String.t(),
+          final_dest_code: String.t(),
           length: integer
         }
 
@@ -44,15 +46,17 @@ defmodule Core.Departure do
   end
 
   defp combine(rtd, sch) do
-    estimates = estimates_from_rtd(rtd)
-
     sch
     |> Enum.map(fn sched ->
-      case Enum.find(estimates, &fuzzy_match(sched.etd, &1.etd_sch)) do
+      case find_matching_estimate(sched, flatten(rtd)) do
         nil ->
           sched
           |> Map.put(:std, sched.etd)
           |> Map.put(:delay_min, 0)
+          |> Map.put(
+            :etd_min,
+            if(next_day(sched.etd), do: sched.etd_min + 1_440, else: sched.etd_min)
+          )
 
         est ->
           sched
@@ -64,25 +68,31 @@ defmodule Core.Departure do
           |> Map.put(:length, est.length)
       end
     end)
+    |> Enum.sort_by(&{next_day(&1.etd), Time.to_erl(&1.etd)}, &<=/2)
     |> Enum.map(fn s ->
       struct(__MODULE__, Map.from_struct(s))
     end)
   end
 
-  defp estimates_from_rtd(%Bart.Etd{time: time} = rtd) do
-    t = nearest_minute(time)
+  def flatten(%Bart.Etd{time: time} = rtd) do
+    rtd.station
+    |> Enum.map(&flatten(&1, nearest_minute(time)))
+    |> List.flatten()
+  end
 
-    rtd
-    |> Map.get(:station)
-    |> Enum.map(&Map.get(&1, :etd))
-    |> List.flatten()
-    |> Enum.map(&Map.get(&1, :estimate))
-    |> List.flatten()
-    |> Enum.map(&Map.put(&1, :etd_rt, Time.add(t, &1.minutes * 60, :second)))
-    |> Enum.map(
-      &Map.put(&1, :etd_sch, nearest_minute(Time.add(t, &1.minutes * 60 - &1.delay, :second)))
-    )
-    |> Enum.sort_by(&Time.to_erl(&1.etd_sch), &<=/2)
+  def flatten(%Bart.Etd.Station{} = station, time) do
+    Enum.map(station.etd, &flatten(&1, time))
+  end
+
+  def flatten(%Bart.Etd.Station.Etd{abbreviation: dest_code} = etd, time) do
+    Enum.map(etd.estimate, &flatten(&1, time, dest_code))
+  end
+
+  def flatten(%Bart.Etd.Station.Etd.Estimate{} = est, time, dest_code) do
+    est
+    |> Map.put(:etd_rt, Time.add(time, est.minutes * 60, :second))
+    |> Map.put(:etd_sch, nearest_minute(Time.add(time, est.minutes * 60 - est.delay, :second)))
+    |> Map.put(:dest_code, dest_code)
   end
 
   defp nearest_minute(time) do
@@ -91,8 +101,20 @@ defmodule Core.Departure do
     t
   end
 
-  defp fuzzy_match(sch_etd, rtd_etd) do
+  defp find_matching_estimate(schedule, estimates) do
+    Enum.find(estimates, fn estimate ->
+      fuzzy_match_time(schedule.etd, estimate.etd_sch) and
+        schedule.final_dest_code == estimate.dest_code
+    end)
+  end
+
+  defp fuzzy_match_time(sch_etd, rtd_etd) do
     diff = Time.diff(sch_etd, rtd_etd, :second)
     abs(diff) <= 60
+  end
+
+  defp next_day(time) do
+    {:ok, t} = Time.new(4, 0, 0)
+    :lt == Time.compare(time, t)
   end
 end

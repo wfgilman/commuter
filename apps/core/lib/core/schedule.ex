@@ -12,6 +12,7 @@ defmodule Core.Schedule do
     :dest_name,
     :orig_code,
     :orig_name,
+    :final_dest_code,
     :headsign
   ]
 
@@ -26,6 +27,7 @@ defmodule Core.Schedule do
           dest_name: String.t(),
           orig_code: String.t(),
           orig_name: String.t(),
+          final_dest_code: String.t(),
           headsign: String.t()
         }
 
@@ -48,6 +50,7 @@ defmodule Core.Schedule do
         orig_station_name: over(min(st.name), :trip),
         dest_station_code: over(max(st.code), :trip),
         dest_station_name: over(max(st.name), :trip),
+        final_dest_station_code: tts.final_dest_code,
         headsign: s.headsign
       },
       windows: [trip: [partition_by: s.trip_id, order_by: s.sequence]]
@@ -66,6 +69,7 @@ defmodule Core.Schedule do
         dest_name: depart.dest_station_name,
         orig_code: depart.orig_station_code,
         orig_name: depart.orig_station_name,
+        final_dest_code: depart.final_dest_station_code,
         headsign: depart.headsign
       }
     end)
@@ -78,9 +82,11 @@ defmodule Core.Schedule do
       join: st in assoc(s, :station),
       join: t in assoc(s, :trip),
       join: svc in assoc(t, :service),
+      join: tls in assoc(t, :trip_last_station),
+      join: fst in assoc(tls, :station),
       where: st.code == ^station and t.direction == ^direction and svc.code == ^current_service(),
       where: s.departure_time > ^current_time(-10),
-      select: %{trip_id: s.trip_id}
+      select: %{trip_id: s.trip_id, final_dest_code: fst.code}
     )
   end
 
