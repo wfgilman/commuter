@@ -1,17 +1,34 @@
 defmodule ApiWeb.DepartureView do
   use ApiWeb, :view
 
-  def render("index.json", %{data: departures}) do
+  def render("index.json", %{data: [%Core.Departure{} = d | _] = departs}) do
     %{
       orig: %{
-        code: Enum.at(departures, 0).orig_code,
-        name: Enum.at(departures, 0).orig_name
+        code: d.orig_code,
+        name: d.orig_name
       },
       dest: %{
-        code: Enum.at(departures, 0).dest_code,
-        name: Enum.at(departures, 0).dest_name
+        code: d.dest_code,
+        name: d.dest_name
       },
-      departures: Enum.map(departures, &depart_json/1)
+      departures: Enum.map(departs, &depart_json/1)
+    }
+  end
+
+  def render("index.json", %{data: stations, orig: orig, dest: dest}) do
+    orig = Enum.find(stations, &(&1.code == orig))
+    dest = Enum.find(stations, &(&1.code == dest))
+
+    %{
+      orig: %{
+        code: orig.code,
+        name: orig.name
+      },
+      dest: %{
+        code: dest.code,
+        name: dest.name
+      },
+      departures: []
     }
   end
 
