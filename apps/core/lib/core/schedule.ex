@@ -2,6 +2,7 @@ defmodule Core.Schedule do
   import Ecto.Query
 
   defstruct [
+    :trip_id,
     :etd,
     :etd_min,
     :eta,
@@ -17,6 +18,7 @@ defmodule Core.Schedule do
   ]
 
   @type t :: %__MODULE__{
+          trip_id: integer,
           etd: Time.t(),
           etd_min: integer,
           eta: Time.t(),
@@ -45,6 +47,7 @@ defmodule Core.Schedule do
       where: st.code in [^orig_station, ^dest_station],
       where: os.sequence < ds.sequence,
       select: %{
+        trip_id: s.trip_id,
         etd: over(min(s.departure_time), :trip),
         eta: over(max(s.arrival_time), :trip),
         first_stop_seq: over(min(s.sequence), :trip),
@@ -63,6 +66,7 @@ defmodule Core.Schedule do
     |> Stream.reject(&(&1.first_stop_seq == &1.last_stop_seq))
     |> Stream.map(fn depart ->
       %{
+        trip_id: depart.trip_id,
         etd: depart.etd,
         etd_min: round(Time.diff(depart.etd, current_time()) / 60),
         eta: depart.eta,

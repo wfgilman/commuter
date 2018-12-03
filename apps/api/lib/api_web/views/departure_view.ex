@@ -34,6 +34,7 @@ defmodule ApiWeb.DepartureView do
 
   defp depart_json(departure) do
     Map.take(departure, [
+      :trip_id,
       :etd,
       :etd_min,
       :std,

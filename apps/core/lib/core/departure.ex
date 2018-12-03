@@ -14,7 +14,8 @@ defmodule Core.Departure do
     :dest_name,
     :headsign,
     :final_dest_code,
-    :length
+    :length,
+    :trip_id
   ]
 
   @type t :: %__MODULE__{
@@ -32,7 +33,8 @@ defmodule Core.Departure do
           dest_name: String.t(),
           headsign: String.t(),
           final_dest_code: String.t(),
-          length: integer
+          length: integer,
+          trip_id: integer
         }
 
   @doc """
