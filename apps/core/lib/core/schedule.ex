@@ -14,7 +14,8 @@ defmodule Core.Schedule do
     :orig_code,
     :orig_name,
     :final_dest_code,
-    :headsign
+    :headsign,
+    :route_hex_color
   ]
 
   @type t :: %__MODULE__{
@@ -30,7 +31,8 @@ defmodule Core.Schedule do
           orig_code: String.t(),
           orig_name: String.t(),
           final_dest_code: String.t(),
-          headsign: String.t()
+          headsign: String.t(),
+          route_hex_color: String.t()
         }
 
   @doc """
@@ -57,7 +59,8 @@ defmodule Core.Schedule do
         dest_station_code: over(max(st.code), :trip),
         dest_station_name: over(max(st.name), :trip),
         final_dest_station_code: os.final_dest_code,
-        headsign: s.headsign
+        headsign: s.headsign,
+        route_hex_color: os.route_hex_color
       },
       windows: [trip: [partition_by: s.trip_id, order_by: s.sequence]],
       order_by: s.departure_time
@@ -78,7 +81,8 @@ defmodule Core.Schedule do
         orig_code: depart.orig_station_code,
         orig_name: depart.orig_station_name,
         final_dest_code: depart.final_dest_station_code,
-        headsign: depart.headsign
+        headsign: depart.headsign,
+        route_hex_color: depart.route_hex_color
       }
     end)
     |> Stream.take(count)
@@ -89,16 +93,18 @@ defmodule Core.Schedule do
     from(s in Db.Model.Schedule,
       join: st in assoc(s, :station),
       join: t in assoc(s, :trip),
+      join: r in assoc(t, :route),
       join: svc in assoc(t, :service),
       join: tls in assoc(t, :trip_last_station),
       join: fst in assoc(tls, :station),
       where: st.code == ^station,
       where: svc.code == ^current_service(),
-      where: s.departure_time > ^current_time(-10),
+      where: s.departure_time > ^current_time(),
       select: %{
         trip_id: s.trip_id,
         sequence: s.sequence,
-        final_dest_code: fst.code
+        final_dest_code: fst.code,
+        route_hex_color: r.color_hex_code
       }
     )
   end
