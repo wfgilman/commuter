@@ -44,8 +44,9 @@ defmodule Core.Departure do
   """
   @spec get(String.t(), String.t(), integer) :: [Core.Estimate.t()]
   def get(orig_station, dest_station, count) do
-    rtd = Bart.Etd.get(orig_station)
+    task = Task.async(fn -> Bart.Etd.get(orig_station) end)
     sch = Core.Schedule.get(orig_station, dest_station, count)
+    rtd = Task.await(task, 3_000)
     combine(rtd, sch)
   end
 
@@ -77,6 +78,9 @@ defmodule Core.Departure do
       struct(__MODULE__, Map.from_struct(s))
     end)
   end
+
+  # No response from BART API.
+  defp flatten(%Bart.Etd{time: nil}), do: []
 
   defp flatten(%Bart.Etd{time: time} = rtd) do
     rtd.station
