@@ -46,7 +46,16 @@ defmodule Core.Departure do
   def get(orig_station, dest_station, count) do
     task = Task.async(fn -> Bart.Etd.get(orig_station) end)
     sch = Core.Schedule.get(orig_station, dest_station, count)
-    rtd = Task.await(task, 3_000)
+
+    rtd =
+      case Task.yield(task, 3_000) || Task.shutdown(task) do
+        {:ok, reply} ->
+          reply
+
+        nil ->
+          nil
+      end
+
     combine(rtd, sch)
   end
 
@@ -80,7 +89,7 @@ defmodule Core.Departure do
   end
 
   # No response from BART API.
-  defp flatten(%Bart.Etd{time: nil}), do: []
+  defp flatten(nil), do: []
 
   defp flatten(%Bart.Etd{time: time} = rtd) do
     rtd.station
