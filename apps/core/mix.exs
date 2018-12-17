@@ -26,7 +26,8 @@ defmodule Core.MixProject do
   defp deps do
     [
       {:db, in_umbrella: true},
-      {:bart, in_umbrella: true}
+      {:bart, in_umbrella: true},
+      {:distillery, "~> 2.0", runtime: false}
     ]
   end
 end
