@@ -20,6 +20,8 @@ defmodule Db.Initialize do
     load_service()
     load_route()
     load_station()
+    load_trip()
+    load_schedule()
   end
 
   @doc """
@@ -40,7 +42,7 @@ defmodule Db.Initialize do
       }
     end)
     |> Enum.map(fn param ->
-      Db.Repo.insert!(struct(Db.Model.Agency, param))
+      Db.Repo.insert!(struct(Db.Model.Agency, param), on_conflict: :nothing)
     end)
   end
 
@@ -59,7 +61,7 @@ defmodule Db.Initialize do
       }
     end)
     |> Enum.each(fn param ->
-      Db.Repo.insert!(struct(Db.Model.Service, param))
+      Db.Repo.insert!(struct(Db.Model.Service, param), on_conflict: :nothing)
     end)
   end
 
@@ -94,7 +96,7 @@ defmodule Db.Initialize do
       }
     end)
     |> Enum.each(fn param ->
-      Db.Repo.insert!(struct(Db.Model.Route, param))
+      Db.Repo.insert!(struct(Db.Model.Route, param), on_conflict: :nothing)
     end)
   end
 
@@ -128,7 +130,7 @@ defmodule Db.Initialize do
       }
     end)
     |> Enum.each(fn param ->
-      Db.Repo.insert!(struct(Db.Model.Station, param))
+      Db.Repo.insert!(struct(Db.Model.Station, param), on_conflict: :nothing)
     end)
   end
 
@@ -163,7 +165,7 @@ defmodule Db.Initialize do
       }
     end)
     |> Enum.each(fn param ->
-      Db.Repo.insert!(struct(Db.Model.Trip, param))
+      Db.Repo.insert!(struct(Db.Model.Trip, param), on_conflict: :nothing)
     end)
   end
 
@@ -203,7 +205,7 @@ defmodule Db.Initialize do
     end)
     |> Enum.map(fn param ->
       IO.inspect(param)
-      Db.Repo.insert!(struct(Db.Model.Schedule, param))
+      Db.Repo.insert!(struct(Db.Model.Schedule, param), on_conflict: :nothing)
     end)
   end
 
