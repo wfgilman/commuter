@@ -167,6 +167,8 @@ defmodule Db.Initialize do
     |> Enum.each(fn param ->
       Db.Repo.insert!(struct(Db.Model.Trip, param), on_conflict: :nothing)
     end)
+
+    Ecto.Adapters.SQL.query!(Db.Repo, "REFRESH MATERIALIZED VIEW trip_last_station")
   end
 
   @doc """
@@ -203,8 +205,7 @@ defmodule Db.Initialize do
         station_id: Enum.find(stations, &(&1.code == stop_id)).id
       }
     end)
-    |> Enum.map(fn param ->
-      IO.inspect(param)
+    |> Enum.each(fn param ->
       Db.Repo.insert!(struct(Db.Model.Schedule, param), on_conflict: :nothing)
     end)
   end
