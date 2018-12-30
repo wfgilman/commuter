@@ -18,4 +18,13 @@ defmodule ApiWeb.NotificationController do
         |> render("changeset.json", data: changeset)
     end
   end
+
+  def index(conn, %{"device_id" => device_id, "orig" => orig}) do
+    notifs = Core.Notification.get(device_id, orig)
+
+    conn
+    |> put_status(200)
+    |> put_view(ApiWeb.NotificationView)
+    |> render("index.json", data: notifs)
+  end
 end

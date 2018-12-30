@@ -8,6 +8,7 @@ defmodule Db.Model.Trip do
     belongs_to(:route, Db.Model.Route)
     belongs_to(:service, Db.Model.Service)
     has_one(:trip_last_station, Db.Model.TripLastStation)
+    has_many(:trip_notification, Db.Model.TripNotification)
     timestamps()
   end
 end

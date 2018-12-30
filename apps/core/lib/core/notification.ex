@@ -48,4 +48,26 @@ defmodule Core.Notification do
     )
     |> Db.Repo.all()
   end
+
+  @doc """
+  Get all trip info associated with a device.
+  """
+  @spec get(String.t(), String.t()) :: [map]
+  def get(device_id, orig_station_code) do
+    from(s in Db.Model.Schedule,
+      join: st in assoc(s, :station),
+      join: t in assoc(s, :trip),
+      join: tn in assoc(t, :trip_notification),
+      join: svc in assoc(t, :service),
+      where: tn.device_id == ^device_id,
+      where: st.code == ^orig_station_code,
+      select: %{
+        trip_id: t.id,
+        orig_station_code: st.code,
+        departure_time: s.departure_time,
+        service_name: svc.name
+      }
+    )
+    |> Db.Repo.all()
+  end
 end
