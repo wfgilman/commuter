@@ -2,7 +2,7 @@ defmodule ApiWeb.DepartureController do
   use ApiWeb, :controller
 
   def index(conn, %{"orig" => orig, "dest" => dest} = params) do
-    case Core.Departure.get(orig, dest, to_int(params["count"])) do
+    case Core.Departure.get(orig, dest, to_int(params["count"]), params["device_id"]) do
       [] ->
         conn
         |> put_status(200)

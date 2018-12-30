@@ -46,7 +46,8 @@ defmodule ApiWeb.DepartureView do
       :headsign,
       :stops,
       :prior_stops,
-      :route_hex_color
+      :route_hex_color,
+      :notify
     ])
   end
 end
