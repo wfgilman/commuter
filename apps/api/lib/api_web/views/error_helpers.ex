@@ -30,4 +30,30 @@ defmodule ApiWeb.ErrorHelpers do
       Gettext.dgettext(ApiWeb.Gettext, "errors", msg, opts)
     end
   end
+
+  def error_string_from_changeset(changeset) do
+    changeset
+    |> merge_nested_errors()
+    |> Enum.map(fn {k, v} -> "#{Phoenix.Naming.humanize(k)} #{translate_error(v)}" end)
+    |> Enum.join(". ")
+    |> Kernel.<>(".")
+  end
+
+  defp merge_nested_errors(%Ecto.Changeset{changes: changes} = changeset) do
+    changes
+    |> Map.to_list()
+    |> Enum.map(fn
+      {_k, %Ecto.Changeset{errors: errors}} ->
+        errors
+
+      {_k, [%Ecto.Changeset{errors: errors}]} ->
+        errors
+
+      _ ->
+        nil
+    end)
+    |> Enum.reject(&is_nil/1)
+    |> List.flatten()
+    |> Kernel.++(changeset.errors)
+  end
 end

@@ -22,6 +22,13 @@ defmodule ApiWeb.ErrorView do
     }
   end
 
+  def render("changeset.json", %{data: %Ecto.Changeset{} = changeset}) do
+    %{
+      code: "validation_error",
+      message: ApiWeb.ErrorHelpers.error_string_from_changeset(changeset)
+    }
+  end
+
   def template_not_found(template, _assigns) do
     %{
       code: "template_not_found",

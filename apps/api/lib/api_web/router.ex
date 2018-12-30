@@ -10,5 +10,6 @@ defmodule ApiWeb.Router do
 
     get "/stations", StationController, :index
     get "/departures", DepartureController, :index
+    post "/notifications", NotificationController, :create
   end
 end
