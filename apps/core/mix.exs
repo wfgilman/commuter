@@ -25,6 +25,7 @@ defmodule Core.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
+      {:ecto, "~> 3.0"},
       {:db, in_umbrella: true},
       {:bart, in_umbrella: true},
       {:distillery, "~> 2.0", runtime: false}

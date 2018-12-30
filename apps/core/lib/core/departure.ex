@@ -16,7 +16,8 @@ defmodule Core.Departure do
     :final_dest_code,
     :length,
     :trip_id,
-    :route_hex_color
+    :route_hex_color,
+    :notify
   ]
 
   @type t :: %__MODULE__{
@@ -36,16 +37,18 @@ defmodule Core.Departure do
           final_dest_code: String.t(),
           length: integer,
           trip_id: integer,
-          route_hex_color: String.t()
+          route_hex_color: String.t(),
+          notify: boolean
         }
 
   @doc """
   Get scheduled departues adjusted for real-time estimates.
   """
-  @spec get(String.t(), String.t(), integer) :: [Core.Estimate.t()]
-  def get(orig_station, dest_station, count) do
+  @spec get(String.t(), String.t(), integer, String.t() | nil) :: [Core.Estimate.t()]
+  def get(orig_station, dest_station, count, device_id \\ nil) do
     task = Task.async(fn -> Bart.Etd.get(orig_station) end)
     sch = Core.Schedule.get(orig_station, dest_station, count)
+    trip_ids = Core.Notification.get_trip_ids(device_id)
 
     rtd =
       case Task.yield(task, 3_000) || Task.shutdown(task) do
@@ -56,10 +59,10 @@ defmodule Core.Departure do
           nil
       end
 
-    combine(rtd, sch)
+    combine(rtd, sch, trip_ids)
   end
 
-  defp combine(rtd, sch) do
+  defp combine(rtd, sch, trip_ids) do
     sch
     |> Enum.map(fn sched ->
       case find_matching_estimate(sched, flatten(rtd)) do
@@ -83,8 +86,17 @@ defmodule Core.Departure do
       end
     end)
     |> Enum.sort_by(&{next_day(&1.etd), Time.to_erl(&1.etd)}, &<=/2)
-    |> Enum.map(fn s ->
-      struct(__MODULE__, Map.from_struct(s))
+    |> Enum.map(fn sched ->
+      case Enum.find(trip_ids, &(&1 == sched.trip_id)) do
+        nil ->
+          Map.put(sched, :notify, false)
+
+        _ ->
+          Map.put(sched, :notify, true)
+      end
+    end)
+    |> Enum.map(fn sched ->
+      struct(__MODULE__, Map.from_struct(sched))
     end)
   end
 
