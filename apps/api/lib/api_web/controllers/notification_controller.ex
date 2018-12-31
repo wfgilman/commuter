@@ -1,13 +1,13 @@
 defmodule ApiWeb.NotificationController do
   use ApiWeb, :controller
 
-  def create(conn, %{"device_id" => device_id, "trip_id" => trip_id, "delete" => true}) do
-    Core.Notification.delete(device_id, trip_id)
+  def create(conn, %{"device_id" => device_id, "trip_id" => trip_id, "station_id" => station_id, "remove" => true}) do
+    _ = Core.Notification.delete(device_id, trip_id, station_id)
     send_resp(conn, 204, "")
   end
 
-  def create(conn, %{"device_id" => device_id, "trip_id" => trip_id}) do
-    case Core.Notification.store(device_id, trip_id) do
+  def create(conn, %{"device_id" => device_id, "trip_id" => trip_id, "station_id" => station_id}) do
+    case Core.Notification.store(device_id, trip_id, station_id) do
       {:ok, _} ->
         send_resp(conn, 204, "")
 
@@ -19,8 +19,13 @@ defmodule ApiWeb.NotificationController do
     end
   end
 
-  def index(conn, %{"device_id" => device_id, "orig" => orig}) do
-    notifs = Core.Notification.get(device_id, orig)
+  def delete(conn, %{"id" => id}) do
+    _ = Core.Notification.delete(id)
+    send_resp(conn, 204, "")
+  end
+
+  def index(conn, %{"device_id" => device_id}) do
+    notifs = Core.Notification.get(device_id)
 
     conn
     |> put_status(200)

@@ -9,10 +9,6 @@ defmodule Core.Schedule do
     :duration_min,
     :stops,
     :prior_stops,
-    :dest_code,
-    :dest_name,
-    :orig_code,
-    :orig_name,
     :final_dest_code,
     :headsign,
     :route_hex_color
@@ -26,10 +22,6 @@ defmodule Core.Schedule do
           duration_min: integer,
           stops: integer,
           prior_stops: integer,
-          dest_code: String.t(),
-          dest_name: String.t(),
-          orig_code: String.t(),
-          orig_name: String.t(),
           final_dest_code: String.t(),
           headsign: String.t(),
           route_hex_color: String.t()
@@ -54,10 +46,6 @@ defmodule Core.Schedule do
         eta: over(max(s.arrival_time), :trip),
         first_stop_seq: over(min(s.sequence), :trip),
         last_stop_seq: over(max(s.sequence), :trip),
-        orig_station_code: over(min(st.code), :trip),
-        orig_station_name: over(min(st.name), :trip),
-        dest_station_code: over(max(st.code), :trip),
-        dest_station_name: over(max(st.name), :trip),
         final_dest_station_code: os.final_dest_code,
         headsign: s.headsign,
         route_hex_color: os.route_hex_color
@@ -76,10 +64,6 @@ defmodule Core.Schedule do
         duration_min: round(Time.diff(depart.eta, depart.etd) / 60),
         stops: depart.last_stop_seq - depart.first_stop_seq,
         prior_stops: depart.first_stop_seq - 1,
-        dest_code: depart.dest_station_code,
-        dest_name: depart.dest_station_name,
-        orig_code: depart.orig_station_code,
-        orig_name: depart.orig_station_name,
         final_dest_code: depart.final_dest_station_code,
         headsign: depart.headsign,
         route_hex_color: depart.route_hex_color

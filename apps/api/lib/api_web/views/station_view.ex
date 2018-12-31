@@ -4,7 +4,7 @@ defmodule ApiWeb.StationView do
   def render("index.json", %{data: stations}) do
     %{
       object: "station",
-      data: Enum.map(stations, &Map.take(&1, [:code, :name]))
+      data: Enum.map(stations, &Map.take(&1, [:id, :code, :name]))
     }
   end
 end

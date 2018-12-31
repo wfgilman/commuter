@@ -2,12 +2,15 @@ defmodule ApiWeb.NotificationView do
   use ApiWeb, :view
 
   def render("index.json", %{data: notifs}) do
-    Enum.map(notifs, &notif_json/1)
+    %{
+      object: "notification",
+      data: Enum.map(notifs, &notif_json/1)
+    }
   end
 
   defp notif_json(notif) do
     %{
-      trip_id: notif.trip_id,
+      id: notif.id,
       descrip: make_descrip(notif)
     }
   end

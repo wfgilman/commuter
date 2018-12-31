@@ -2,19 +2,15 @@ defmodule ApiWeb.DepartureController do
   use ApiWeb, :controller
 
   def index(conn, %{"orig" => orig, "dest" => dest} = params) do
-    case Core.Departure.get(orig, dest, to_int(params["count"]), params["device_id"]) do
-      [] ->
-        conn
-        |> put_status(200)
-        |> put_view(ApiWeb.DepartureView)
-        |> render("index.json", data: Core.Station.get([orig, dest]), orig: orig, dest: dest)
+    stations = Core.Station.get([orig, dest])
+    orig_station = Enum.find(stations, &(&1.code == orig))
+    dest_station = Enum.find(stations, &(&1.code == dest))
+    departs = Core.Departure.get(orig, dest, to_int(params["count"]), params["device_id"])
 
-      departs ->
-        conn
-        |> put_status(200)
-        |> put_view(ApiWeb.DepartureView)
-        |> render("index.json", data: departs)
-    end
+    conn
+    |> put_status(200)
+    |> put_view(ApiWeb.DepartureView)
+    |> render("index.json", departures: departs, orig: orig_station, dest: dest_station)
   end
 
   def index(conn, _params) do
