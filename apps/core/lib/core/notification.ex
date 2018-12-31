@@ -85,4 +85,39 @@ defmodule Core.Notification do
     )
     |> Db.Repo.all()
   end
+
+  @doc """
+  Checks if device id is muted.
+  """
+  @spec is_muted?(String.t) :: boolean
+  def is_muted?(device_id) do
+    from(md in Db.Model.MutedDevice,
+      where: md.device_id == ^device_id
+    )
+    |> Db.Repo.exists?()
+  end
+
+  @doc """
+  Added device id to table of devices to ignore.
+  """
+  @spec mute_device(String.t) :: {:ok, Db.Model.MutedDevice.t} | {:error, Ecto.Changeset.t}
+  def mute_device(device_id) do
+    %Db.Model.MutedDevice{}
+    |> Ecto.Changeset.cast(%{device_id: device_id}, [:device_id])
+    |> Ecto.Changeset.validate_required([:device_id])
+    |> Db.Repo.insert(on_conflict: :replace_all, conflict_target: :device_id)
+  end
+
+  @doc """
+  Deletes device id from table of devices to ignore.
+  """
+  @spec unmute_device(String.t) :: :ok
+  def unmute_device(device_id) do
+    from(md in Db.Model.MutedDevice,
+      where: md.device_id == ^device_id
+    )
+    |> Db.Repo.delete_all()
+
+    :ok
+  end
 end

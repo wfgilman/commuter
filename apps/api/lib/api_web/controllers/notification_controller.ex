@@ -25,11 +25,12 @@ defmodule ApiWeb.NotificationController do
   end
 
   def index(conn, %{"device_id" => device_id}) do
+    muted = Core.Notification.is_muted?(device_id)
     notifs = Core.Notification.get(device_id)
 
     conn
     |> put_status(200)
     |> put_view(ApiWeb.NotificationView)
-    |> render("index.json", data: notifs)
+    |> render("index.json", data: notifs, muted: muted)
   end
 end
