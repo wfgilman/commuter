@@ -1,7 +1,12 @@
 defmodule ApiWeb.NotificationController do
   use ApiWeb, :controller
 
-  def create(conn, %{"device_id" => device_id, "trip_id" => trip_id, "station_id" => station_id, "remove" => true}) do
+  def create(conn, %{
+        "device_id" => device_id,
+        "trip_id" => trip_id,
+        "station_id" => station_id,
+        "remove" => true
+      }) do
     _ = Core.Notification.delete(device_id, trip_id, station_id)
     send_resp(conn, 204, "")
   end

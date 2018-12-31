@@ -37,7 +37,7 @@ defmodule Core.Notification do
   @doc """
   Deletes a notification by device, trip and station.
   """
-  @spec delete(String.t, integer, integer) :: :ok
+  @spec delete(String.t(), integer, integer) :: :ok
   def delete(device_id, trip_id, station_id) do
     from(n in Db.Model.TripNotification,
       where: n.device_id == ^device_id,
@@ -89,7 +89,7 @@ defmodule Core.Notification do
   @doc """
   Checks if device id is muted.
   """
-  @spec is_muted?(String.t) :: boolean
+  @spec is_muted?(String.t()) :: boolean
   def is_muted?(device_id) do
     from(md in Db.Model.MutedDevice,
       where: md.device_id == ^device_id
@@ -100,7 +100,7 @@ defmodule Core.Notification do
   @doc """
   Added device id to table of devices to ignore.
   """
-  @spec mute_device(String.t) :: {:ok, Db.Model.MutedDevice.t} | {:error, Ecto.Changeset.t}
+  @spec mute_device(String.t()) :: {:ok, Db.Model.MutedDevice.t()} | {:error, Ecto.Changeset.t()}
   def mute_device(device_id) do
     %Db.Model.MutedDevice{}
     |> Ecto.Changeset.cast(%{device_id: device_id}, [:device_id])
@@ -111,7 +111,7 @@ defmodule Core.Notification do
   @doc """
   Deletes device id from table of devices to ignore.
   """
-  @spec unmute_device(String.t) :: :ok
+  @spec unmute_device(String.t()) :: :ok
   def unmute_device(device_id) do
     from(md in Db.Model.MutedDevice,
       where: md.device_id == ^device_id
