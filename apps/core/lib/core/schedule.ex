@@ -32,7 +32,7 @@ defmodule Core.Schedule do
   """
   @spec get(String.t(), String.t(), integer) :: [Core.Schedule.t()]
   def get(orig_station, dest_station, count) do
-    from(s in Db.Model.Schedule,
+    from(s in subquery(schedule()),
       join: st in assoc(s, :station),
       join: os in subquery(trips_through_station(orig_station)),
       on: s.trip_id == os.trip_id,
@@ -51,7 +51,7 @@ defmodule Core.Schedule do
         route_hex_color: os.route_hex_color
       },
       windows: [trip: [partition_by: s.trip_id, order_by: s.sequence]],
-      order_by: s.departure_time
+      order_by: [s.departure_day_offset, s.departure_time]
     )
     |> Db.Repo.all()
     |> Stream.reject(&(&1.first_stop_seq == &1.last_stop_seq))
@@ -71,6 +71,18 @@ defmodule Core.Schedule do
     end)
     |> Stream.take(count)
     |> Enum.map(&struct(__MODULE__, &1))
+  end
+
+  def schedule do
+    from(s in Db.Model.Schedule,
+      select: %{
+        s
+        | departure_day_offset:
+            fragment("CASE WHEN ? < '04:00:00'::time THEN 1 ELSE 0 END", s.departure_time),
+          arrival_day_offset:
+            fragment("CASE WHEN ? < '04:00:00'::time THEN 1 ELSE 0 END", s.arrival_time)
+      }
+    )
   end
 
   defp trips_through_station(station) do
