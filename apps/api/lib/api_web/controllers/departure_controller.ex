@@ -5,7 +5,15 @@ defmodule ApiWeb.DepartureController do
     stations = Core.Station.get([orig, dest])
     orig_station = Enum.find(stations, &(&1.code == orig))
     dest_station = Enum.find(stations, &(&1.code == dest))
-    departs = Core.Departure.get(orig, dest, to_int(params["count"]), params["device_id"])
+
+    departs =
+      Core.Departure.get(
+        orig,
+        dest,
+        to_int(params["count"]),
+        to_bool(params["real_time"]),
+        params["device_id"]
+      )
 
     conn
     |> put_status(200)
@@ -22,4 +30,7 @@ defmodule ApiWeb.DepartureController do
 
   defp to_int(nil), do: 10
   defp to_int(val), do: String.to_integer(val)
+
+  defp to_bool("true"), do: true
+  defp to_bool("false"), do: false
 end
