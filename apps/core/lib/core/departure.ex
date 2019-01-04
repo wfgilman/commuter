@@ -13,7 +13,8 @@ defmodule Core.Departure do
     :length,
     :trip_id,
     :route_hex_color,
-    :notify
+    :notify,
+    :real_time
   ]
 
   @type t :: %__MODULE__{
@@ -30,33 +31,66 @@ defmodule Core.Departure do
           length: integer,
           trip_id: integer,
           route_hex_color: String.t(),
-          notify: boolean
+          notify: boolean,
+          real_time: boolean
         }
 
   @doc """
   Get scheduled departues adjusted for real-time estimates.
   """
-  @spec get(String.t(), String.t(), integer, String.t() | nil) :: [Core.Estimate.t()]
-  def get(orig_station, dest_station, count, device_id \\ nil) do
-    task = Task.async(fn -> Bart.Etd.get(orig_station) end)
-    sch = Core.Schedule.get(orig_station, dest_station, count)
-    trip_ids = Core.Notification.get_trip_ids(device_id)
+  @spec get(String.t(), String.t(), integer, boolean, String.t() | nil) :: [Core.Estimate.t()]
+  def get(orig_station, dest_station, count, real_time \\ true, device_id \\ nil) do
+    if real_time == true do
+      task = Task.async(fn -> Bart.Etd.get(orig_station) end)
+      scheds = Core.Schedule.get(orig_station, dest_station)
+      trip_ids = Core.Notification.get_trip_ids(device_id)
 
-    rtd =
-      case Task.yield(task, 3_000) || Task.shutdown(task) do
-        {:ok, reply} ->
-          reply
+      rtds =
+        case Task.yield(task, 3_000) || Task.shutdown(task) do
+          {:ok, reply} ->
+            reply
 
-        nil ->
-          nil
-      end
+          nil ->
+            nil
+        end
 
-    combine(rtd, sch, trip_ids)
+      combine(scheds, trip_ids, count, rtds)
+    else
+      scheds = Core.Schedule.get(orig_station, dest_station)
+      trip_ids = Core.Notification.get_trip_ids(device_id)
+
+      combine(scheds, trip_ids, count)
+    end
   end
 
-  defp combine(rtd, sch, trip_ids) do
-    sch
-    |> Enum.map(fn sched ->
+  defp combine(scheds, trip_ids, count, rtds \\ nil) do
+    scheds
+    |> filter_current_service()
+    |> add_notifications(trip_ids)
+    |> add_real_time_departures(rtds)
+    |> sort_filter_and_map(count)
+  end
+
+  defp filter_current_service(scheds) do
+    Stream.filter(scheds, fn sched ->
+      sched.service_code == current_service()
+    end)
+  end
+
+  defp add_notifications(scheds, trip_ids) do
+    Stream.map(scheds, fn sched ->
+      case Enum.find(trip_ids, &(&1 == sched.trip_id)) do
+        nil ->
+          Map.put(sched, :notify, false)
+
+        _ ->
+          Map.put(sched, :notify, true)
+      end
+    end)
+  end
+
+  defp add_real_time_departures(scheds, rtd) do
+    Enum.map(scheds, fn sched ->
       case find_matching_estimate(sched, flatten(rtd)) do
         nil ->
           sched
@@ -64,8 +98,12 @@ defmodule Core.Departure do
           |> Map.put(:delay_min, 0)
           |> Map.put(
             :etd_min,
-            if(next_day(sched.etd), do: sched.etd_min + 1_440, else: sched.etd_min)
+            if(sched.etd_day_offset == 1,
+              do: get_etd_min(sched.etd) + 24 * 60,
+              else: get_etd_min(sched.etd)
+            )
           )
+          |> Map.put(:real_time, false)
 
         est ->
           sched
@@ -75,18 +113,18 @@ defmodule Core.Departure do
           |> Map.put(:delay_min, round(est.delay / 60))
           |> Map.put(:eta, Time.truncate(Time.add(est.etd_rt, sched.duration_min * 60), :second))
           |> Map.put(:length, est.length)
+          |> Map.put(:real_time, true)
       end
     end)
-    |> Enum.sort_by(&{next_day(&1.etd), Time.to_erl(&1.etd)}, &<=/2)
-    |> Enum.map(fn sched ->
-      case Enum.find(trip_ids, &(&1 == sched.trip_id)) do
-        nil ->
-          Map.put(sched, :notify, false)
+  end
 
-        _ ->
-          Map.put(sched, :notify, true)
-      end
+  defp sort_filter_and_map(scheds, count) do
+    scheds
+    |> Enum.sort_by(&{&1.etd_day_offset, Time.to_erl(&1.etd)}, &<=/2)
+    |> Enum.reject(fn sched ->
+      Time.compare(sched.etd, now()) == :lt
     end)
+    |> Enum.take(count)
     |> Enum.map(fn sched ->
       struct(__MODULE__, Map.from_struct(sched))
     end)
@@ -134,8 +172,45 @@ defmodule Core.Departure do
     abs(diff) <= 60
   end
 
-  defp next_day(time) do
-    {:ok, t} = Time.new(4, 0, 0)
-    :lt == Time.compare(time, t)
+  defp current_service do
+    day_of_week = Date.day_of_week(now(:to_date))
+    now = now()
+    {:ok, start_of_service} = Time.new(3, 0, 0)
+
+    cond do
+      day_of_week == 6 and Time.compare(now, start_of_service) == :lt ->
+        "WKDY"
+
+      day_of_week == 6 and Time.compare(now, start_of_service) == :gt ->
+        "SAT"
+
+      day_of_week == 7 and Time.compare(now, start_of_service) == :lt ->
+        "SAT"
+
+      day_of_week == 7 and Time.compare(now, start_of_service) == :gt ->
+        "SUN"
+
+      Time.compare(now, start_of_service) == :lt ->
+        "SUN"
+
+      true ->
+        "WKDY"
+    end
+  end
+
+  defp get_etd_min(etd_time) do
+    now = Time.add(Time.utc_now(), -28_800, :second)
+    round(Time.diff(etd_time, now) / 60)
+  end
+
+  defp now(to? \\ :to_time) do
+    utc_pst_offset_seconds = -28_800
+    naive_dt = NaiveDateTime.add(NaiveDateTime.utc_now(), utc_pst_offset_seconds, :second)
+
+    if to? == :to_date do
+      NaiveDateTime.to_date(naive_dt)
+    else
+      NaiveDateTime.to_time(naive_dt)
+    end
   end
 end

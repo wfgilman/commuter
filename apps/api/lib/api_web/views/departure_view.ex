@@ -32,7 +32,8 @@ defmodule ApiWeb.DepartureView do
       :stops,
       :prior_stops,
       :route_hex_color,
-      :notify
+      :notify,
+      :real_time
     ])
   end
 end
