@@ -6,7 +6,7 @@ defmodule ApiWeb.DepartureController do
     orig_station = Enum.find(stations, &(&1.code == orig))
     dest_station = Enum.find(stations, &(&1.code == dest))
 
-    departs =
+    {departs, as_of} =
       Core.Departure.get(
         orig,
         dest,
@@ -18,7 +18,12 @@ defmodule ApiWeb.DepartureController do
     conn
     |> put_status(200)
     |> put_view(ApiWeb.DepartureView)
-    |> render("index.json", departures: departs, orig: orig_station, dest: dest_station)
+    |> render("index.json",
+      departures: departs,
+      orig: orig_station,
+      dest: dest_station,
+      as_of: as_of
+    )
   end
 
   def index(conn, _params) do

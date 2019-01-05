@@ -38,29 +38,33 @@ defmodule Core.Departure do
   @doc """
   Get scheduled departues adjusted for real-time estimates.
   """
-  @spec get(String.t(), String.t(), integer, boolean, String.t() | nil) :: [Core.Estimate.t()]
+  @spec get(String.t(), String.t(), integer, boolean, String.t() | nil) ::
+          {[Core.Departure.t()], NaiveDateTime.t()}
   def get(orig_station, dest_station, count, real_time \\ true, device_id \\ nil) do
-    if real_time == true do
-      task = Task.async(fn -> Bart.Etd.get(orig_station) end)
-      scheds = Core.Schedule.get(orig_station, dest_station)
-      trip_ids = Core.Notification.get_trip_ids(device_id)
+    departs =
+      if real_time == true do
+        task = Task.async(fn -> Bart.Etd.get(orig_station) end)
+        scheds = Core.Schedule.get(orig_station, dest_station)
+        trip_ids = Core.Notification.get_trip_ids(device_id)
 
-      rtds =
-        case Task.yield(task, 3_000) || Task.shutdown(task) do
-          {:ok, reply} ->
-            reply
+        rtds =
+          case Task.yield(task, 3_000) || Task.shutdown(task) do
+            {:ok, reply} ->
+              reply
 
-          nil ->
-            nil
-        end
+            nil ->
+              nil
+          end
 
-      combine(scheds, trip_ids, count, rtds)
-    else
-      scheds = Core.Schedule.get(orig_station, dest_station)
-      trip_ids = Core.Notification.get_trip_ids(device_id)
+        combine(scheds, trip_ids, count, rtds)
+      else
+        scheds = Core.Schedule.get(orig_station, dest_station)
+        trip_ids = Core.Notification.get_trip_ids(device_id)
 
-      combine(scheds, trip_ids, count)
-    end
+        combine(scheds, trip_ids, count)
+      end
+
+    {departs, now(:to_datetime)}
   end
 
   defp combine(scheds, trip_ids, count, rtds \\ nil) do
@@ -207,10 +211,15 @@ defmodule Core.Departure do
     utc_pst_offset_seconds = -28_800
     naive_dt = NaiveDateTime.add(NaiveDateTime.utc_now(), utc_pst_offset_seconds, :second)
 
-    if to? == :to_date do
-      NaiveDateTime.to_date(naive_dt)
-    else
-      NaiveDateTime.to_time(naive_dt)
+    case to? do
+      :to_date ->
+        NaiveDateTime.to_date(naive_dt)
+
+      :to_datetime ->
+        NaiveDateTime.truncate(naive_dt, :second)
+
+      _ ->
+        naive_dt |> NaiveDateTime.to_time() |> Time.truncate(:second)
     end
   end
 end

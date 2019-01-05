@@ -1,7 +1,7 @@
 defmodule ApiWeb.DepartureView do
   use ApiWeb, :view
 
-  def render("index.json", %{departures: departs, orig: orig, dest: dest}) do
+  def render("index.json", %{departures: departs, orig: orig, dest: dest, as_of: as_of}) do
     %{
       orig: %{
         id: orig.id,
@@ -13,6 +13,7 @@ defmodule ApiWeb.DepartureView do
         code: dest.code,
         name: dest.name
       },
+      as_of: as_of,
       departures: Enum.map(departs, &depart_json/1)
     }
   end
