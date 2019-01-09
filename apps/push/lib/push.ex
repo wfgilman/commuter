@@ -1,18 +1,15 @@
 defmodule Push do
-  @moduledoc """
-  Documentation for Push.
-  """
+  use Application
 
-  @doc """
-  Hello world.
+  def start(_start_type, _start_args) do
+    import Supervisor.Spec, warn: false
 
-  ## Examples
+    children = [
+      worker(Push.Departure, [])
+    ]
 
-      iex> Push.hello()
-      :world
+    opts = [strategy: :one_for_one, name: Push.Supervisor]
 
-  """
-  def hello do
-    :world
+    Supervisor.start_link(children, opts)
   end
 end

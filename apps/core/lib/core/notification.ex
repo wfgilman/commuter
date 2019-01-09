@@ -120,4 +120,31 @@ defmodule Core.Notification do
 
     :ok
   end
+
+  @doc """
+  Get list of upcoming depatures to notify devices.
+  """
+  @spec poll(integer) :: list
+  def poll(offset_min) do
+    from(tn in Db.Model.TripNotification,
+      join: s in Db.Model.Schedule,
+      on: tn.trip_id == s.trip_id and tn.station_id == s.station_id,
+      join: st in assoc(tn, :station),
+      where: s.departure_time >= ^current_time(offset_min - 1),
+      where: s.departure_time <= ^current_time(offset_min),
+      select: %{
+        station_code: st.code,
+        depart_time: s.departure_time,
+        device_id: tn.device_id
+      }
+    )
+    |> Db.Repo.all()
+  end
+
+  defp current_time(offset_min) do
+    Time.utc_now()
+    |> Time.add(-(8 * 60 * 60), :second)
+    |> Time.add(offset_min * 60, :second)
+    |> Time.truncate(:second)
+  end
 end

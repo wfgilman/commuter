@@ -18,6 +18,7 @@ defmodule Push.MixProject do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
+      mod: {Push, []},
       extra_applications: [:logger]
     ]
   end
@@ -26,7 +27,8 @@ defmodule Push.MixProject do
   defp deps do
     [
       {:pigeon, "~> 1.2.3"},
-      {:kadabra, "~> 0.4.3"}
+      {:kadabra, "~> 0.4.3"},
+      {:core, in_umbrella: true}
     ]
   end
 end
