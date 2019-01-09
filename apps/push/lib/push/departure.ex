@@ -1,5 +1,6 @@
 defmodule Push.Departure do
   use GenServer
+  require Logger
 
   @frequency_min 1
   @depart_alert_min 10
@@ -19,10 +20,18 @@ defmodule Push.Departure do
   def handle_info(:poll, state) do
     notifs = Core.Notification.poll(@depart_alert_min)
 
+    # Debugging code.
+    if Enum.count(notifs) > 0 do
+      _ = Logger.info("Found #{Enum.count(notifs)} notifcations")
+    end
+
     for notif <- notifs do
       message = get_message(notif)
       n = Pigeon.APNS.Notification.new(message, notif.device_id, "Upcoming Departure")
       Pigeon.APNS.push(n)
+
+      # Debugging code.
+      Logger.info("Sent push notification: #{IO.inspect(n)}")
     end
 
     Process.send_after(__MODULE__, :poll, @frequency_min * 60 * 1_000)
