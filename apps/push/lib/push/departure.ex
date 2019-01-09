@@ -33,7 +33,7 @@ defmodule Push.Departure do
     eta_min = get_eta_min(depart_time)
     time = Timex.format(depart_time, "{h12}:{0m} {am}")
 
-    "The #{depart_time} leaving #{code} departs in #{eta_min} min"
+    "The #{time} leaving #{code} departs in #{eta_min} min"
   end
 
   defp get_eta_min(depart_time) do
