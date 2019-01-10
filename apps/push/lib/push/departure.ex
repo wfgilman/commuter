@@ -2,7 +2,7 @@ defmodule Push.Departure do
   use GenServer
   require Logger
 
-  @frequency_min 1
+  @frequency_sec 30
   @depart_alert_min 10
 
   def start_link do
@@ -34,7 +34,7 @@ defmodule Push.Departure do
       Logger.info("Sent push notification: #{IO.inspect(n)}")
     end
 
-    Process.send_after(__MODULE__, :poll, @frequency_min * 60 * 1_000)
+    Process.send_after(__MODULE__, :poll, @frequency_sec * 1_000)
     {:noreply, state}
   end
 
