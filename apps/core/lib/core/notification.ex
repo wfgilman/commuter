@@ -145,8 +145,11 @@ defmodule Core.Notification do
       join: s in Db.Model.Schedule,
       on: tn.trip_id == s.trip_id and tn.station_id == s.station_id,
       join: st in assoc(tn, :station),
+      left_join: md in Db.Model.MutedDevice,
+      on: tn.device_id == md.device_id,
       where: s.departure_time >= ^current_time(offset_min - 1),
       where: s.departure_time <= ^current_time(offset_min),
+      where: is_nil(md.device_id),
       select: %{
         station_code: st.code,
         depart_time: s.departure_time,
