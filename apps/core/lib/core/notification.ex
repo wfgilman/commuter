@@ -50,6 +50,21 @@ defmodule Core.Notification do
   end
 
   @doc """
+  Deletes device.
+  """
+  @spec delete_device_id(String.t()) :: :ok
+  def delete_device_id(device_id) do
+    from(n in Db.Model.TripNotification,
+      where: n.device_id == ^device_id
+    )
+    |> Db.Repo.delete_all()
+
+    :ok = unmute_device(device_id)
+
+    :ok
+  end
+
+  @doc """
   Get all trip_ids for a device.
   """
   @spec get_trip_ids(String.t() | nil) :: [integer]
