@@ -51,6 +51,7 @@ release :commuter do
   set applications: [
     :runtime_tools,
     api: :permanent,
-    db: :permanent
+    db: :permanent,
+    push: :permanent
   ]
 end
