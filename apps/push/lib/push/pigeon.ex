@@ -1,5 +1,4 @@
 defmodule Push.Pigeon do
-
   def apns_jwt do
     Pigeon.APNS.JWTConfig.new(
       name: :apns_default,
