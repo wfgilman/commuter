@@ -27,9 +27,6 @@ defmodule Push.Departure do
           Logger.info("Deleting device_id: #{device_id}")
           Core.Notification.delete_device_id(device_id)
 
-        :timeout ->
-          Logger.warn("Attempt to send notification timed out.")
-
         _ ->
           :ok
       end
@@ -62,5 +59,6 @@ defmodule Push.Departure do
     |> Time.diff(depart_time)
     |> Kernel./(60)
     |> round()
+    |> abs()
   end
 end
