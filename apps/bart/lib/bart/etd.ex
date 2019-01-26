@@ -43,6 +43,8 @@ defmodule Bart.Etd do
 
   @endpoint "etd"
 
+  require Logger
+
   @doc """
   Get Real-time station departures.
   """
@@ -64,6 +66,11 @@ defmodule Bart.Etd do
   defp direction_to_param(nil), do: nil
 
   defp handle_resp({:error, _}), do: nil
+
+  defp handle_resp({:ok, %{body: {:invalid, body}}}) do
+    Logger.info("BART Response body: #{inspect(body)}")
+    nil
+  end
 
   defp handle_resp({:ok, %{body: %{"root" => root}, status_code: 200}}) do
     Poison.Decode.decode(root,

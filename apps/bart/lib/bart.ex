@@ -23,7 +23,10 @@ defmodule Bart do
   end
 
   def process_response_body(body) do
-    Poison.Parser.parse!(body)
+    case Poison.Parser.parse(body) do
+      {:ok, parsed_body} -> parsed_body
+      {:error, _} -> {:invalid, body}
+    end
   end
 
   defp encode_params(params) do
