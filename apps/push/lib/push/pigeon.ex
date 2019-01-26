@@ -5,7 +5,7 @@ defmodule Push.Pigeon do
       key: System.get_env("APNS_JWT_KEY"),
       key_identifier: System.get_env("APNS_JWT_KEY_IDENTIFIER"),
       team_id: System.get_env("APNS_JWT_TEAM_ID"),
-      mode: :prod
+      mode: :dev
     )
   end
 end
