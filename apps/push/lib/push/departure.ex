@@ -27,7 +27,8 @@ defmodule Push.Departure do
           Logger.info("Deleting device_id: #{device_id}")
           Core.Notification.delete_device_id(device_id)
 
-        _ ->
+        resp ->
+          Logger.info("Push sent with response: #{resp}")
           :ok
       end
     end
