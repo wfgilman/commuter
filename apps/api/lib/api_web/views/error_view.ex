@@ -1,6 +1,13 @@
 defmodule ApiWeb.ErrorView do
   use ApiWeb, :view
 
+  def render("404.json", %{message: message}) do
+    %{
+      code: "not_found_error",
+      message: message
+    }
+  end
+
   def render("404.json", _assigns) do
     %{
       code: "not_found_error",

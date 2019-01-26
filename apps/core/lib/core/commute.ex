@@ -1,12 +1,14 @@
 defmodule Core.Commute do
   import Ecto.Query
 
-  defstruct [:route_code, :route_name, :direction]
+  defstruct [:route_code, :route_name, :direction, :orig_station_code, :dest_station_code]
 
   @type t :: %__MODULE__{
           route_code: String.t(),
           route_name: String.t(),
-          direction: String.t()
+          direction: String.t(),
+          orig_station_code: String.t(),
+          dest_station_code: String.t()
         }
 
   @doc """
@@ -25,7 +27,9 @@ defmodule Core.Commute do
       select: %{
         route_code: r.code,
         route_name: r.name,
-        direction: t.direction
+        direction: t.direction,
+        orig_station_code: ^orig_station,
+        dest_station_code: ^dest_station
       }
     )
     |> Db.Repo.all()
