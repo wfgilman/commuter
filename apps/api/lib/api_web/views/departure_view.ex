@@ -14,7 +14,7 @@ defmodule ApiWeb.DepartureView do
         name: dest.name
       },
       as_of: as_of,
-      includes_real_time: false,
+      includes_real_time: check_real_time(departs),
       departures: Enum.map(departs, &depart_json/1)
     }
   end
