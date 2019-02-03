@@ -35,7 +35,7 @@ defmodule Push.Departure do
 
     for notif <- notifs do
       message = get_message(notif)
-      n = Pigeon.APNS.Notification.new(message, notif.device_id)
+      n = Pigeon.APNS.Notification.new(message, notif.device_id, "BGHFM.Commuter")
       Pigeon.APNS.push(n, on_response: handler)
     end
 
