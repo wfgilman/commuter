@@ -13,5 +13,6 @@ defmodule ApiWeb.Router do
     resources "/notifications", NotificationController, [:create, :index, :delete]
     post "/notifications/action", NotificationActionController, :create
     get "/eta", EtaController, :index
+    get "/advisories", AdvisoryController, :index
   end
 end
