@@ -3,7 +3,7 @@ defmodule Push.Departure do
   require Logger
 
   @poll_interval_sec 60
-  @depart_alert_min 10
+  @depart_alert_min 15
 
   def start_link do
     GenServer.start_link(__MODULE__, :ok, name: __MODULE__)
