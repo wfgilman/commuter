@@ -3,10 +3,10 @@ defmodule ApiWeb.ETAView do
 
   def render("index.json", %{data: eta}) do
     %{
-      station: Map.take(eta.station, [:id, :code, :name]),
+      next_station: Map.take(eta.next_station, [:id, :code, :name]),
+      next_station_eta_min: eta.next_station_eta_min,
       eta: eta.eta,
-      eta_min: eta.eta_min,
-      location: eta.location
+      eta_min: eta.eta_min
     }
   end
 end
