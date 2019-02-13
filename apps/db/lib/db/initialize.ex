@@ -10,7 +10,6 @@ defmodule Db.Initialize do
   @schedule_file "stop_times.txt"
 
   NimbleCSV.define(MyParser, separator: ["\t", ","], new_lines: ["\r", "\r\n", "\n"])
-  NimbleCSV.define(AgencyParser, separator: "\t", newlines: ["\r", "\r\n", "\n"])
 
   @doc """
   Load all GTFS data.
@@ -22,6 +21,20 @@ defmodule Db.Initialize do
     load_station()
     load_trip()
     load_schedule()
+    Ecto.Adapters.SQL.query!(Db.Repo, "REFRESH MATERIALIZED VIEW trip_last_station")
+  end
+
+  @doc """
+  Wipe existing GTFS data and reload.
+  """
+  def reload do
+    Db.Repo.delete_all(Db.Model.Schedule)
+    Db.Repo.delete_all(Db.Model.Trip)
+    Db.Repo.delete_all(Db.Model.Station)
+    Db.Repo.delete_all(Db.Model.Route)
+    Db.Repo.delete_all(Db.Model.Service)
+    Db.Repo.delete_all(Db.Model.Agency)
+    load()
   end
 
   @doc """
@@ -31,7 +44,7 @@ defmodule Db.Initialize do
     @agency_file
     |> file_path(@app)
     |> File.read!()
-    |> AgencyParser.parse_string()
+    |> MyParser.parse_string()
     |> Enum.map(fn [agency_id, agency_name, agency_url, agency_timezone, agency_lang] ->
       %{
         code: agency_id,
@@ -167,8 +180,6 @@ defmodule Db.Initialize do
     |> Enum.each(fn param ->
       Db.Repo.insert!(struct(Db.Model.Trip, param), on_conflict: :nothing)
     end)
-
-    Ecto.Adapters.SQL.query!(Db.Repo, "REFRESH MATERIALIZED VIEW trip_last_station")
   end
 
   @doc """
