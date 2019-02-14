@@ -23,8 +23,7 @@ defmodule Core.ETA do
         Map.put(station, :current_location_dist, dist)
       end)
 
-    last_stop =
-      Enum.find(stops, &(&1.code == commute.dest_station_code))
+    last_stop = Enum.find(stops, &(&1.code == commute.dest_station_code))
 
     case Enum.find(stops, &(&1.current_location_dist < &1.prior_station_dist)) do
       nil ->
@@ -42,10 +41,12 @@ defmodule Core.ETA do
           end)
 
         next_stop = Enum.at(next_stops, 0)
+
         remaining_trip_min =
           Enum.reduce(next_stops, 0, fn stop, total_min ->
             round(stop.prior_station_min) + total_min
           end)
+
         eta =
           Time.utc_now()
           |> Time.add(-(8 * 60 * 60), :second)
@@ -90,8 +91,13 @@ defmodule Core.ETA do
     stations
     |> Enum.map_reduce(nil, fn station, prior_station_coordinates ->
       updated_prior_station_coordinates =
-        if is_nil(prior_station_coordinates), do: station.coordinates, else: prior_station_coordinates
-      updated_station = Map.put(station, :prior_station_coordinates, updated_prior_station_coordinates)
+        if is_nil(prior_station_coordinates),
+          do: station.coordinates,
+          else: prior_station_coordinates
+
+      updated_station =
+        Map.put(station, :prior_station_coordinates, updated_prior_station_coordinates)
+
       {updated_station, station.coordinates}
     end)
     |> Tuple.to_list()
@@ -111,6 +117,7 @@ defmodule Core.ETA do
     |> Enum.map_reduce(nil, fn stop, prior_depart_time ->
       updated_prior_depart_time =
         if is_nil(prior_depart_time), do: stop.depart_time, else: prior_depart_time
+
       updated_stop = Map.put(stop, :prior_depart_time, updated_prior_depart_time)
       {updated_stop, stop.depart_time}
     end)

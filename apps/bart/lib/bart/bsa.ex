@@ -14,7 +14,7 @@ defmodule Bart.Bsa do
   @doc """
   Get BART service advisories.
   """
-  @spec get() :: Bart.Bsa.t | nil
+  @spec get() :: Bart.Bsa.t() | nil
   def get do
     :get
     |> Bart.make_request(@endpoint, %{cmd: "bsa"})
@@ -50,5 +50,4 @@ defmodule Bart.Bsa do
 
     struct(__MODULE__, date: date, time: time, messages: messages)
   end
-
 end

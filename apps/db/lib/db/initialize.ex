@@ -6,6 +6,7 @@ defmodule Db.Initialize do
   @service_file "calendar.txt"
   @route_file "routes.txt"
   @station_file "stops.txt"
+  @shape_file "shapes.txt"
   @trip_file "trips.txt"
   @schedule_file "stop_times.txt"
 
@@ -19,6 +20,7 @@ defmodule Db.Initialize do
     load_service()
     load_route()
     load_station()
+    load_shape()
     load_trip()
     load_schedule()
     Ecto.Adapters.SQL.query!(Db.Repo, "REFRESH MATERIALIZED VIEW trip_last_station")
@@ -30,6 +32,8 @@ defmodule Db.Initialize do
   def reload do
     Db.Repo.delete_all(Db.Model.Schedule)
     Db.Repo.delete_all(Db.Model.Trip)
+    Db.Repo.delete_all(Db.Model.ShapeCoordinate)
+    Db.Repo.delete_all(Db.Model.Shape)
     Db.Repo.delete_all(Db.Model.Station)
     Db.Repo.delete_all(Db.Model.Route)
     Db.Repo.delete_all(Db.Model.Service)
@@ -148,11 +152,54 @@ defmodule Db.Initialize do
   end
 
   @doc """
+  Load shapes.
+  """
+  def load_shape do
+    @shape_file
+    |> file_path(@app)
+    |> File.stream!()
+    |> MyParser.parse_stream()
+    |> Stream.map(fn [shape_id, shape_pt_lat, shape_pt_lon, shape_pt_sequence] ->
+      %{
+        code: shape_id,
+        lat: String.to_float(shape_pt_lat),
+        lon: String.to_float(shape_pt_lon),
+        sequence: String.to_integer(shape_pt_sequence)
+      }
+    end)
+    |> Enum.reduce([], fn param, shapes ->
+      shapes =
+        case Enum.find(shapes, &(&1.code == param.code)) do
+          nil ->
+            shape = Db.Repo.insert!(struct(Db.Model.Shape, code: param.code))
+            [shape | shapes]
+
+          _ ->
+            shapes
+        end
+
+      struct = %Db.Model.ShapeCoordinate{
+        lat: param.lat,
+        lon: param.lon,
+        sequence: param.sequence,
+        shape_id: Enum.find(shapes, &(&1.code == param.code)).id
+      }
+
+      Db.Repo.insert!(struct, on_conflict: :nothing)
+
+      shapes
+    end)
+
+    :ok
+  end
+
+  @doc """
   Load trips.
   """
   def load_trip do
     routes = Db.Repo.all(Db.Model.Route)
     services = Db.Repo.all(Db.Model.Service)
+    shapes = Db.Repo.all(Db.Model.Shape)
 
     @trip_file
     |> file_path(@app)
@@ -165,7 +212,7 @@ defmodule Db.Initialize do
                        trip_headsign,
                        direction_id,
                        _block_id,
-                       _shape_id,
+                       shape_id,
                        _wheelchair,
                        _bikes
                      ] ->
@@ -174,7 +221,8 @@ defmodule Db.Initialize do
         headsign: trip_headsign,
         direction: map_direction(direction_id),
         route_id: Enum.find(routes, &(&1.code == route_id)).id,
-        service_id: Enum.find(services, &(&1.code == service_id)).id
+        service_id: Enum.find(services, &(&1.code == service_id)).id,
+        shape_id: Enum.find(shapes, &(&1.code == shape_id)).id
       }
     end)
     |> Enum.each(fn param ->
