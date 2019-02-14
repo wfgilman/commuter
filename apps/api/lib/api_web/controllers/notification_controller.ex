@@ -1,5 +1,6 @@
 defmodule ApiWeb.NotificationController do
   use ApiWeb, :controller
+  require Logger
 
   def create(conn, %{
         "device_id" => device_id,
@@ -11,12 +12,13 @@ defmodule ApiWeb.NotificationController do
     send_resp(conn, 204, "")
   end
 
-  def create(conn, %{"device_id" => device_id, "trip_id" => trip_id, "station_id" => station_id}) do
+  def create(conn, %{"device_id" => device_id, "trip_id" => trip_id, "station_id" => station_id} = params) do
     case Core.Notification.store(device_id, trip_id, station_id) do
       {:ok, _} ->
         send_resp(conn, 204, "")
 
       {:error, changeset} ->
+        Logger.info("POST /notifications: #{inspect(params)} #{inspect(changeset)}")
         conn
         |> put_status(400)
         |> put_view(ApiWeb.ErrorView)
