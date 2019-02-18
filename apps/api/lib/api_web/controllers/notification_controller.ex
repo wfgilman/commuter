@@ -1,24 +1,41 @@
 defmodule ApiWeb.NotificationController do
   use ApiWeb, :controller
-  require Logger
 
   def create(conn, %{
         "device_id" => device_id,
         "trip_id" => trip_id,
-        "station_id" => station_id,
+        "station_code" => station_code,
         "remove" => true
       }) do
-    _ = Core.Notification.delete(device_id, trip_id, station_id)
-    send_resp(conn, 204, "")
+    case Db.Repo.get_by(Db.Model.Station, code: station_code) do
+      nil ->
+        conn
+        |> put_status(404)
+        |> put_view(ApiWeb.ErrorView)
+        |> render("404.json", message: "Station no longer in service.")
+
+      station ->
+        _ = Core.Notification.delete(device_id, trip_id, station.id)
+        send_resp(conn, 204, "")
+    end
   end
 
-  def create(conn, %{"device_id" => device_id, "trip_id" => trip_id, "station_id" => station_id} = params) do
-    case Core.Notification.store(device_id, trip_id, station_id) do
-      {:ok, _} ->
-        send_resp(conn, 204, "")
+  def create(conn, %{
+        "device_id" => device_id,
+        "trip_id" => trip_id,
+        "station_code" => station_code
+      }) do
+    with station when not is_nil(station) <- Db.Repo.get_by(Db.Model.Station, code: station_code),
+         {:ok, _} <- Core.Notification.store(device_id, trip_id, station.id) do
+      send_resp(conn, 204, "")
+    else
+      nil ->
+        conn
+        |> put_status(404)
+        |> put_view(ApiWeb.ErrorView)
+        |> render("404.json", message: "Station no longer in service.")
 
       {:error, changeset} ->
-        Logger.info("POST /notifications: #{inspect(params)} #{inspect(changeset)}")
         conn
         |> put_status(400)
         |> put_view(ApiWeb.ErrorView)
