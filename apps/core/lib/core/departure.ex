@@ -1,4 +1,6 @@
 defmodule Core.Departure do
+  import Ecto.Query
+
   defstruct [
     :std,
     :etd,
@@ -177,24 +179,46 @@ defmodule Core.Departure do
   end
 
   defp current_service do
+    holiday =
+      Db.Repo.one(
+        from(se in Db.Model.ServiceException,
+          join: s in assoc(se, :service),
+          preload: [service: s],
+          where: se.date == ^now(:to_date)
+        )
+      )
+
     day_of_week = Date.day_of_week(now(:to_date))
-    now = now()
+    current_time = now()
     {:ok, start_of_service} = Time.new(3, 0, 0)
 
     cond do
-      day_of_week == 6 and Time.compare(now, start_of_service) == :lt ->
+      is_nil(holiday) ->
+        derive_service(day_of_week, current_time, start_of_service)
+
+      not is_nil(holiday) and Time.compare(current_time, start_of_service) == :lt ->
+        derive_service(day_of_week, current_time, start_of_service)
+
+      true ->
+        holiday.service.code
+    end
+  end
+
+  defp derive_service(day_of_week, current_time, start_of_service) do
+    cond do
+      day_of_week == 6 and Time.compare(current_time, start_of_service) == :lt ->
         "WKDY"
 
-      day_of_week == 6 and Time.compare(now, start_of_service) == :gt ->
+      day_of_week == 6 and Time.compare(current_time, start_of_service) == :gt ->
         "SAT"
 
-      day_of_week == 7 and Time.compare(now, start_of_service) == :lt ->
+      day_of_week == 7 and Time.compare(current_time, start_of_service) == :lt ->
         "SAT"
 
-      day_of_week == 7 and Time.compare(now, start_of_service) == :gt ->
+      day_of_week == 7 and Time.compare(current_time, start_of_service) == :gt ->
         "SUN"
 
-      Time.compare(now, start_of_service) == :lt ->
+      Time.compare(current_time, start_of_service) == :lt ->
         "SUN"
 
       true ->

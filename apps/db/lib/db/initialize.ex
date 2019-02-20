@@ -4,6 +4,7 @@ defmodule Db.Initialize do
   @app :db
   @agency_file "agency.txt"
   @service_file "calendar.txt"
+  @service_exception_file "calendar_dates.txt"
   @route_file "routes.txt"
   @station_file "stops.txt"
   @shape_file "shapes.txt"
@@ -18,6 +19,7 @@ defmodule Db.Initialize do
   def load do
     load_agency()
     load_service()
+    load_service_exception()
     load_route()
     load_station()
     load_shape()
@@ -36,6 +38,7 @@ defmodule Db.Initialize do
     Db.Repo.delete_all(Db.Model.Shape)
     Db.Repo.delete_all(Db.Model.Station)
     Db.Repo.delete_all(Db.Model.Route)
+    Db.Repo.delete_all(Db.Model.ServiceException)
     Db.Repo.delete_all(Db.Model.Service)
     Db.Repo.delete_all(Db.Model.Agency)
     load()
@@ -79,6 +82,29 @@ defmodule Db.Initialize do
     end)
     |> Enum.each(fn param ->
       Db.Repo.insert!(struct(Db.Model.Service, param), on_conflict: :nothing)
+    end)
+  end
+
+  @doc """
+  Loads service exceptions (holidays).
+  """
+  def load_service_exception do
+    services = Db.Repo.all(Db.Model.Service)
+
+    @service_exception_file
+    |> file_path(@app)
+    |> File.stream!()
+    |> MyParser.parse_stream()
+    |> Stream.map(fn [service_id, date, exception_type] ->
+      %{
+        date: date_from_string(date),
+        service_id: Enum.find(services, &(&1.code == service_id)).id,
+        exception_type: exception_type
+      }
+    end)
+    |> Stream.reject(&(&1.exception_type == "2"))
+    |> Enum.each(fn param ->
+      Db.Repo.insert!(struct(Db.Model.ServiceException, param), on_conflict: :nothing)
     end)
   end
 
@@ -283,6 +309,13 @@ defmodule Db.Initialize do
 
   defp map_direction("0"), do: "South"
   defp map_direction("1"), do: "North"
+
+  def date_from_string(<<year::bytes-size(4), month::bytes-size(2), day::bytes-size(2)>>) do
+    {:ok, date} =
+      Date.new(String.to_integer(year), String.to_integer(month), String.to_integer(day))
+
+    date
+  end
 
   def standardize_time("24" <> time), do: "00" <> time
   def standardize_time("25" <> time), do: "01" <> time
