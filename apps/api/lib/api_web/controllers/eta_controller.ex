@@ -6,7 +6,7 @@ defmodule ApiWeb.EtaController do
          commute = Enum.at(commutes, 0),
          lat = String.to_float(lat),
          lon = String.to_float(lon),
-         eta when not is_nil(eta) <- Core.ETA.get_from_location(lat, lon, commute) do
+         eta when not is_nil(eta) <- Core.ETA.calculate(lat, lon, commute) do
       conn
       |> put_status(200)
       |> put_view(ApiWeb.ETAView)
