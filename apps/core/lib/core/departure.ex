@@ -178,7 +178,11 @@ defmodule Core.Departure do
     abs(diff) <= 60
   end
 
-  defp current_service do
+  @doc """
+  Returns the code for the train service currently running.
+  """
+  @spec current_service() :: String.t
+  def current_service do
     holiday =
       Db.Repo.one(
         from(se in Db.Model.ServiceException,
