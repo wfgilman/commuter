@@ -122,17 +122,16 @@ defmodule Core.ETA do
       bearing = Geocalc.bearing(station, coordinate) |> Geocalc.radians_to_degrees()
       Map.put(station, :bearing, bearing)
     end)
-    |> Enum.reduce_while(nil, fn station, last_bearing ->
-      cond do
-        is_nil(last_bearing) ->
-          {:cont, station.bearing}
+    |> Enum.reduce_while(nil, fn
+      station, nil ->
+        {:cont, station}
 
-        abs(last_bearing - station.bearing) > 100 ->
+      station, prior_station ->
+        if abs(prior_station.bearing - station.bearing) > 100 do
           {:halt, station}
-
-        true ->
-          {:cont, station.bearing}
-      end
+        else
+          {:cont, station}
+        end
     end)
   end
 
