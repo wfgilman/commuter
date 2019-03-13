@@ -182,7 +182,7 @@ defmodule Core.Departure do
   @doc """
   Returns the code for the train service currently running.
   """
-  @spec current_service() :: String.t
+  @spec current_service() :: String.t()
   def current_service do
     holiday =
       Db.Repo.one(
