@@ -10,7 +10,7 @@ defmodule Core.Utils do
   end
 
   @doc """
-  Returns the current time in PST.
+  Returns the current time in PST. Optionally accepts and offset in minutes.
   """
   @spec now(integer) :: Time.t()
   def now(offset_min \\ 0) do
@@ -33,7 +33,8 @@ defmodule Core.Utils do
   end
 
   @doc """
-  Returns the minutes between the current time in PST and specified time.
+  Returns the minutes between the current time in PST and specified time. Returns
+  positive value for future time, negative value for past time.
   """
   @spec time_diff_in_min(Time.t()) :: integer
   def time_diff_in_min(time) do
@@ -43,5 +44,6 @@ defmodule Core.Utils do
     |> Time.diff(time)
     |> Kernel./(60)
     |> round()
+    |> Kernel.*(-1)
   end
 end
