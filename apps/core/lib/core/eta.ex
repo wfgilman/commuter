@@ -9,6 +9,7 @@ defmodule Core.ETA do
         }
 
   import Ecto.Query
+  import Core.Utils
 
   @doc """
   Get ETA to the nearest station based on a location.
@@ -58,11 +59,7 @@ defmodule Core.ETA do
         station.prior_station_min + total_min
       end)
 
-    eta =
-      Time.utc_now()
-      |> Time.add(-(8 * 60 * 60), :second)
-      |> Time.add(remaining_trip_min * 60, :second)
-      |> Time.truncate(:second)
+    eta = now(remaining_trip_min)
 
     struct(__MODULE__,
       next_station: struct(Db.Model.Station, next_stop),

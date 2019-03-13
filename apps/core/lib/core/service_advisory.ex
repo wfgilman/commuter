@@ -6,6 +6,8 @@ defmodule Core.ServiceAdvisory do
           advisory: String.t()
         }
 
+  import Core.Utils
+
   @doc """
   Returns BART service advisories.
   """
@@ -26,11 +28,5 @@ defmodule Core.ServiceAdvisory do
       _ ->
         struct(__MODULE__, count: 0, advisory: "No advisory info.")
     end
-  end
-
-  defp today do
-    DateTime.utc_now()
-    |> Timex.to_datetime("PST")
-    |> DateTime.to_date()
   end
 end

@@ -1,5 +1,6 @@
 defmodule Core.Notification do
   import Ecto.Query
+  import Core.Utils
 
   @required_params [:device_id, :trip_id, :station_id]
 
@@ -150,8 +151,8 @@ defmodule Core.Notification do
       left_join: md in Db.Model.MutedDevice,
       on: tn.device_id == md.device_id,
       where: svc.code == ^Core.Departure.current_service(),
-      where: s.departure_time >= ^current_time(offset_min - 1),
-      where: s.departure_time <= ^current_time(offset_min),
+      where: s.departure_time >= ^now(offset_min - 1),
+      where: s.departure_time <= ^now(offset_min),
       where: is_nil(md.device_id),
       select: %{
         station_code: st.code,
@@ -160,12 +161,5 @@ defmodule Core.Notification do
       }
     )
     |> Db.Repo.all()
-  end
-
-  defp current_time(offset_min) do
-    Time.utc_now()
-    |> Time.add(-(8 * 60 * 60), :second)
-    |> Time.add(offset_min * 60, :second)
-    |> Time.truncate(:second)
   end
 end

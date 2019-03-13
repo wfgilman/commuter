@@ -1,5 +1,6 @@
 defmodule Core.Departure do
   import Ecto.Query
+  import Core.Utils
 
   defstruct [
     :std,
@@ -66,7 +67,7 @@ defmodule Core.Departure do
         combine(scheds, trip_ids, count)
       end
 
-    {departs, now(:to_datetime)}
+    {departs, current_datetime()}
   end
 
   defp combine(scheds, trip_ids, count, rtds \\ nil) do
@@ -105,8 +106,8 @@ defmodule Core.Departure do
           |> Map.put(
             :etd_min,
             if(sched.etd_day_offset == 1,
-              do: get_etd_min(sched.etd) + 24 * 60,
-              else: get_etd_min(sched.etd)
+              do: time_diff_in_min(sched.etd) + 24 * 60,
+              else: time_diff_in_min(sched.etd)
             )
           )
           |> Map.put(:real_time, false)
@@ -188,11 +189,11 @@ defmodule Core.Departure do
         from(se in Db.Model.ServiceException,
           join: s in assoc(se, :service),
           preload: [service: s],
-          where: se.date == ^now(:to_date)
+          where: se.date == ^today()
         )
       )
 
-    day_of_week = Date.day_of_week(now(:to_date))
+    day_of_week = Date.day_of_week(today())
     current_time = now()
     {:ok, start_of_service} = Time.new(3, 0, 0)
 
@@ -227,27 +228,6 @@ defmodule Core.Departure do
 
       true ->
         "WKDY"
-    end
-  end
-
-  defp get_etd_min(etd_time) do
-    now = Time.add(Time.utc_now(), -28_800, :second)
-    round(Time.diff(etd_time, now) / 60)
-  end
-
-  defp now(to? \\ :to_time) do
-    utc_pst_offset_seconds = -28_800
-    naive_dt = NaiveDateTime.add(NaiveDateTime.utc_now(), utc_pst_offset_seconds, :second)
-
-    case to? do
-      :to_date ->
-        NaiveDateTime.to_date(naive_dt)
-
-      :to_datetime ->
-        NaiveDateTime.truncate(naive_dt, :second)
-
-      _ ->
-        naive_dt |> NaiveDateTime.to_time() |> Time.truncate(:second)
     end
   end
 end

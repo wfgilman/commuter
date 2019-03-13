@@ -23,6 +23,17 @@ defmodule Core.Utils do
   end
 
   @doc """
+  Returns the current datetime in PST.
+  """
+  @spec current_datetime() :: NaiveDateTime.t
+  def current_datetime do
+    DateTime.utc_now()
+    |> Timex.to_datetime("PST")
+    |> DateTime.to_naive()
+    |> NaiveDateTime.truncate(:second)
+  end
+
+  @doc """
   Returns the minutes between the current time in PST and specified time.
   """
   @spec time_diff_in_min(Time.t) :: integer
