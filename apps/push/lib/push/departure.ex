@@ -4,7 +4,7 @@ defmodule Push.Departure do
   import Core.Utils
 
   @poll_interval_sec 60
-  @depart_alert_min 15
+  @depart_alert_min 20
 
   def start_link do
     GenServer.start_link(__MODULE__, :ok, name: __MODULE__)
