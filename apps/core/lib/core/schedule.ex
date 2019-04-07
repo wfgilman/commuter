@@ -10,6 +10,7 @@ defmodule Core.Schedule do
     :prior_stops,
     :final_dest_code,
     :headsign,
+    :headsign_code,
     :route_hex_color,
     :service_code,
     :etd_day_offset
@@ -24,6 +25,7 @@ defmodule Core.Schedule do
           prior_stops: integer,
           final_dest_code: String.t(),
           headsign: String.t(),
+          headsign_code: String.t(),
           route_hex_color: String.t(),
           service_code: String.t(),
           etd_day_offset: integer
@@ -45,6 +47,8 @@ defmodule Core.Schedule do
       on: s.trip_id == os.trip_id,
       join: ds in subquery(trips_through_station(dest_station)),
       on: s.trip_id == ds.trip_id,
+      left_join: hs in Db.Model.Station,
+      on: s.headsign == hs.name,
       where: st.code in [^orig_station, ^dest_station],
       where: os.sequence < ds.sequence,
       select: %{
@@ -55,6 +59,7 @@ defmodule Core.Schedule do
         last_stop_seq: over(max(s.sequence), :trip),
         final_dest_station_code: fst.code,
         headsign: s.headsign,
+        headsign_code: hs.code,
         route_hex_color: r.color_hex_code,
         service_code: svc.code,
         etd_day_offset: s.departure_day_offset
@@ -74,6 +79,7 @@ defmodule Core.Schedule do
         prior_stops: depart.first_stop_seq - 1,
         final_dest_code: depart.final_dest_station_code,
         headsign: depart.headsign,
+        headsign_code: depart.headsign_code,
         route_hex_color: depart.route_hex_color,
         service_code: depart.service_code,
         etd_day_offset: depart.etd_day_offset

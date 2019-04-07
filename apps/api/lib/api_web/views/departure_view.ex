@@ -40,6 +40,7 @@ defmodule ApiWeb.DepartureView do
       :length,
       :final_dest_code,
       :headsign,
+      :headsign_code,
       :stops,
       :prior_stops,
       :route_hex_color,

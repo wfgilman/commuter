@@ -12,6 +12,7 @@ defmodule Core.Departure do
     :stops,
     :prior_stops,
     :headsign,
+    :headsign_code,
     :final_dest_code,
     :length,
     :trip_id,
@@ -30,6 +31,7 @@ defmodule Core.Departure do
           stops: integer,
           prior_stops: integer,
           headsign: String.t(),
+          headsign_code: String.t(),
           final_dest_code: String.t(),
           length: integer,
           trip_id: integer,
@@ -79,8 +81,9 @@ defmodule Core.Departure do
   end
 
   defp filter_current_service(scheds) do
+    svc = current_service()
     Stream.filter(scheds, fn sched ->
-      sched.service_code == current_service()
+      sched.service_code == svc
     end)
   end
 
