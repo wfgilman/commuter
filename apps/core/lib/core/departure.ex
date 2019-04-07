@@ -82,6 +82,7 @@ defmodule Core.Departure do
 
   defp filter_current_service(scheds) do
     svc = current_service()
+
     Stream.filter(scheds, fn sched ->
       sched.service_code == svc
     end)
