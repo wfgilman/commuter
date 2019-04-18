@@ -15,7 +15,7 @@ defmodule Core.ServiceAdvisory do
   def get do
     with bsa when not is_nil(bsa) <- Bart.Bsa.get(),
          true <- bsa.date == today(),
-         "No delays reported." <- Enum.at(bsa.messages, 1) do
+         true <- !String.contains?(Enum.at(bsa.messages, 0), "No delays reported.") do
       advisory =
         Enum.reduce(bsa.messages, fn msg, acc ->
           "#{acc} #{msg}"
