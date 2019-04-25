@@ -6,7 +6,7 @@ defmodule Core.ServiceAdvisory do
           advisory: String.t()
         }
 
-  import Core.Utils
+  import Shared.Utils
 
   @doc """
   Returns BART service advisories.

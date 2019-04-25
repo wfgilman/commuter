@@ -1,6 +1,6 @@
 defmodule Core.Departure do
   import Ecto.Query
-  import Core.Utils
+  import Shared.Utils
 
   defstruct [
     :std,

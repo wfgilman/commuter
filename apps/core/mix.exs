@@ -27,7 +27,7 @@ defmodule Core.MixProject do
     [
       {:ecto, "~> 3.0"},
       {:geocalc, "~> 0.5"},
-      {:timex, "~> 3.0"},
+      {:shared, in_umbrella: true},
       {:db, in_umbrella: true},
       {:bart, in_umbrella: true},
       {:distillery, "~> 2.0", runtime: false}

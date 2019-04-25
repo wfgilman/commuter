@@ -1,6 +1,6 @@
 defmodule Core.Notification do
   import Ecto.Query
-  import Core.Utils
+  import Shared.Utils
 
   @required_params [:device_id, :trip_id, :station_id]
 

@@ -9,7 +9,7 @@ defmodule Core.ETA do
         }
 
   import Ecto.Query
-  import Core.Utils
+  import Shared.Utils
 
   @doc """
   Get ETA to the nearest station based on a location.

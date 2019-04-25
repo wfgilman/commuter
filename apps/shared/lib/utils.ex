@@ -1,4 +1,4 @@
-defmodule Core.Utils do
+defmodule Shared.Utils do
   @doc """
   Returns the current day in PST.
   """

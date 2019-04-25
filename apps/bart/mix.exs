@@ -27,7 +27,7 @@ defmodule Bart.MixProject do
     [
       {:httpoison, "~> 1.4"},
       {:poison, "~> 3.1"},
-      {:timex, "~> 3.0"}
+      {:shared, in_umbrella: true}
     ]
   end
 end

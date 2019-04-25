@@ -1,7 +1,7 @@
 defmodule Push.Departure do
   use GenServer
   require Logger
-  import Core.Utils
+  import Shared.Utils
 
   @poll_interval_sec 60
   @depart_alert_min 20
