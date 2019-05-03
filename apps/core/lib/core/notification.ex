@@ -140,8 +140,8 @@ defmodule Core.Notification do
   @doc """
   Get list of upcoming depatures to notify devices.
   """
-  @spec poll(integer) :: list
-  def poll(offset_min) do
+  @spec poll(integer, [String.t()]) :: list
+  def poll(offset_min, excluded_device_ids) do
     from(tn in Db.Model.TripNotification,
       join: s in Db.Model.Schedule,
       on: tn.trip_id == s.trip_id and tn.station_id == s.station_id,
@@ -154,6 +154,7 @@ defmodule Core.Notification do
       where: s.departure_time >= ^now(offset_min - 1),
       where: s.departure_time <= ^now(offset_min),
       where: is_nil(md.device_id),
+      where: tn.device_id not in ^excluded_device_ids,
       select: %{
         station_code: st.code,
         depart_time: s.departure_time,
