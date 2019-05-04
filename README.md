@@ -21,5 +21,5 @@ Backend API supporting iOS App Commuter: BART https://github.com/wfgilman/Commut
 - Geospatial calculations by geocalc: https://github.com/yltsrc/geocalc
 - Push notifications by Pigeon: https://github.com/codedge-llc/pigeon
 
-## Feedback
+### Feedback
 PRs and feedback welcome!
