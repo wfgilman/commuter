@@ -36,6 +36,13 @@ defmodule ApiWeb.ErrorView do
     }
   end
 
+  def render("rate_limit.json", _assigns) do
+    %{
+      code: "rate_limit_error",
+      message: "You sent too many requests too fast. Slow down!"
+    }
+  end
+
   def template_not_found(template, _assigns) do
     %{
       code: "template_not_found",

@@ -1,8 +1,10 @@
 defmodule ApiWeb.Router do
   use ApiWeb, :router
+  import Api.RateLimit
 
   pipeline :api do
     plug :accepts, ["json"]
+    plug :rate_limit, max_requests: 30, interval_seconds: 60
   end
 
   scope "/api/v1", ApiWeb do
