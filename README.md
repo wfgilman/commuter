@@ -5,9 +5,10 @@ API supporting iOS App Commuter: https://github.com/wfgilman/Commuter-iOS
 - Read the RESTful API documentation [here](api_spec.md)
 
 ### Roadmap
-- Support commutes requiring station transfer
-- Predict car occupancy based on [ridership data](https://www.bart.gov/about/reports/ridership)
-- Add tests :grimacing:
+- [ ] Allow user to customize notification period
+- [ ] Support commutes requiring station transfer
+- [ ] Predict car occupancy based on [ridership data](https://www.bart.gov/about/reports/ridership)
+- [ ] Add tests :grimacing:
 
 ### Data
 - BART train schedule data: https://www.bart.gov/schedules/developers/gtfs
