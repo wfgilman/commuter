@@ -9,16 +9,18 @@ defmodule Api.RateLimit do
   * `max_requests`
   * `bucket_name` (optional)
   """
-  @spec rate_limit(Plug.Conn.t, Plug.opts) :: Plug.Conn.t
+  @spec rate_limit(Plug.Conn.t(), Plug.opts()) :: Plug.Conn.t()
   def rate_limit(conn, opts) do
     case check_rate(conn, opts) do
       {:ok, _count} ->
         conn
+
       {:error, _count} ->
         Logger.warn(fn ->
           bucket = opts[:bucket_name] || default_bucket_name(conn)
-          "Rate limit violation for bucket: #{inspect bucket}"
+          "Rate limit violation for bucket: #{inspect(bucket)}"
         end)
+
         render_error(conn)
     end
   end
