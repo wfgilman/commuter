@@ -2,7 +2,7 @@
 API supporting iOS App Commuter: https://github.com/wfgilman/Commuter-iOS
 
 ### API Documentation
-- Read the RESTful API documentation [here](api_spec.md) (*WIP*)
+- Read the RESTful API documentation [here](api_spec.md)
 
 ### Roadmap
 - Support commutes requiring station transfer
