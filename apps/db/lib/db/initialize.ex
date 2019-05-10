@@ -10,6 +10,7 @@ defmodule Db.Initialize do
   @shape_file "shapes.txt"
   @trip_file "trips.txt"
   @schedule_file "stop_times.txt"
+  @transfer_file "transfers.txt"
 
   NimbleCSV.define(MyParser, separator: ["\t", ","], new_lines: ["\r", "\r\n", "\n"])
 
@@ -25,6 +26,7 @@ defmodule Db.Initialize do
     load_shape()
     load_trip()
     load_schedule()
+    load_transfer()
     Ecto.Adapters.SQL.query!(Db.Repo, "REFRESH MATERIALIZED VIEW trip_last_station")
   end
 
@@ -32,6 +34,7 @@ defmodule Db.Initialize do
   Wipe existing GTFS data and reload.
   """
   def reload do
+    Db.Repo.delete_all(Db.Model.Transfer)
     Db.Repo.delete_all(Db.Model.Schedule)
     Db.Repo.delete_all(Db.Model.Trip)
     Db.Repo.delete_all(Db.Model.ShapeCoordinate)
@@ -292,6 +295,42 @@ defmodule Db.Initialize do
     end)
     |> Enum.each(fn param ->
       Db.Repo.insert!(struct(Db.Model.Schedule, param), on_conflict: :nothing)
+    end)
+  end
+
+  @doc """
+  Load transfers.
+  """
+  def load_transfer do
+    stations = Db.Repo.all(Db.Model.Station)
+    routes = Db.Repo.all(Db.Model.Route)
+
+    @transfer_file
+    |> file_path(@app)
+    |> File.stream!()
+    |> MyParser.parse_stream()
+    |> Stream.filter(fn [_, _, transfer_type, _, _, _, _, _] ->
+        transfer_type == "0"
+    end)
+    |> Stream.map(fn [
+                      from_stop_id,
+                      _to_stop_id,
+                      _transfer_type,
+                      _min_transfer_time,
+                      from_route_id,
+                      to_route_id,
+                      _from_trip_id,
+                      _to_trip_id
+                    ] ->
+      %{
+        station_id: Enum.find(stations, &(&1.code == from_stop_id)).id,
+        from_route_id: Enum.find(routes, &(&1.code == from_route_id)).id,
+        to_route_id: Enum.find(routes, &(&1.code == to_route_id)).id
+      }
+    end)
+    |> Stream.uniq()
+    |> Enum.each(fn param ->
+      Db.Repo.insert!(struct(Db.Model.Transfer, param), on_conflict: :nothing)
     end)
   end
 
