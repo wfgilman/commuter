@@ -11,6 +11,7 @@ defmodule Db.Initialize do
   @trip_file "trips.txt"
   @schedule_file "stop_times.txt"
   @transfer_file "transfers.txt"
+  @route_station_file "route_stop.txt"
 
   NimbleCSV.define(MyParser, separator: ["\t", ","], new_lines: ["\r", "\r\n", "\n"])
 
@@ -27,6 +28,7 @@ defmodule Db.Initialize do
     load_trip()
     load_schedule()
     load_transfer()
+    load_route_station()
     Ecto.Adapters.SQL.query!(Db.Repo, "REFRESH MATERIALIZED VIEW trip_last_station")
   end
 
@@ -34,6 +36,7 @@ defmodule Db.Initialize do
   Wipe existing GTFS data and reload.
   """
   def reload do
+    Db.Repo.delete_all(Db.Model.RouteStation)
     Db.Repo.delete_all(Db.Model.Transfer)
     Db.Repo.delete_all(Db.Model.Schedule)
     Db.Repo.delete_all(Db.Model.Trip)
@@ -334,9 +337,33 @@ defmodule Db.Initialize do
     end)
   end
 
+  @doc """
+  Load Route Stations (custom dataset, not part of GTFS spec)
+  """
+  def load_route_station do
+    stations = Db.Repo.all(Db.Model.Station)
+    routes = Db.Repo.all(Db.Model.Route)
+
+    @route_station_file
+    |> custom_file_path(@app)
+    |> File.stream!()
+    |> MyParser.parse_stream()
+    |> Stream.map(fn [route_id, station_id] ->
+        %{
+          route_id: Enum.find(routes, &(&1.code == route_id)).id,
+          station_id: Enum.find(stations, &(&1.code == station_id)).id
+        }
+    end)
+    |> Enum.each(fn param ->
+      Db.Repo.insert!(struct(Db.Model.RouteStation, param), on_conflict: :nothing)
+    end)
+  end
+
   defp priv_dir(app), do: "#{:code.priv_dir(app)}"
 
   defp file_path(filename, app), do: Path.join([priv_dir(app), "gtfs", "bart", filename])
+
+  defp custom_file_path(filename, app), do: Path.join([priv_dir(app), "custom", "bart", filename])
 
   defp map_service_code_to_name(code) do
     case code do
