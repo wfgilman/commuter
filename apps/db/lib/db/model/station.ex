@@ -7,6 +7,7 @@ defmodule Db.Model.Station do
     field(:lat, :float)
     field(:lon, :float)
     field(:url, :string)
+    has_many(:route_station, Db.Model.RouteStation)
     timestamps()
   end
 end

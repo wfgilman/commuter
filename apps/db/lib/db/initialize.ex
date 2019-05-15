@@ -348,10 +348,11 @@ defmodule Db.Initialize do
     |> custom_file_path(@app)
     |> File.stream!()
     |> MyParser.parse_stream()
-    |> Stream.map(fn [route_id, station_id] ->
+    |> Stream.map(fn [route_id, station_id, sequence] ->
         %{
           route_id: Enum.find(routes, &(&1.code == route_id)).id,
-          station_id: Enum.find(stations, &(&1.code == station_id)).id
+          station_id: Enum.find(stations, &(&1.code == station_id)).id,
+          sequence: String.to_integer(sequence)
         }
     end)
     |> Enum.each(fn param ->

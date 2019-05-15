@@ -5,7 +5,7 @@ defmodule Db.Repo.Migrations.CreateTableRouteStation do
     create table("route_station") do
       add :route_id, references(:route, on_delete: :delete_all), null: false
       add :station_id, references(:station, on_delete: :delete_all), null: false
-
+      add :sequence, :integer
       timestamps()
     end
 
