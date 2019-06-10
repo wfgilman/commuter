@@ -63,7 +63,7 @@ defmodule Core.Commute do
     Db.Repo.all(direct_routes(orig_station, dest_station))
   end
 
-  # 1. Find all routes running through origin station.
+  # 1. Find all routes running through a station.
   def routes_through_station(station) do
     from(rs in Db.Model.RouteStation,
       join: s in assoc(rs, :station),
@@ -102,7 +102,6 @@ defmodule Core.Commute do
       on: us.id == rs.station_id,
       left_join: t in Db.Model.Transfer,
       on: rs.route_id == t.from_route_id and rs.station_id == t.station_id,
-      # where: rs.sequence > rts.sequence,
       where: not is_nil(t.id),
       distinct: true,
       select: s
@@ -112,6 +111,7 @@ defmodule Core.Commute do
   # 4. Select transfer station with minimum number of stops.
   def transfer_station_with_min_stops(origin, destination) do
     transfer_stations = Db.Repo.all(transfer_stations_upstream(origin, destination))
+    direct_route = List.first(get_direct_routes(origin, destination))
 
     stops =
       from(rs in Db.Model.RouteStation,
@@ -132,11 +132,15 @@ defmodule Core.Commute do
     |> Enum.map(fn %{transfer_station: station} = result ->
       Map.put(result, :downstream_route, List.first(get_direct_routes(station.code, destination)))
     end)
+    # Reject all transfer stations where the transfer doesn't change the route.
+    |> Enum.reject(fn result ->
+      result.upstream_route.code == result.downstream_route.code
+    end)
     |> Enum.map(fn %{transfer_station: station} = result ->
       Map.put(
         result,
         :upstream_stops,
-        stops_between_stations_on_same_route(
+        count_stops_between_stations_on_same_route(
           stops,
           result.upstream_route,
           origin,
@@ -148,7 +152,7 @@ defmodule Core.Commute do
       Map.put(
         result,
         :downstream_stops,
-        stops_between_stations_on_same_route(
+        count_stops_between_stations_on_same_route(
           stops,
           result.downstream_route,
           station.code,
@@ -164,16 +168,50 @@ defmodule Core.Commute do
         total_stops: total_stops
       }
     end)
-    |> Enum.sort_by(& &1.total_stops)
+    # Reject all transfer stations where the trip length is longer than taking a direct route, if direct route exists.
+    |> Enum.reject(fn result ->
+      with true <- not is_nil(direct_route),
+           true <- result.total_stops > count_stops_between_stations_on_same_route(stops, direct_route, origin, destination) do
+        true
+      end
+    end)
+    |> Enum.sort_by(&(&1.total_stops))
     |> List.first()
-    |> Map.get(:transfer_station)
+    |> case do
+      nil ->
+        nil
+      result ->
+        Map.get(result, :transfer_station)
+    end
   end
 
   # 5. Find all trips between origin station and transfer station.
+  def transfer_trips(orig_code, dest_code) do
+    transfer = transfer_station_with_min_stops(orig_code, dest_code)
+    upstream_trips =
+      from(t in Db.Model.Trip,
+        join: r in assoc(t, :route),
+        join: ss in subquery(trips_through_station(orig_code)),
+        on: ss.trip_id == t.id,
+        join: es in subquery(trips_through_station(transfer.code)),
+        on: es.trip_id == t.id,
+        where: ss.sequence < es.sequence
+      )
 
-  def stops_between_stations_on_same_route(_stops, _route, orig, dest) when orig == dest, do: 0
+    from(t in Db.Model.Trip,
+      join: r in assoc(t, :route),
+      join: ss in subquery(trips_through_station(transfer.code)),
+      on: ss.trip_id == t.id,
+      join: es in subquery(trips_through_station(dest_code)),
+      on: es.trip_id == t.id,
+      where: ss.sequence < es.sequence,
+      union_all: ^upstream_trips
+    )
+  end
 
-  def stops_between_stations_on_same_route(stops, route, origin, destination) do
+  def count_stops_between_stations_on_same_route(_stops, _route, orig, dest) when orig == dest, do: 0
+
+  def count_stops_between_stations_on_same_route(stops, route, origin, destination) do
     route_stops = Enum.filter(stops, &(&1.route.code == route.code))
     orig_seq = get_station_sequence_on_route(route_stops, origin)
     dest_seq = Enum.find(route_stops, &(&1.station.code == destination)).sequence
