@@ -134,7 +134,7 @@ defmodule Core.Commute do
     end)
     # Reject all transfer stations where the transfer doesn't change the route.
     |> Enum.reject(fn result ->
-      result.upstream_route.code == result.downstream_route.code
+      (result.transfer_station.code == destination) or (result.upstream_route.code == result.downstream_route.code)
     end)
     |> Enum.map(fn %{transfer_station: station} = result ->
       Map.put(
