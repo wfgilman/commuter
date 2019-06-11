@@ -134,7 +134,8 @@ defmodule Core.Commute do
     end)
     # Reject all transfer stations where the transfer doesn't change the route.
     |> Enum.reject(fn result ->
-      (result.transfer_station.code == destination) or (result.upstream_route.code == result.downstream_route.code)
+      result.transfer_station.code == destination or
+        result.upstream_route.code == result.downstream_route.code
     end)
     |> Enum.map(fn %{transfer_station: station} = result ->
       Map.put(
@@ -171,15 +172,23 @@ defmodule Core.Commute do
     # Reject all transfer stations where the trip length is longer than taking a direct route, if direct route exists.
     |> Enum.reject(fn result ->
       with true <- not is_nil(direct_route),
-           true <- result.total_stops > count_stops_between_stations_on_same_route(stops, direct_route, origin, destination) do
+           true <-
+             result.total_stops >
+               count_stops_between_stations_on_same_route(
+                 stops,
+                 direct_route,
+                 origin,
+                 destination
+               ) do
         true
       end
     end)
-    |> Enum.sort_by(&(&1.total_stops))
+    |> Enum.sort_by(& &1.total_stops)
     |> List.first()
     |> case do
       nil ->
         nil
+
       result ->
         Map.get(result, :transfer_station)
     end
@@ -188,6 +197,7 @@ defmodule Core.Commute do
   # 5. Find all trips between origin station and transfer station.
   def transfer_trips(orig_code, dest_code) do
     transfer = transfer_station_with_min_stops(orig_code, dest_code)
+
     upstream_trips =
       from(t in Db.Model.Trip,
         join: r in assoc(t, :route),
@@ -209,7 +219,8 @@ defmodule Core.Commute do
     )
   end
 
-  def count_stops_between_stations_on_same_route(_stops, _route, orig, dest) when orig == dest, do: 0
+  def count_stops_between_stations_on_same_route(_stops, _route, orig, dest) when orig == dest,
+    do: 0
 
   def count_stops_between_stations_on_same_route(stops, route, origin, destination) do
     route_stops = Enum.filter(stops, &(&1.route.code == route.code))
