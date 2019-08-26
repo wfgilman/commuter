@@ -194,29 +194,36 @@ defmodule Core.Commute do
     end
   end
 
-  # 5. Find all trips between origin station and transfer station.
-  def transfer_trips(orig_code, dest_code) do
-    transfer = transfer_station_with_min_stops(orig_code, dest_code)
+  # 5. Find all trips between origin station and transfer station, and
+  # transfer and destination station.
+  def all_trips(orig_code, dest_code) do
+    direct_trips = trips_between_stations(orig_code, dest_code)
 
-    upstream_trips =
-      from(t in Db.Model.Trip,
-        join: r in assoc(t, :route),
-        join: ss in subquery(trips_through_station(orig_code)),
-        on: ss.trip_id == t.id,
-        join: es in subquery(trips_through_station(transfer.code)),
-        on: es.trip_id == t.id,
-        where: ss.sequence < es.sequence
-      )
+    case transfer_station_with_min_stops(orig_code, dest_code) do
+      nil ->
+        direct_trips
 
+      transfer ->
+        upstream_trips = trips_between_stations(orig_code, transfer.code)
+
+        trips_between_stations(transfer.code, dest_code)
+        |> union_all(^upstream_trips)
+        |> union_all(^direct_trips)
+    end
+  end
+
+  def trips_between_stations(orig_station_code, dest_station_code) do
     from(t in Db.Model.Trip,
-      join: r in assoc(t, :route),
-      join: ss in subquery(trips_through_station(transfer.code)),
+      join: ss in subquery(trips_through_station(orig_station_code)),
       on: ss.trip_id == t.id,
-      join: es in subquery(trips_through_station(dest_code)),
+      join: es in subquery(trips_through_station(dest_station_code)),
       on: es.trip_id == t.id,
-      where: ss.sequence < es.sequence,
-      union_all: ^upstream_trips
+      where: ss.sequence < es.sequence
     )
+  end
+
+  def all_schedules(orig_code, dest_code) do
+    
   end
 
   def count_stops_between_stations_on_same_route(_stops, _route, orig, dest) when orig == dest,
