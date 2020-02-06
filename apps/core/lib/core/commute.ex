@@ -47,7 +47,7 @@ defmodule Core.Commute do
     )
   end
 
-  def direct_routes(orig_station, dest_station) do
+  defp direct_routes(orig_station, dest_station) do
     from(r in Db.Model.Route,
       join: rs1 in assoc(r, :route_station),
       join: s1 in assoc(rs1, :station),
@@ -59,12 +59,12 @@ defmodule Core.Commute do
     )
   end
 
-  def get_direct_routes(orig_station, dest_station) do
+  defp get_direct_routes(orig_station, dest_station) do
     Db.Repo.all(direct_routes(orig_station, dest_station))
   end
 
   # 1. Find all routes running through a station.
-  def routes_through_station(station) do
+  defp routes_through_station(station) do
     from(rs in Db.Model.RouteStation,
       join: s in assoc(rs, :station),
       where: s.code == ^station,
@@ -76,7 +76,7 @@ defmodule Core.Commute do
   end
 
   # 2. Find all transfer stations downstream on routes from origin station.
-  def transfer_stations_downstream(station) do
+  defp transfer_stations_downstream(station) do
     from(s in Db.Model.Station,
       join: rs in Db.Model.RouteStation,
       on: rs.station_id == s.id,
@@ -92,7 +92,7 @@ defmodule Core.Commute do
   end
 
   # 3. Select all transfer stations that are upstream from destination station.
-  def transfer_stations_upstream(origin, destination) do
+  defp transfer_stations_upstream(origin, destination) do
     from(s in Db.Model.Station,
       join: rs in Db.Model.RouteStation,
       on: rs.station_id == s.id,
@@ -109,6 +109,7 @@ defmodule Core.Commute do
   end
 
   # 4. Select transfer station with minimum number of stops.
+  @spec transfer_station_with_min_stops(String.t(), String.t()) :: Db.Model.Station.t() | nil
   def transfer_station_with_min_stops(origin, destination) do
     transfer_stations = Db.Repo.all(transfer_stations_upstream(origin, destination))
     direct_route = List.first(get_direct_routes(origin, destination))
@@ -194,42 +195,10 @@ defmodule Core.Commute do
     end
   end
 
-  # 5. Find all trips between origin station and transfer station, and
-  # transfer and destination station.
-  def all_trips(orig_code, dest_code) do
-    direct_trips = trips_between_stations(orig_code, dest_code)
-
-    case transfer_station_with_min_stops(orig_code, dest_code) do
-      nil ->
-        direct_trips
-
-      transfer ->
-        upstream_trips = trips_between_stations(orig_code, transfer.code)
-
-        trips_between_stations(transfer.code, dest_code)
-        |> union_all(^upstream_trips)
-        |> union_all(^direct_trips)
-    end
-  end
-
-  def trips_between_stations(orig_station_code, dest_station_code) do
-    from(t in Db.Model.Trip,
-      join: ss in subquery(trips_through_station(orig_station_code)),
-      on: ss.trip_id == t.id,
-      join: es in subquery(trips_through_station(dest_station_code)),
-      on: es.trip_id == t.id,
-      where: ss.sequence < es.sequence
-    )
-  end
-
-  def all_schedules(orig_code, dest_code) do
-    
-  end
-
-  def count_stops_between_stations_on_same_route(_stops, _route, orig, dest) when orig == dest,
+  defp count_stops_between_stations_on_same_route(_stops, _route, orig, dest) when orig == dest,
     do: 0
 
-  def count_stops_between_stations_on_same_route(stops, route, origin, destination) do
+  defp count_stops_between_stations_on_same_route(stops, route, origin, destination) do
     route_stops = Enum.filter(stops, &(&1.route.code == route.code))
     orig_seq = get_station_sequence_on_route(route_stops, origin)
     dest_seq = Enum.find(route_stops, &(&1.station.code == destination)).sequence
@@ -241,7 +210,7 @@ defmodule Core.Commute do
     |> Enum.count()
   end
 
-  def get_station_sequence_on_route(stops, station) do
+  defp get_station_sequence_on_route(stops, station) do
     case Enum.find(stops, &(&1.station.code == station)) do
       nil ->
         IO.puts("Couldn't find station #{station}")

@@ -18,7 +18,10 @@ defmodule Core.Departure do
     :trip_id,
     :route_hex_color,
     :notify,
-    :real_time
+    :real_time,
+    :transfer_code,
+    :transfer_route_hex_color,
+    :transfer_wait_min
   ]
 
   @type t :: %__MODULE__{
@@ -37,7 +40,10 @@ defmodule Core.Departure do
           trip_id: integer,
           route_hex_color: String.t(),
           notify: boolean,
-          real_time: boolean
+          real_time: boolean,
+          transfer_code: String.t(),
+          transfer_route_hex_color: String.t(),
+          transfer_wait_min: integer
         }
 
   @doc """
@@ -114,6 +120,7 @@ defmodule Core.Departure do
               else: time_diff_in_min(sched.etd)
             )
           )
+          |> put_eta(nil)
           |> Map.put(:real_time, false)
 
         est ->
@@ -122,11 +129,37 @@ defmodule Core.Departure do
           |> Map.put(:etd, Time.truncate(est.etd_rt, :second))
           |> Map.put(:etd_min, est.minutes)
           |> Map.put(:delay_min, round(est.delay / 60))
-          |> Map.put(:eta, Time.truncate(Time.add(est.etd_rt, sched.duration_min * 60), :second))
+          |> put_eta(est)
           |> Map.put(:length, est.length)
           |> Map.put(:real_time, true)
       end
     end)
+  end
+
+  defp put_eta(%{transfer_sched: nil} = sched, nil), do: sched
+
+  defp put_eta(%{transfer_sched: nil} = sched, est) do
+    Map.put(sched, :eta, Time.truncate(Time.add(est.etd_rt, sched.duration_min * 60), :second))
+  end
+
+  defp put_eta(%{transfer_sched: %{etd: etd, eta: eta, stops: stops}} = sched, nil) do
+    sched
+    |> Map.put(:eta, eta)
+    |> Map.put(:duration_min, round(Time.diff(eta, sched.etd, :second) / 60))
+    |> Map.put(:transfer_wait_min, round(Time.diff(etd, sched.eta, :second) / 60))
+    |> Map.put(:stops, sched.stops + stops)
+  end
+
+  defp put_eta(%{transfer_sched: %{etd: etd, eta: eta, stops: stops}} = sched, est) do
+    transfer_eta = Time.add(est.etd_rt, sched.duration_min * 60)
+    transfer_delay = Time.diff(etd, transfer_eta, :second)
+    duration_min = round(Time.diff(eta, sched.etd, :second) / 60)
+
+    sched
+    |> Map.put(:eta, eta)
+    |> Map.put(:duration_min, duration_min)
+    |> Map.put(:transfer_wait_min, round(transfer_delay / 60))
+    |> Map.put(:stops, sched.stops + stops)
   end
 
   defp sort_filter_and_map(scheds, count) do
@@ -135,7 +168,20 @@ defmodule Core.Departure do
     |> Enum.reject(fn sched ->
       Time.compare(sched.etd, now()) == :lt
     end)
+    |> Enum.reject(fn sched ->
+      # Filter out missed connections due to train delays.
+      sched.transfer_wait_min < 0
+    end)
     |> Enum.take(count)
+    |> Enum.map(fn
+      %{transfer_sched: nil} = sched ->
+        Map.put(sched, :transfer_code, sched.transfer_code)
+
+      %{transfer_sched: transfer_sched} = sched ->
+        sched
+        |> Map.put(:transfer_code, sched.transfer_code)
+        |> Map.put(:transfer_route_hex_color, transfer_sched.route_hex_color)
+    end)
     |> Enum.map(fn sched ->
       struct(__MODULE__, Map.from_struct(sched))
     end)
