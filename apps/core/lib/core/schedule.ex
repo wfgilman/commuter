@@ -15,7 +15,8 @@ defmodule Core.Schedule do
     :service_code,
     :etd_day_offset,
     :transfer_code,
-    :transfer_sched
+    :transfer_scheds,
+    :next_transfer_sched
   ]
 
   @type t :: %__MODULE__{
@@ -32,7 +33,8 @@ defmodule Core.Schedule do
           service_code: String.t(),
           etd_day_offset: integer,
           transfer_code: String.t(),
-          transfer_sched: Core.Schedule.t()
+          transfer_scheds: [Core.Schedule.t()],
+          next_transfer_sched: Core.Schedule.t
         }
 
   @doc """
@@ -42,6 +44,7 @@ defmodule Core.Schedule do
   def get(orig, dest) do
     direct = get_direct(orig, dest)
 
+    # NOTE: This needs to fetch the transfer station accounting for weekend schedules.
     case Core.Commute.transfer_station_with_min_stops(orig, dest) do
       nil ->
         direct
@@ -49,7 +52,6 @@ defmodule Core.Schedule do
       trans ->
         upstream =
           get_direct(orig, trans.code)
-          # |> Enum.filter(&(&1.service_code == "SAT"))
           |> Enum.reject(fn %{trip_id: trip_id} ->
             Enum.any?(direct, fn %{trip_id: direct_trip_id} ->
               trip_id == direct_trip_id
@@ -57,6 +59,7 @@ defmodule Core.Schedule do
           end)
 
         downstream =
+          # NOTE: should I show transfers downstream that are also direct? Would someone want to do that?
           get_direct(trans.code, dest)
           |> Enum.reject(fn %{trip_id: trip_id} ->
             Enum.any?(direct, fn %{trip_id: direct_trip_id} ->
@@ -68,13 +71,13 @@ defmodule Core.Schedule do
           upstream
           |> Enum.sort_by(&{&1.service_code, &1.etd_day_offset, &1.etd})
           |> Enum.map(fn upstream_trip ->
-            downstream_trip = find_soonest_transfer(upstream_trip, downstream)
+            downstream_trips = find_possible_transfers(upstream_trip, downstream)
 
             upstream_trip
             |> Map.put(:transfer_code, trans.code)
-            |> Map.put(:transfer_sched, downstream_trip)
+            |> Map.put(:transfer_scheds, downstream_trips)
           end)
-          |> Enum.reject(&is_nil(&1.transfer_sched))
+          |> Enum.reject(&Enum.empty?(&1.transfer_scheds))
 
         transfers ++ direct
     end
@@ -157,7 +160,7 @@ defmodule Core.Schedule do
   end
 
   # NOTE: Need to handle transfers that cross midnight.
-  defp find_soonest_transfer(upstream_trip, downstream_trips) do
+  def find_possible_transfers(upstream_trip, downstream_trips) do
     downstream_trips
     |> Enum.sort_by(&{&1.service_code, &1.etd_day_offset, &1.etd})
     |> Enum.filter(fn downstream_trip ->
@@ -165,6 +168,5 @@ defmodule Core.Schedule do
         upstream_trip.etd_day_offset == downstream_trip.etd_day_offset and
         Time.compare(downstream_trip.etd, upstream_trip.eta) in [:eq, :gt]
     end)
-    |> Enum.at(0)
   end
 end

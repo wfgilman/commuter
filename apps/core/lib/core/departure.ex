@@ -136,30 +136,50 @@ defmodule Core.Departure do
     end)
   end
 
-  defp put_eta(%{transfer_sched: nil} = sched, nil), do: sched
+  defp put_eta(%{transfer_scheds: nil} = sched, nil), do: sched
 
-  defp put_eta(%{transfer_sched: nil} = sched, est) do
+  defp put_eta(%{transfer_scheds: nil} = sched, est) do
     Map.put(sched, :eta, Time.truncate(Time.add(est.etd_rt, sched.duration_min * 60), :second))
   end
 
-  defp put_eta(%{transfer_sched: %{etd: etd, eta: eta, stops: stops}} = sched, nil) do
+  # If no real-time departures are available use the first transfer.
+  defp put_eta(%{transfer_scheds: [transfer_sched | _]} = sched, nil) do
     sched
-    |> Map.put(:eta, eta)
-    |> Map.put(:duration_min, round(Time.diff(eta, sched.etd, :second) / 60))
-    |> Map.put(:transfer_wait_min, round(Time.diff(etd, sched.eta, :second) / 60))
-    |> Map.put(:stops, sched.stops + stops)
+    |> Map.put(:next_transfer_sched, transfer_sched)
+    |> Map.put(:eta, transfer_sched.eta)
+    |> Map.put(:duration_min, round(Time.diff(transfer_sched.eta, sched.etd, :second) / 60))
+    |> Map.put(:transfer_wait_min, round(Time.diff(transfer_sched.etd, sched.eta, :second) / 60))
+    |> Map.put(:stops, sched.stops + transfer_sched.stops)
   end
 
-  defp put_eta(%{transfer_sched: %{etd: etd, eta: eta, stops: stops}} = sched, est) do
+  # If real-time departures are available, use the first transfer not missed due to delays.
+  # If there is no transfer available, rider is SOL and we filter out the departure.
+  defp put_eta(%{transfer_scheds: transfer_scheds} = sched, est) do
     transfer_eta = Time.add(est.etd_rt, sched.duration_min * 60)
-    transfer_delay = Time.diff(etd, transfer_eta, :second)
-    duration_min = round(Time.diff(eta, sched.etd, :second) / 60)
 
-    sched
-    |> Map.put(:eta, eta)
-    |> Map.put(:duration_min, duration_min)
-    |> Map.put(:transfer_wait_min, round(transfer_delay / 60))
-    |> Map.put(:stops, sched.stops + stops)
+    case get_next_transfer(transfer_eta, transfer_scheds) do
+      nil ->
+        Map.put(sched, :next_transfer_sched, nil)
+
+      next_transfer_sched ->
+        transfer_delay = Time.diff(next_transfer_sched.etd, transfer_eta, :second)
+        duration_min = round(Time.diff(next_transfer_sched.eta, sched.etd, :second) / 60)
+
+        sched
+        |> Map.put(:next_transfer_sched, next_transfer_sched)
+        |> Map.put(:eta, next_transfer_sched.eta)
+        |> Map.put(:duration_min, duration_min)
+        |> Map.put(:transfer_wait_min, round(transfer_delay / 60))
+        |> Map.put(:stops, sched.stops + next_transfer_sched.stops)
+    end
+  end
+
+  defp get_next_transfer(transfer_eta, transfer_scheds) do
+    transfer_scheds
+    |> Enum.reject(fn sched ->
+        Time.compare(sched.etd, transfer_eta) == :lt
+    end)
+    |> Enum.at(0)
   end
 
   defp sort_filter_and_map(scheds, count) do
@@ -168,20 +188,30 @@ defmodule Core.Departure do
     |> Enum.reject(fn sched ->
       Time.compare(sched.etd, now()) == :lt
     end)
-    |> Enum.reject(fn sched ->
-      # Filter out missed connections due to train delays.
-      sched.transfer_wait_min < 0
-    end)
-    |> Enum.take(count)
+    |> Enum.reject(&is_nil(&1.eta))
     |> Enum.map(fn
-      %{transfer_sched: nil} = sched ->
+      %{next_transfer_sched: nil} = sched ->
         Map.put(sched, :transfer_code, sched.transfer_code)
 
-      %{transfer_sched: transfer_sched} = sched ->
+      %{next_transfer_sched: transfer_sched} = sched ->
         sched
         |> Map.put(:transfer_code, sched.transfer_code)
         |> Map.put(:transfer_route_hex_color, transfer_sched.route_hex_color)
     end)
+    # Filter out trips that arrive after the previous trip. No one would do that.
+    |> Enum.reduce([], fn
+      sched, [] = acc ->
+        [sched | acc]
+
+      sched, [prior_sched | _] = acc ->
+        if Time.compare(prior_sched.eta, sched.eta) == :gt do
+          acc
+        else
+          [sched | acc]
+        end
+    end)
+    |> Enum.reverse()
+    |> Enum.take(count)
     |> Enum.map(fn sched ->
       struct(__MODULE__, Map.from_struct(sched))
     end)
