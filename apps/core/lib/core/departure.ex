@@ -185,6 +185,7 @@ defmodule Core.Departure do
   defp sort_filter_and_map(scheds, count) do
     scheds
     |> Enum.sort_by(&{&1.etd_day_offset, Time.to_erl(&1.etd)}, &<=/2)
+    # NOTE: How can I account for timed transfers? < 1min delay.
     |> Enum.reject(fn sched ->
       Time.compare(sched.etd, now()) == :lt
     end)
