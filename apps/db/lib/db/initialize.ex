@@ -3,7 +3,8 @@ defmodule Db.Initialize do
 
   @app :db
   @agency_file "agency.txt"
-  @service_file "calendar.txt"
+  @service_file "calendar_attributes.txt"
+  @service_calendar_file "calendar.txt"
   @service_exception_file "calendar_dates.txt"
   @route_file "routes.txt"
   @station_file "stops.txt"
@@ -52,7 +53,7 @@ defmodule Db.Initialize do
     |> file_path(@app)
     |> File.read!()
     |> MyParser.parse_string()
-    |> Enum.map(fn [agency_id, agency_name, agency_url, agency_timezone, agency_lang] ->
+    |> Enum.map(fn [agency_id, agency_name, agency_url, agency_timezone, agency_lang, _agency_phone] ->
       %{
         code: agency_id,
         name: agency_name,
@@ -74,14 +75,46 @@ defmodule Db.Initialize do
     |> file_path(@app)
     |> File.stream!()
     |> MyParser.parse_stream()
-    |> Stream.map(fn [service_id, _m, _t, _w, _th, _f, _s, _sun, _sd, _ed] ->
+    |> Stream.map(fn [service_id, service_desc] ->
       %{
         code: service_id,
-        name: map_service_code_to_name(service_id)
+        name: service_desc
       }
+    end)
+    # Filter out any Oakland Int'l Airport services.
+    |> Stream.reject(fn %{code: code} ->
+        String.contains?(code, "OAC")
     end)
     |> Enum.each(fn param ->
       Db.Repo.insert!(struct(Db.Model.Service, param), on_conflict: :nothing)
+    end)
+  end
+
+  @doc """
+  Loads service calendar.
+  """
+  def load_service_calendar do
+    services = Db.Repo.all(Db.Model.Service)
+
+    @service_calendar_file
+    |> file_path(@app)
+    |> File.stream!()
+    |> MyParser.parse_stream()
+    |> Stream.map(fn [service_id, m, t, w, th, f, s, sun, date_effective] ->
+      %{
+        mon: to_boolean(m),
+        tue: to_boolean(t),
+        wed: to_boolean(w),
+        thu: to_boolean(th),
+        fri: to_boolean(f),
+        sat: to_boolean(s),
+        sun: to_boolean(sun),
+        date_effective: date_from_string(date_effective),
+        service_id: Enum.find(services, &(&1.code == service_id)).id
+      }
+    end)
+    |> Enum.each(fn param ->
+      Db.Repo.insert!(struct(Db.Model.ServiceCalendar, param), on_conflict: :nothing)
     end)
   end
 
@@ -321,4 +354,7 @@ defmodule Db.Initialize do
   def standardize_time("25" <> time), do: "01" <> time
   def standardize_time("26" <> time), do: "02" <> time
   def standardize_time(time), do: time
+
+  defp to_boolean(0), do: false
+  defp to_boolean(1), do: true
 end
