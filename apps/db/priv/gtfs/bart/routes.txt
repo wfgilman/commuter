@@ -1,9 +1,15 @@
-route_id,agency_id,route_short_name,route_long_name,route_desc,route_type,route_url,route_color,route_text_color
-1,BART,Yellow,Antioch - SFO/Millbrae,,1,http://www.bart.gov/schedules/bylineresults?route=1,ffff33,
-3,BART,Orange,Warm Springs/South Fremont - Richmond,,1,http://www.bart.gov/schedules/,ff9933,
-5,BART,Green,Warm Springs/South Fremont - Daly City,,1,http://www.bart.gov/schedules/,339933,
-7,BART,Red,Richmond - Daly City/Millbrae,,1,http://www.bart.gov/schedules/,ff0000,
-9,BART,Blue-Sun,Dublin/Pleasanton - MacArthur,,1,http://www.bart.gov/schedules/,0099cc,
-11,BART,Blue-Wkd/Sat,Dublin/Pleasanton - Daly City,,1,http://www.bart.gov/schedules/,0099cc,
-13,BART,Purple,Millbrae - SFO,,1,http://www.bart.gov/schedules/,c463c5,
-19,BART,Beige,OAK - Coliseum,,1,http://www.bart.gov/schedules/,d5cfa3,
+route_id,route_short_name,route_long_name,route_desc,route_type,route_url,route_color
+1,YL-S,Antioch to SFIA/Millbrae,,1,http://www.bart.gov/schedules/bylineresults?route=1,FFEA00
+2,YL-N,Millbrae/SFIA to Antioch,,1,http://www.bart.gov/schedules/bylineresults?route=2,FFEA00
+3,OR-N,Warm Springs/South Fremont to Richmond,,1,http://www.bart.gov/schedules/bylineresults?route=3,FAA61A
+4,OR-S,Richmond to Warm Springs/South Fremont,,1,http://www.bart.gov/schedules/bylineresults?route=4,FAA61A
+5,GN-S,Warm Springs/South Fremont to Daly City,,1,http://www.bart.gov/schedules/bylineresults?route=5,00A61A
+6,GN-N,Daly City to Warm Springs/South Fremont,,1,http://www.bart.gov/schedules/bylineresults?route=6,00A656
+7,RD-S,Richmond to Daly City/Millbrae,,1,http://www.bart.gov/schedules/bylineresults?route=7,ED1C24
+8,RD-N,Millbrae/Daly City to Richmond,,1,http://www.bart.gov/schedules/bylineresults?route=8,ED1C24
+11,BL-S,Dublin/Pleasanton to Daly City,,1,http://www.bart.gov/schedules/bylineresults?route=11,00AEEF
+12,BL-N,Daly City to Dublin/Pleasanton,,1,http://www.bart.gov/schedules/bylineresults?route=12,00AEEF
+13,PR-N,Millbrae to San Francisco International Airport,,1,http://www.bart.gov/schedules/bylineresults?route=13,B355A0
+14,PR-S,San Francisco International Airport to Millbrae,,1,http://www.bart.gov/schedules/bylineresults?route=14,B355A0
+19,BG-N,Oakland Airport to Coliseum,,1,http://www.bart.gov/schedules/bylineresults?route=19,D5CFA3
+20,BG-S,Coliseum to Oakland Airport,,1,http://www.bart.gov/schedules/bylineresults?route=20,D5CFA3
