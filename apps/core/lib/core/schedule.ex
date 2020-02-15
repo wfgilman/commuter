@@ -36,7 +36,7 @@ defmodule Core.Schedule do
   """
   @spec get(String.t(), String.t()) :: [Core.Schedule.t()]
   def get(orig_station, dest_station) do
-    from(s in subquery(schedule()),
+    from(s in Db.Model.Schedule,
       join: st in assoc(s, :station),
       join: t in assoc(s, :trip),
       join: svc in assoc(t, :service),
@@ -88,19 +88,7 @@ defmodule Core.Schedule do
     |> Enum.map(&struct(__MODULE__, &1))
   end
 
-  defp schedule do
-    from(s in Db.Model.Schedule,
-      select: %{
-        s
-        | departure_day_offset:
-            fragment("CASE WHEN ? < '04:00:00'::time THEN 1 ELSE 0 END", s.departure_time),
-          arrival_day_offset:
-            fragment("CASE WHEN ? < '04:00:00'::time THEN 1 ELSE 0 END", s.arrival_time)
-      }
-    )
-  end
-
-  defp trips_through_station(station) do
+  def trips_through_station(station) do
     from(s in Db.Model.Schedule,
       join: st in assoc(s, :station),
       where: st.code == ^station,

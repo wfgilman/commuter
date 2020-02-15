@@ -1,5 +1,4 @@
 defmodule Core.Departure do
-  import Ecto.Query
   import Shared.Utils
 
   defstruct [
@@ -81,10 +80,10 @@ defmodule Core.Departure do
   end
 
   defp filter_current_service(scheds) do
-    svc = current_service()
+    svcs = Enum.map(Core.Service.current_services(), &(&1.code))
 
     Stream.filter(scheds, fn sched ->
-      sched.service_code == svc
+      sched.service_code in svcs
     end)
   end
 
@@ -181,57 +180,5 @@ defmodule Core.Departure do
   defp fuzzy_match_time(sch_etd, rtd_etd) do
     diff = Time.diff(sch_etd, rtd_etd, :second)
     abs(diff) <= 60
-  end
-
-  @doc """
-  Returns the code for the train service currently running.
-  """
-  @spec current_service() :: String.t()
-  def current_service do
-    holiday =
-      Db.Repo.one(
-        from(se in Db.Model.ServiceException,
-          join: s in assoc(se, :service),
-          preload: [service: s],
-          where: se.date == ^today()
-        )
-      )
-
-    day_of_week = Date.day_of_week(today())
-    current_time = now()
-    {:ok, start_of_service} = Time.new(3, 0, 0)
-
-    cond do
-      is_nil(holiday) ->
-        derive_service(day_of_week, current_time, start_of_service)
-
-      not is_nil(holiday) and Time.compare(current_time, start_of_service) == :lt ->
-        derive_service(day_of_week, current_time, start_of_service)
-
-      true ->
-        holiday.service.code
-    end
-  end
-
-  defp derive_service(day_of_week, current_time, start_of_service) do
-    cond do
-      day_of_week == 6 and Time.compare(current_time, start_of_service) == :lt ->
-        "WKDY"
-
-      day_of_week == 6 and Time.compare(current_time, start_of_service) == :gt ->
-        "SAT"
-
-      day_of_week == 7 and Time.compare(current_time, start_of_service) == :lt ->
-        "SAT"
-
-      day_of_week == 7 and Time.compare(current_time, start_of_service) == :gt ->
-        "SUN"
-
-      Time.compare(current_time, start_of_service) == :lt ->
-        "SUN"
-
-      true ->
-        "WKDY"
-    end
   end
 end

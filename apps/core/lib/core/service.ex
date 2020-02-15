@@ -4,6 +4,10 @@ defmodule Core.Service do
 
   @start_of_service_hour 3
 
+  @doc """
+  Returns the services for the train service currently running.
+  """
+  @spec current_services() :: [Db.Model.Service.t]
   def current_services do
     holiday =
       Db.Repo.one(
@@ -20,7 +24,7 @@ defmodule Core.Service do
     end
   end
 
-  def derive_current_services do
+  defp derive_current_services do
     day_of_week = Date.day_of_week(today())
     current_time = now()
     {:ok, start_of_service} = Time.new(@start_of_service_hour, 0, 0)
@@ -49,11 +53,11 @@ defmodule Core.Service do
     )
   end
 
-  def weekday_constraint(1), do: dynamic([_s, sc], sc.mon == true)
-  def weekday_constraint(2), do: dynamic([_s, sc], sc.tue == true)
-  def weekday_constraint(3), do: dynamic([_s, sc], sc.wed == true)
-  def weekday_constraint(4), do: dynamic([_s, sc], sc.thu == true)
-  def weekday_constraint(5), do: dynamic([_s, sc], sc.fri == true)
-  def weekday_constraint(6), do: dynamic([_s, sc], sc.sat == true)
-  def weekday_constraint(7), do: dynamic([_s, sc], sc.sun == true)
+  defp weekday_constraint(1), do: dynamic([_s, sc], sc.mon == true)
+  defp weekday_constraint(2), do: dynamic([_s, sc], sc.tue == true)
+  defp weekday_constraint(3), do: dynamic([_s, sc], sc.wed == true)
+  defp weekday_constraint(4), do: dynamic([_s, sc], sc.thu == true)
+  defp weekday_constraint(5), do: dynamic([_s, sc], sc.fri == true)
+  defp weekday_constraint(6), do: dynamic([_s, sc], sc.sat == true)
+  defp weekday_constraint(7), do: dynamic([_s, sc], sc.sun == true)
 end

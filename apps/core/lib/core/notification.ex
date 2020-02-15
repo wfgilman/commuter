@@ -150,7 +150,7 @@ defmodule Core.Notification do
       join: svc in assoc(t, :service),
       left_join: md in Db.Model.MutedDevice,
       on: tn.device_id == md.device_id,
-      where: svc.code == ^Core.Departure.current_service(),
+      where: svc.id in ^Enum.map(Core.Service.current_services(), &(&1.id)),
       where: s.departure_time >= ^now(offset_min - 1),
       where: s.departure_time <= ^now(offset_min),
       where: is_nil(md.device_id),
