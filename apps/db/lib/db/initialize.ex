@@ -20,6 +20,7 @@ defmodule Db.Initialize do
   def load do
     load_agency()
     load_service()
+    load_service_calendar()
     load_service_exception()
     load_route()
     load_station()
@@ -33,6 +34,8 @@ defmodule Db.Initialize do
   Wipe existing GTFS data and reload.
   """
   def reload do
+    # Notify users before wiping notifications.
+    Push.Departure.reset_all_notifications()
     Db.Repo.delete_all(Db.Model.Schedule)
     Db.Repo.delete_all(Db.Model.Trip)
     Db.Repo.delete_all(Db.Model.ShapeCoordinate)
@@ -54,7 +57,14 @@ defmodule Db.Initialize do
     |> file_path(@app)
     |> File.read!()
     |> MyParser.parse_string()
-    |> Enum.map(fn [agency_id, agency_name, agency_url, agency_timezone, agency_lang, _agency_phone] ->
+    |> Enum.map(fn [
+                     agency_id,
+                     agency_name,
+                     agency_url,
+                     agency_timezone,
+                     agency_lang,
+                     _agency_phone
+                   ] ->
       %{
         code: agency_id,
         name: agency_name,
@@ -77,7 +87,7 @@ defmodule Db.Initialize do
     |> File.stream!()
     |> MyParser.parse_stream()
     |> Stream.reject(fn [service_id, _service_desc] ->
-        String.contains?(service_id, "OAC")
+      String.contains?(service_id, "OAC")
     end)
     |> Stream.map(fn [service_id, service_desc] ->
       %{
@@ -102,7 +112,7 @@ defmodule Db.Initialize do
     |> File.stream!()
     |> MyParser.parse_stream()
     |> Stream.reject(fn [service_id, _m, _t, _w, _th, _f, _s, _sun, _sd, _ed] ->
-        String.contains?(service_id, "OAC")
+      String.contains?(service_id, "OAC")
     end)
     |> Stream.map(fn [service_id, m, t, w, th, f, s, sun, start_date, _end_date] ->
       %{
@@ -133,7 +143,7 @@ defmodule Db.Initialize do
     |> File.stream!()
     |> MyParser.parse_stream()
     |> Stream.reject(fn [service_id, _d, _et] ->
-        String.contains?(service_id, "OAC")
+      String.contains?(service_id, "OAC")
     end)
     |> Stream.map(fn [service_id, date, exception_type] ->
       %{
@@ -190,18 +200,18 @@ defmodule Db.Initialize do
     |> File.stream!()
     |> MyParser.parse_stream()
     |> Stream.filter(fn [
-                        _stop_id,
-                        _stop_code,
-                        _stop_name,
-                        _stop_desc,
-                        _stop_lat,
-                        _stop_lon,
-                        _zone_id,
-                        _stop_url,
-                        loc_type,
-                        _parent_station
-                      ] ->
-        loc_type == "0"
+                          _stop_id,
+                          _stop_code,
+                          _stop_name,
+                          _stop_desc,
+                          _stop_lat,
+                          _stop_lon,
+                          _zone_id,
+                          _stop_url,
+                          loc_type,
+                          _parent_station
+                        ] ->
+      loc_type == "0"
     end)
     |> Stream.map(fn [
                        stop_id,
@@ -283,15 +293,15 @@ defmodule Db.Initialize do
     |> File.stream!()
     |> MyParser.parse_stream()
     |> Stream.reject(fn [
-                      _route_id,
-                      service_id,
-                      _trip_id,
-                      _trip_headsign,
-                      _direction_id,
-                      _block_id,
-                      _shape_id,
-                      _trip_load_information
-                    ] ->
+                          _route_id,
+                          service_id,
+                          _trip_id,
+                          _trip_headsign,
+                          _direction_id,
+                          _block_id,
+                          _shape_id,
+                          _trip_load_information
+                        ] ->
       String.contains?(service_id, "OAC")
     end)
     |> Stream.map(fn [
@@ -332,30 +342,31 @@ defmodule Db.Initialize do
     |> File.stream!()
     |> MyParser.parse_stream()
     |> Enum.reduce([], fn [
-                       trip_id,
-                       arrival_time,
-                       depart_time,
-                       stop_id,
-                       stop_sequence,
-                       _pickup_type,
-                       _dropoff_type
-                     ], acc ->
+                            trip_id,
+                            arrival_time,
+                            depart_time,
+                            stop_id,
+                            stop_sequence,
+                            _pickup_type,
+                            _dropoff_type
+                          ],
+                          acc ->
       case Enum.find(trips, &(&1.code == trip_id)) do
         nil ->
           acc
 
         trip ->
-          sched =
-            %{
-              arrival_time: Time.from_iso8601!(standardize_time(arrival_time)),
-              departure_time: Time.from_iso8601!(standardize_time(depart_time)),
-              sequence: String.to_integer(stop_sequence),
-              headsign: trip.headsign,
-              arrival_day_offset: day_offset(arrival_time),
-              departure_day_offset: day_offset(depart_time),
-              trip_id: trip.id,
-              station_id: Enum.find(stations, &(&1.code == stop_id)).id
-            }
+          sched = %{
+            arrival_time: Time.from_iso8601!(standardize_time(arrival_time)),
+            departure_time: Time.from_iso8601!(standardize_time(depart_time)),
+            sequence: String.to_integer(stop_sequence),
+            headsign: trip.headsign,
+            arrival_day_offset: day_offset(arrival_time),
+            departure_day_offset: day_offset(depart_time),
+            trip_id: trip.id,
+            station_id: Enum.find(stations, &(&1.code == stop_id)).id
+          }
+
           [sched | acc]
       end
     end)
@@ -381,6 +392,7 @@ defmodule Db.Initialize do
   def standardize_time("24" <> time), do: "00" <> time
   def standardize_time("25" <> time), do: "01" <> time
   def standardize_time("26" <> time), do: "02" <> time
+
   def standardize_time(time) do
     if String.length(time) == 7 do
       "0" <> time

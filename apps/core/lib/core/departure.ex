@@ -80,7 +80,7 @@ defmodule Core.Departure do
   end
 
   defp filter_current_service(scheds) do
-    svcs = Enum.map(Core.Service.current_services(), &(&1.code))
+    svcs = Enum.map(Core.Service.current_services(), & &1.code)
 
     Stream.filter(scheds, fn sched ->
       sched.service_code in svcs

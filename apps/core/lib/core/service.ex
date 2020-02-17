@@ -7,7 +7,7 @@ defmodule Core.Service do
   @doc """
   Returns the services for the train service currently running.
   """
-  @spec current_services() :: [Db.Model.Service.t]
+  @spec current_services() :: [Db.Model.Service.t()]
   def current_services do
     holiday =
       Db.Repo.one(
