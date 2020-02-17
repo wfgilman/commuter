@@ -18,7 +18,7 @@ defmodule Core.Service do
       )
 
     if not is_nil(holiday) do
-      holiday
+      [holiday]
     else
       derive_current_services()
     end
