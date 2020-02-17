@@ -27,7 +27,8 @@ defmodule Push.Departure do
   def handle_info(:poll, state) do
     poll(@poll_interval_sec)
     excluded_device_ids = Enum.map(state, & &1.device_id)
-    notifs = Core.Notification.poll(@depart_alert_min, excluded_device_ids)
+    # notifs = Core.Notification.poll(@depart_alert_min, excluded_device_ids)
+    notifs = []
 
     state =
       state ++
