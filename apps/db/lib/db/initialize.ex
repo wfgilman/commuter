@@ -38,13 +38,10 @@ defmodule Db.Initialize do
   Wipe existing GTFS data and reload.
   """
   def reload do
-<<<<<<< HEAD
-    Db.Repo.delete_all(Db.Model.RouteStation)
-    Db.Repo.delete_all(Db.Model.Transfer)
-=======
     # Notify users before wiping notifications.
     Push.Departure.reset_all_notifications()
->>>>>>> master
+    Db.Repo.delete_all(Db.Model.RouteStation)
+    Db.Repo.delete_all(Db.Model.Transfer)
     Db.Repo.delete_all(Db.Model.Schedule)
     Db.Repo.delete_all(Db.Model.Trip)
     Db.Repo.delete_all(Db.Model.ShapeCoordinate)
