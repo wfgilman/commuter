@@ -1,17 +1,15 @@
-route_id,agency_id,route_short_name,route_long_name,route_desc,route_type,route_url,route_color,route_text_color
-1,BART,Yellow,Antioch - SFIA/Millbrae,,1,http://www.bart.gov/schedules/bylineresults?route=1,ffff33,000000
-2,BART,Yellow,Millbrae/SFIA - Antioch,,1,http://www.bart.gov/schedules/bylineresults?route=2,ffff33,000000
-3,BART,Orange,Warm Springs/South Fremont - Richmond,,1,http://www.bart.gov/schedules/bylineresults?route=3,ff9933,000000
-4,BART,Orange,Richmond - Warm Springs/South Fremont,,1,http://www.bart.gov/schedules/bylineresults?route=4,ff9933,000000
-5,BART,Green,Warm Springs/South Fremont - Daly City,,1,http://www.bart.gov/schedules/bylineresults?route=5,339933,000000
-6,BART,Green,Daly City - Warm Springs/South Fremont,,1,http://www.bart.gov/schedules/bylineresults?route=6,339933,000000
-7,BART,Red,Richmond - Daly City/Millbrae,,1,http://www.bart.gov/schedules/bylineresults?route=7,ff0000,000000
-8,BART,Red,Millbrae/Daly City - Richmond,,1,http://www.bart.gov/schedules/bylineresults?route=8,ff0000,000000
-9,BART,Blue,Dublin/Pleasanton - MacArthur,,1,http://www.bart.gov/schedules/,0099cc,000000
-10,BART,Blue,MacArthur - Dublin/Pleasanton,,1,http://www.bart.gov/schedules/,0099cc,000000
-11,BART,Blue,Dublin/Pleasanton - Daly City,,1,http://www.bart.gov/schedules/bylineresults?route=11,0099cc,000000
-12,BART,Blue,Daly City - Dublin/Pleasanton,,1,http://www.bart.gov/schedules/bylineresults?route=12,0099cc,000000
-13,BART,Purple,Millbrae - San Francisco International Airport,,1,http://www.bart.gov/schedules/,c463c5,000000
-14,BART,Purple,San Francisco International Airport - Millbrae,,1,http://www.bart.gov/schedules/,c463c5,000000
-19,BART,Beige,Oakland Airport - Coliseum,,1,http://www.bart.gov/schedules/bylineresults?route=19,d5cfa3,000000
-20,BART,Beige,Coliseum - Oakland Airport,,1,http://www.bart.gov/schedules/bylineresults?route=20,d5cfa3,000000
+route_id,route_short_name,route_long_name,route_desc,route_type,route_url,route_color
+1,YL-S,Antioch to SFIA/Millbrae,,1,http://www.bart.gov/schedules/bylineresults?route=1,FFEA00
+2,YL-N,Millbrae/SFIA to Antioch,,1,http://www.bart.gov/schedules/bylineresults?route=2,FFEA00
+3,OR-N,Warm Springs/South Fremont to Richmond,,1,http://www.bart.gov/schedules/bylineresults?route=3,FAA61A
+4,OR-S,Richmond to Warm Springs/South Fremont,,1,http://www.bart.gov/schedules/bylineresults?route=4,FAA61A
+5,GN-S,Warm Springs/South Fremont to Daly City,,1,http://www.bart.gov/schedules/bylineresults?route=5,00A61A
+6,GN-N,Daly City to Warm Springs/South Fremont,,1,http://www.bart.gov/schedules/bylineresults?route=6,00A656
+7,RD-S,Richmond to Daly City/Millbrae,,1,http://www.bart.gov/schedules/bylineresults?route=7,ED1C24
+8,RD-N,Millbrae/Daly City to Richmond,,1,http://www.bart.gov/schedules/bylineresults?route=8,ED1C24
+11,BL-S,Dublin/Pleasanton to Daly City,,1,http://www.bart.gov/schedules/bylineresults?route=11,00AEEF
+12,BL-N,Daly City to Dublin/Pleasanton,,1,http://www.bart.gov/schedules/bylineresults?route=12,00AEEF
+13,PR-N,Millbrae to San Francisco International Airport,,1,http://www.bart.gov/schedules/bylineresults?route=13,B355A0
+14,PR-S,San Francisco International Airport to Millbrae,,1,http://www.bart.gov/schedules/bylineresults?route=14,B355A0
+19,BG-N,Oakland Airport to Coliseum,,1,http://www.bart.gov/schedules/bylineresults?route=19,D5CFA3
+20,BG-S,Coliseum to Oakland Airport,,1,http://www.bart.gov/schedules/bylineresults?route=20,D5CFA3

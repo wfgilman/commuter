@@ -11,6 +11,10 @@ defmodule Push.Departure do
     GenServer.start_link(__MODULE__, :ok, name: __MODULE__)
   end
 
+  def reset_all_notifications do
+    Process.send(__MODULE__, :reset_all, [])
+  end
+
   @impl true
   def init(:ok) do
     purge()
@@ -45,10 +49,7 @@ defmodule Push.Departure do
 
     for notif <- notifs do
       message = get_message(notif)
-
-      Pigeon.APNS.Notification.new(message, notif.device_id, "BGHFM.Commuter")
-      |> Pigeon.APNS.Notification.put_sound("default")
-      |> Pigeon.APNS.push(on_response: handler)
+      send_notification(message, notif.device_id, handler)
     end
 
     {:noreply, state}
@@ -66,6 +67,20 @@ defmodule Push.Departure do
     {:noreply, state}
   end
 
+  @impl true
+  def handle_info(:reset_all, state) do
+    message =
+      "Just a heads up that BART has changed their schedule so we've reset all your trip notifications. Please update your favorite trips in the app!"
+
+    device_ids = Core.Notification.all_device_ids()
+
+    for device_id <- device_ids do
+      send_notification(message, device_id, nil)
+    end
+
+    {:noreply, state}
+  end
+
   defp poll(sec \\ 0) do
     Process.send_after(__MODULE__, :poll, sec * 1_000)
   end
@@ -79,5 +94,19 @@ defmodule Push.Departure do
     {:ok, time} = Timex.format(depart_time, "{h12}:{0m} {am}")
 
     "The #{time} from #{code} departs in #{eta_min} min"
+  end
+
+  defp send_notification(message, device_id, handler) do
+    Pigeon.APNS.Notification.new(message, device_id, "BGHFM.Commuter")
+    |> Pigeon.APNS.Notification.put_sound("default")
+    |> handle_response(handler)
+  end
+
+  defp handle_response(notification, nil) do
+    Pigeon.APNS.push(notification)
+  end
+
+  defp handle_response(notification, handler) do
+    Pigeon.APNS.push(notification, on_response: handler)
   end
 end

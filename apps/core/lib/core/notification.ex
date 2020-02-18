@@ -150,7 +150,7 @@ defmodule Core.Notification do
       join: svc in assoc(t, :service),
       left_join: md in Db.Model.MutedDevice,
       on: tn.device_id == md.device_id,
-      where: svc.code == ^Core.Departure.current_service(),
+      where: svc.id in ^Enum.map(Core.Service.current_services(), & &1.id),
       where: s.departure_time >= ^now(offset_min - 1),
       where: s.departure_time <= ^now(offset_min),
       where: is_nil(md.device_id),
@@ -160,6 +160,18 @@ defmodule Core.Notification do
         depart_time: s.departure_time,
         device_id: tn.device_id
       }
+    )
+    |> Db.Repo.all()
+  end
+
+  @doc """
+  Get all device ids signed up for push notifications.
+  """
+  @spec all_device_ids() :: [String.t()]
+  def all_device_ids do
+    from(tn in Db.Model.TripNotification,
+      select: tn.device_id,
+      distinct: true
     )
     |> Db.Repo.all()
   end

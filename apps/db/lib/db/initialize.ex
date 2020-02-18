@@ -3,7 +3,8 @@ defmodule Db.Initialize do
 
   @app :db
   @agency_file "agency.txt"
-  @service_file "calendar.txt"
+  @service_file "calendar_attributes.txt"
+  @service_calendar_file "calendar.txt"
   @service_exception_file "calendar_dates.txt"
   @route_file "routes.txt"
   @station_file "stops.txt"
@@ -21,6 +22,7 @@ defmodule Db.Initialize do
   def load do
     load_agency()
     load_service()
+    load_service_calendar()
     load_service_exception()
     load_route()
     load_station()
@@ -36,8 +38,13 @@ defmodule Db.Initialize do
   Wipe existing GTFS data and reload.
   """
   def reload do
+<<<<<<< HEAD
     Db.Repo.delete_all(Db.Model.RouteStation)
     Db.Repo.delete_all(Db.Model.Transfer)
+=======
+    # Notify users before wiping notifications.
+    Push.Departure.reset_all_notifications()
+>>>>>>> master
     Db.Repo.delete_all(Db.Model.Schedule)
     Db.Repo.delete_all(Db.Model.Trip)
     Db.Repo.delete_all(Db.Model.ShapeCoordinate)
@@ -45,6 +52,7 @@ defmodule Db.Initialize do
     Db.Repo.delete_all(Db.Model.Station)
     Db.Repo.delete_all(Db.Model.Route)
     Db.Repo.delete_all(Db.Model.ServiceException)
+    Db.Repo.delete_all(Db.Model.ServiceCalendar)
     Db.Repo.delete_all(Db.Model.Service)
     Db.Repo.delete_all(Db.Model.Agency)
     load()
@@ -58,7 +66,14 @@ defmodule Db.Initialize do
     |> file_path(@app)
     |> File.read!()
     |> MyParser.parse_string()
-    |> Enum.map(fn [agency_id, agency_name, agency_url, agency_timezone, agency_lang] ->
+    |> Enum.map(fn [
+                     agency_id,
+                     agency_name,
+                     agency_url,
+                     agency_timezone,
+                     agency_lang,
+                     _agency_phone
+                   ] ->
       %{
         code: agency_id,
         name: agency_name,
@@ -80,14 +95,49 @@ defmodule Db.Initialize do
     |> file_path(@app)
     |> File.stream!()
     |> MyParser.parse_stream()
-    |> Stream.map(fn [service_id, _m, _t, _w, _th, _f, _s, _sun, _sd, _ed] ->
+    |> Stream.reject(fn [service_id, _service_desc] ->
+      String.contains?(service_id, "OAC")
+    end)
+    |> Stream.map(fn [service_id, service_desc] ->
       %{
         code: service_id,
-        name: map_service_code_to_name(service_id)
+        name: service_desc
+      }
+    end)
+    # Filter out any Oakland Int'l Airport services.
+    |> Enum.each(fn param ->
+      Db.Repo.insert!(struct(Db.Model.Service, param), on_conflict: :nothing)
+    end)
+  end
+
+  @doc """
+  Loads service calendar.
+  """
+  def load_service_calendar do
+    services = Db.Repo.all(Db.Model.Service)
+
+    @service_calendar_file
+    |> file_path(@app)
+    |> File.stream!()
+    |> MyParser.parse_stream()
+    |> Stream.reject(fn [service_id, _m, _t, _w, _th, _f, _s, _sun, _sd, _ed] ->
+      String.contains?(service_id, "OAC")
+    end)
+    |> Stream.map(fn [service_id, m, t, w, th, f, s, sun, start_date, _end_date] ->
+      %{
+        mon: to_boolean(m),
+        tue: to_boolean(t),
+        wed: to_boolean(w),
+        thu: to_boolean(th),
+        fri: to_boolean(f),
+        sat: to_boolean(s),
+        sun: to_boolean(sun),
+        date_effective: date_from_string(start_date),
+        service_id: Enum.find(services, &(&1.code == service_id)).id
       }
     end)
     |> Enum.each(fn param ->
-      Db.Repo.insert!(struct(Db.Model.Service, param), on_conflict: :nothing)
+      Db.Repo.insert!(struct(Db.Model.ServiceCalendar, param), on_conflict: :nothing)
     end)
   end
 
@@ -101,6 +151,9 @@ defmodule Db.Initialize do
     |> file_path(@app)
     |> File.stream!()
     |> MyParser.parse_stream()
+    |> Stream.reject(fn [service_id, _d, _et] ->
+      String.contains?(service_id, "OAC")
+    end)
     |> Stream.map(fn [service_id, date, exception_type] ->
       %{
         date: date_from_string(date),
@@ -126,14 +179,12 @@ defmodule Db.Initialize do
     |> MyParser.parse_stream()
     |> Stream.map(fn [
                        route_id,
-                       _agency_id,
                        route_short_name,
                        route_long_name,
                        _route_desc,
                        _route_type,
                        route_url,
-                       route_color,
-                       _route_text_color
+                       route_color
                      ] ->
       %{
         code: route_id,
@@ -157,8 +208,23 @@ defmodule Db.Initialize do
     |> file_path(@app)
     |> File.stream!()
     |> MyParser.parse_stream()
+    |> Stream.filter(fn [
+                          _stop_id,
+                          _stop_code,
+                          _stop_name,
+                          _stop_desc,
+                          _stop_lat,
+                          _stop_lon,
+                          _zone_id,
+                          _stop_url,
+                          loc_type,
+                          _parent_station
+                        ] ->
+      loc_type == "0"
+    end)
     |> Stream.map(fn [
                        stop_id,
+                       _stop_code,
                        stop_name,
                        _stop_desc,
                        stop_lat,
@@ -166,9 +232,7 @@ defmodule Db.Initialize do
                        _zone_id,
                        stop_url,
                        _loc_type,
-                       _parent_station,
-                       _stop_tz,
-                       _wheelchair
+                       _parent_station
                      ] ->
       %{
         code: stop_id,
@@ -237,16 +301,27 @@ defmodule Db.Initialize do
     |> file_path(@app)
     |> File.stream!()
     |> MyParser.parse_stream()
+    |> Stream.reject(fn [
+                          _route_id,
+                          service_id,
+                          _trip_id,
+                          _trip_headsign,
+                          _direction_id,
+                          _block_id,
+                          _shape_id,
+                          _trip_load_information
+                        ] ->
+      String.contains?(service_id, "OAC")
+    end)
     |> Stream.map(fn [
                        route_id,
                        service_id,
-                       <<trip_id::bytes-size(7), _::binary>>,
+                       trip_id,
                        trip_headsign,
                        direction_id,
                        _block_id,
                        shape_id,
-                       _wheelchair,
-                       _bikes
+                       _trip_load_information
                      ] ->
       %{
         code: trip_id,
@@ -275,26 +350,34 @@ defmodule Db.Initialize do
     |> file_path(@app)
     |> File.stream!()
     |> MyParser.parse_stream()
-    |> Stream.map(fn [
-                       <<trip_id::bytes-size(7), service_id::binary>>,
-                       arrival_time,
-                       depart_time,
-                       stop_id,
-                       stop_sequence,
-                       stop_headsign,
-                       _pickup,
-                       _dropoff,
-                       _shape,
-                       _timepoint
-                     ] ->
-      %{
-        arrival_time: Time.from_iso8601!(standardize_time(arrival_time)),
-        departure_time: Time.from_iso8601!(standardize_time(depart_time)),
-        sequence: String.to_integer(stop_sequence),
-        headsign: stop_headsign,
-        trip_id: Enum.find(trips, &(&1.code == trip_id and &1.service.code == service_id)).id,
-        station_id: Enum.find(stations, &(&1.code == stop_id)).id
-      }
+    |> Enum.reduce([], fn [
+                            trip_id,
+                            arrival_time,
+                            depart_time,
+                            stop_id,
+                            stop_sequence,
+                            _pickup_type,
+                            _dropoff_type
+                          ],
+                          acc ->
+      case Enum.find(trips, &(&1.code == trip_id)) do
+        nil ->
+          acc
+
+        trip ->
+          sched = %{
+            arrival_time: Time.from_iso8601!(standardize_time(arrival_time)),
+            departure_time: Time.from_iso8601!(standardize_time(depart_time)),
+            sequence: String.to_integer(stop_sequence),
+            headsign: trip.headsign,
+            arrival_day_offset: day_offset(arrival_time),
+            departure_day_offset: day_offset(depart_time),
+            trip_id: trip.id,
+            station_id: Enum.find(stations, &(&1.code == stop_id)).id
+          }
+
+          [sched | acc]
+      end
     end)
     |> Enum.each(fn param ->
       Db.Repo.insert!(struct(Db.Model.Schedule, param), on_conflict: :nothing)
@@ -366,14 +449,6 @@ defmodule Db.Initialize do
 
   defp custom_file_path(filename, app), do: Path.join([priv_dir(app), "custom", "bart", filename])
 
-  defp map_service_code_to_name(code) do
-    case code do
-      "WKDY" -> "Weekday"
-      "SAT" -> "Saturday"
-      "SUN" -> "Sunday"
-    end
-  end
-
   defp map_direction("0"), do: "South"
   defp map_direction("1"), do: "North"
 
@@ -387,5 +462,20 @@ defmodule Db.Initialize do
   def standardize_time("24" <> time), do: "00" <> time
   def standardize_time("25" <> time), do: "01" <> time
   def standardize_time("26" <> time), do: "02" <> time
-  def standardize_time(time), do: time
+
+  def standardize_time(time) do
+    if String.length(time) == 7 do
+      "0" <> time
+    else
+      time
+    end
+  end
+
+  defp day_offset("24" <> _), do: 1
+  defp day_offset("25" <> _), do: 1
+  defp day_offset("26" <> _), do: 1
+  defp day_offset(_), do: 0
+
+  defp to_boolean("0"), do: false
+  defp to_boolean("1"), do: true
 end
