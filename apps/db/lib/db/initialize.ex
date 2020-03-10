@@ -12,7 +12,6 @@ defmodule Db.Initialize do
   @trip_file "trips.txt"
   @schedule_file "stop_times.txt"
   @transfer_file "transfers.txt"
-  @route_station_file "route_stop.txt"
 
   NimbleCSV.define(MyParser, separator: ["\t", ","], new_lines: ["\r", "\r\n", "\n"])
 
@@ -29,8 +28,8 @@ defmodule Db.Initialize do
     load_shape()
     load_trip()
     load_schedule()
-    load_transfer()
     load_route_station()
+    load_transfer()
     Ecto.Adapters.SQL.query!(Db.Repo, "REFRESH MATERIALIZED VIEW trip_last_station")
   end
 
@@ -40,8 +39,8 @@ defmodule Db.Initialize do
   def reload do
     # Notify users before wiping notifications.
     Push.Departure.reset_all_notifications()
-    Db.Repo.delete_all(Db.Model.RouteStation)
     Db.Repo.delete_all(Db.Model.Transfer)
+    Db.Repo.delete_all(Db.Model.RouteStation)
     Db.Repo.delete_all(Db.Model.Schedule)
     Db.Repo.delete_all(Db.Model.Trip)
     Db.Repo.delete_all(Db.Model.ShapeCoordinate)
@@ -315,7 +314,7 @@ defmodule Db.Initialize do
                        service_id,
                        trip_id,
                        trip_headsign,
-                       direction_id,
+                       _direction_id,
                        _block_id,
                        shape_id,
                        _trip_load_information
@@ -323,7 +322,6 @@ defmodule Db.Initialize do
       %{
         code: trip_id,
         headsign: trip_headsign,
-        direction: map_direction(direction_id),
         route_id: Enum.find(routes, &(&1.code == route_id)).id,
         service_id: Enum.find(services, &(&1.code == service_id)).id,
         shape_id: Enum.find(shapes, &(&1.code == shape_id)).id
@@ -392,62 +390,79 @@ defmodule Db.Initialize do
     |> file_path(@app)
     |> File.stream!()
     |> MyParser.parse_stream()
-    |> Stream.filter(fn [_, _, transfer_type, _, _, _, _, _] ->
-        transfer_type == "0"
-    end)
-    |> Stream.map(fn [
-                      from_stop_id,
-                      _to_stop_id,
-                      _transfer_type,
-                      _min_transfer_time,
-                      from_route_id,
-                      to_route_id,
-                      _from_trip_id,
-                      _to_trip_id
-                    ] ->
+    |> Enum.map(fn [
+                     from_stop_id,
+                     _to_stop_id,
+                     _transfer_type,
+                     min_transfer_time,
+                     from_route_id,
+                     to_route_id,
+                     _from_trip_id,
+                     _to_trip_id
+                   ] ->
+      from_route = Enum.find(routes, &(&1.code == from_route_id))
+      to_route = Enum.find(routes, &(&1.code == to_route_id))
+      station = Enum.find(stations, &(&1.code == from_stop_id))
+
       %{
-        station_id: Enum.find(stations, &(&1.code == from_stop_id)).id,
-        from_route_id: Enum.find(routes, &(&1.code == from_route_id)).id,
-        to_route_id: Enum.find(routes, &(&1.code == to_route_id)).id
+        station_id: station.id,
+        from_route_id: maybe_get_route_id(from_route),
+        to_route_id: maybe_get_route_id(to_route),
+        transfer_time_sec: String.to_integer(min_transfer_time),
+        timed_transfer: determine_timed_transfer(station, from_route, to_route)
       }
     end)
-    |> Stream.uniq()
     |> Enum.each(fn param ->
       Db.Repo.insert!(struct(Db.Model.Transfer, param), on_conflict: :nothing)
     end)
   end
 
+  defp maybe_get_route_id(nil), do: nil
+  defp maybe_get_route_id(route), do: route.id
+
+  defp determine_timed_transfer(station, from_route, to_route) do
+    cond do
+      station.code == "MCAR" and from_route.direction == "South" and to_route.direction == "South" ->
+        true
+
+      station.code == "19TH" and from_route.direction == "North" and to_route.direction == "North" ->
+        true
+
+      true ->
+        false
+    end
+  end
+
   @doc """
-  Load Route Stations (custom dataset, not part of GTFS spec)
+  Load Route Stations (uses BART API, not available through GTFS).
   """
   def load_route_station do
     stations = Db.Repo.all(Db.Model.Station)
     routes = Db.Repo.all(Db.Model.Route)
 
-    @route_station_file
-    |> custom_file_path(@app)
-    |> File.stream!()
-    |> MyParser.parse_stream()
-    |> Stream.map(fn [route_id, station_id, sequence] ->
+    Enum.each(routes, fn %{code: code} = route ->
+      route_info = Bart.Route.get(code)
+
+      changeset = Ecto.Changeset.change(route, %{direction: route_info.direction})
+      Db.Repo.update!(changeset)
+
+      route_info.station_seq
+      |> Enum.map(fn %{code: stn_code, sequence: seq} ->
         %{
-          route_id: Enum.find(routes, &(&1.code == route_id)).id,
-          station_id: Enum.find(stations, &(&1.code == station_id)).id,
-          sequence: String.to_integer(sequence)
+          route_id: route.id,
+          station_id: Enum.find(stations, &(&1.code == stn_code)).id,
+          sequence: seq
         }
-    end)
-    |> Enum.each(fn param ->
-      Db.Repo.insert!(struct(Db.Model.RouteStation, param), on_conflict: :nothing)
+      end)
+      |> Enum.each(fn param ->
+        Db.Repo.insert!(struct(Db.Model.RouteStation, param), on_conflict: :nothing)
+      end)
     end)
   end
 
   defp priv_dir(app), do: "#{:code.priv_dir(app)}"
 
   defp file_path(filename, app), do: Path.join([priv_dir(app), "gtfs", "bart", filename])
-
-  defp custom_file_path(filename, app), do: Path.join([priv_dir(app), "custom", "bart", filename])
-
-  defp map_direction("0"), do: "South"
-  defp map_direction("1"), do: "North"
 
   def date_from_string(<<year::bytes-size(4), month::bytes-size(2), day::bytes-size(2)>>) do
     {:ok, date} =
