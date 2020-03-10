@@ -34,7 +34,7 @@ defmodule Core.Schedule do
           etd_day_offset: integer,
           transfer_code: String.t(),
           transfer_scheds: [Core.Schedule.t()],
-          next_transfer_sched: Core.Schedule.t
+          next_transfer_sched: Core.Schedule.t()
         }
 
   @doc """
@@ -58,8 +58,8 @@ defmodule Core.Schedule do
             end)
           end)
 
+        # NOTE: should I show transfers downstream that are also direct? Would someone want to do that?
         downstream =
-          # NOTE: should I show transfers downstream that are also direct? Would someone want to do that?
           get_direct(trans.code, dest)
           |> Enum.reject(fn %{trip_id: trip_id} ->
             Enum.any?(direct, fn %{trip_id: direct_trip_id} ->

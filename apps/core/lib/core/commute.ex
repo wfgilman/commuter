@@ -63,27 +63,99 @@ defmodule Core.Commute do
     Db.Repo.all(direct_routes(orig_station, dest_station))
   end
 
+  def downstream_transfer_stations(origin) do
+    from(r in Db.Model.Route,
+      join: ors in assoc(r, :route_station),
+      join: os in assoc(ors, :station),
+      join: trs in assoc(r, :route_station),
+      join: ts in assoc(trs, :station),
+      left_join: tt in Db.Model.Transfer,
+      on: tt.from_route_id == r.id and tt.station_id == ts.id,
+      left_join: t in Db.Model.Transfer,
+      on: t.station_id == ts.id,
+      where: os.code == ^origin,
+      where: trs.sequence > ors.sequence,
+      where: not is_nil(t.id),
+      distinct: true,
+      select: %{
+        station_code: ts.code,
+        from_route_id: r.id,
+        from_route_direction: r.direction,
+        timed_transfer: coalesce(tt.timed_transfer, false),
+        num_stops: trs.sequence - ors.sequence
+      }
+    )
+    |> Db.Repo.all()
+  end
+
+  def upstream_transfer_stations(destination) do
+    from(r in Db.Model.Route,
+      join: drs in assoc(r, :route_station),
+      join: ds in assoc(drs, :station),
+      join: trs in assoc(r, :route_station),
+      join: ts in assoc(trs, :station),
+      left_join: tt in Db.Model.Transfer,
+      on: tt.to_route_id == r.id and tt.station_id == ts.id,
+      left_join: t in Db.Model.Transfer,
+      on: t.station_id == ts.id,
+      where: ds.code == ^destination,
+      where: trs.sequence < drs.sequence,
+      where: not is_nil(tt.id) or not is_nil(t.id),
+      distinct: true,
+      select: %{
+        station_code: ts.code,
+        to_route_id: r.id,
+        to_route_direction: r.direction,
+        timed_transfer: coalesce(tt.timed_transfer, false),
+        num_stops: drs.sequence - trs.sequence
+      }
+    )
+    |> Db.Repo.all()
+  end
+
+  def optimal_transfer_station(origin, destination) do
+    downstream_stations = downstream_transfer_stations(origin)
+    upstream_stations = upstream_transfer_stations(destination)
+
+    downstream_stations
+    |> Enum.filter(fn ds ->
+      Enum.any?(upstream_stations, fn us ->
+        ds.station_code == us.station_code and ds.from_route_id == us.to_route_id
+      end)
+    end)
+
+    #
+    # upstream_stations
+    # |> Enum.filter(fn us ->
+    #     Enum.any?(downstream_stations, fn ds ->
+    #       ds.station_code == us.station_code and ds.from_route_id == us.to_route_id
+    #     end)
+    # end)
+  end
+
   # 1. Find all routes running through a station.
-  defp routes_through_station(station) do
+  def routes_through_station(station) do
     from(rs in Db.Model.RouteStation,
       join: s in assoc(rs, :station),
+      join: r in assoc(rs, :route),
       where: s.code == ^station,
       select: %{
         route_id: rs.route_id,
-        sequence: rs.sequence
+        sequence: rs.sequence,
+        direction: r.direction
       }
     )
   end
 
   # 2. Find all transfer stations downstream on routes from origin station.
-  defp transfer_stations_downstream(station) do
+  def transfer_stations_downstream(station) do
     from(s in Db.Model.Station,
       join: rs in Db.Model.RouteStation,
       on: rs.station_id == s.id,
       join: rts in subquery(routes_through_station(station)),
       on: rts.route_id == rs.route_id,
       left_join: t in Db.Model.Transfer,
-      on: rs.route_id == t.from_route_id and rs.station_id == t.station_id,
+      on: rs.station_id == t.station_id,
       where: rs.sequence > rts.sequence,
       where: not is_nil(t.id),
       distinct: true,
@@ -91,8 +163,8 @@ defmodule Core.Commute do
     )
   end
 
-  # 3. Select all transfer stations that are upstream from destination station.
-  defp transfer_stations_upstream(origin, destination) do
+  # 3. Select all transfer stations that are ALSO upstream from destination station.
+  def transfer_stations_upstream(origin, destination) do
     from(s in Db.Model.Station,
       join: rs in Db.Model.RouteStation,
       on: rs.station_id == s.id,
@@ -100,11 +172,13 @@ defmodule Core.Commute do
       on: rts.route_id == rs.route_id,
       join: us in subquery(transfer_stations_downstream(origin)),
       on: us.id == rs.station_id,
+      left_join: tt in Db.Model.Transfer,
+      on: rs.route_id == tt.from_route_id and rs.station_id == tt.station_id,
       left_join: t in Db.Model.Transfer,
-      on: rs.route_id == t.from_route_id and rs.station_id == t.station_id,
-      where: not is_nil(t.id),
+      on: rs.station_id == t.station_id,
+      where: not is_nil(tt.id) or not is_nil(t.id),
       distinct: true,
-      select: s
+      select: %{s | timed_transfer: coalesce(tt.timed_transfer, t.timed_transfer)}
     )
   end
 

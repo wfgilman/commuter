@@ -176,7 +176,7 @@ defmodule Core.Departure do
   defp get_next_transfer(transfer_eta, transfer_scheds) do
     transfer_scheds
     |> Enum.reject(fn sched ->
-        Time.compare(sched.etd, transfer_eta) == :lt
+      Time.compare(sched.etd, transfer_eta) == :lt
     end)
     |> Enum.at(0)
   end
