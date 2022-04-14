@@ -175,7 +175,8 @@ defmodule Db.Initialize do
                        _route_desc,
                        _route_type,
                        route_url,
-                       route_color
+                       route_color,
+                       _route_text_color
                      ] ->
       %{
         code: route_id,
@@ -246,7 +247,13 @@ defmodule Db.Initialize do
     |> file_path(@app)
     |> File.stream!()
     |> MyParser.parse_stream()
-    |> Stream.map(fn [shape_id, shape_pt_lat, shape_pt_lon, shape_pt_sequence] ->
+    |> Stream.map(fn [
+                       shape_id,
+                       shape_pt_lat,
+                       shape_pt_lon,
+                       shape_pt_sequence,
+                       _shape_dist_traveled
+                     ] ->
       %{
         code: shape_id,
         lat: String.to_float(shape_pt_lat),
@@ -300,7 +307,9 @@ defmodule Db.Initialize do
                           _direction_id,
                           _block_id,
                           _shape_id,
-                          _trip_load_information
+                          _trip_load_information,
+                          _wheelchair_accessible,
+                          _bikes_allowed
                         ] ->
       String.contains?(service_id, "OAC")
     end)
@@ -312,7 +321,9 @@ defmodule Db.Initialize do
                        direction_id,
                        _block_id,
                        shape_id,
-                       _trip_load_information
+                       _trip_load_information,
+                       _wheelchair_accessible,
+                       _bikes_allowed
                      ] ->
       %{
         code: trip_id,
@@ -348,7 +359,8 @@ defmodule Db.Initialize do
                             stop_id,
                             stop_sequence,
                             _pickup_type,
-                            _dropoff_type
+                            _dropoff_type,
+                            _shape_dist_traveled
                           ],
                           acc ->
       case Enum.find(trips, &(&1.code == trip_id)) do

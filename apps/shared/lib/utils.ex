@@ -1,5 +1,4 @@
 defmodule Shared.Utils do
-
   @time_zone "America/Los_Angeles"
 
   @doc """
