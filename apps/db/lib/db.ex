@@ -4,11 +4,10 @@ defmodule Db do
   def start(_type, _args) do
     import Supervisor.Spec, warn: false
 
-    Telemetry.attach(
+    :telemetry.attach(
       "appsignal-ecto",
       [:commuter, :repo, :query],
-      Appsignal.Ecto,
-      :handle_event,
+      &Appsignal.Ecto.handle_event/4,
       nil
     )
 

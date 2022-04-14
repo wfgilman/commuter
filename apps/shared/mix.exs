@@ -26,6 +26,7 @@ defmodule Shared.MixProject do
   defp deps do
     [
       {:timex, "~> 3.0"},
+      {:date_time_parser, "~> 1.1"},
       {:appsignal, "~> 1.0"}
     ]
   end

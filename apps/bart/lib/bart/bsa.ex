@@ -38,8 +38,7 @@ defmodule Bart.Bsa do
     time =
       root
       |> Map.get("time")
-      |> Timex.parse!("{h24}:{m}:{s} {am} {Zabbr}")
-      |> DateTime.to_time()
+      |> DateTimeParser.parse_time!()
 
     messages =
       root

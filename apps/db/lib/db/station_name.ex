@@ -9,6 +9,10 @@ defmodule Db.StationName do
 
   def cast(_), do: :error
 
+  def embed_as(_), do: :self
+
+  def equal?(lhs, rhs), do: lhs == rhs
+
   def load(name) do
     {:ok, String.trim_trailing(name, " BART Station")}
   end
