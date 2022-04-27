@@ -5,6 +5,6 @@ defmodule ApiWeb.StationController do
     conn
     |> put_status(200)
     |> put_view(ApiWeb.StationView)
-    |> render("index.json", data: Db.Repo.all(Db.Model.Station))
+    |> render("index.json", data: Core.Station.all())
   end
 end
