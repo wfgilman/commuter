@@ -2,15 +2,6 @@ defmodule Db.Initialize do
   import Ecto.Query
 
   @app :db
-  @agency_file "agency.txt"
-  @service_file "calendar_attributes.txt"
-  @service_calendar_file "calendar.txt"
-  @service_exception_file "calendar_dates.txt"
-  @route_file "routes.txt"
-  @station_file "stops.txt"
-  @shape_file "shapes.txt"
-  @trip_file "trips.txt"
-  @schedule_file "stop_times.txt"
 
   NimbleCSV.define(MyParser, separator: ["\t", ","], new_lines: ["\r", "\r\n", "\n"])
 
@@ -53,7 +44,7 @@ defmodule Db.Initialize do
   Load Agencies.
   """
   def load_agency do
-    @agency_file
+    "agency.txt"
     |> file_path(@app)
     |> File.read!()
     |> MyParser.parse_string()
@@ -76,13 +67,14 @@ defmodule Db.Initialize do
     |> Enum.map(fn param ->
       Db.Repo.insert!(struct(Db.Model.Agency, param), on_conflict: :nothing)
     end)
+    |> then(&IO.puts("Loaded #{Enum.count(&1)} agencies."))
   end
 
   @doc """
   Load services.
   """
   def load_service do
-    @service_file
+    "calendar_attributes.txt"
     |> file_path(@app)
     |> File.stream!()
     |> MyParser.parse_stream()
@@ -96,9 +88,11 @@ defmodule Db.Initialize do
       }
     end)
     # Filter out any Oakland Int'l Airport services.
-    |> Enum.each(fn param ->
+    |> Enum.reduce(0, fn param, acc ->
       Db.Repo.insert!(struct(Db.Model.Service, param), on_conflict: :nothing)
+      acc + 1
     end)
+    |> then(&IO.puts("Loaded #{&1} services."))
   end
 
   @doc """
@@ -107,7 +101,7 @@ defmodule Db.Initialize do
   def load_service_calendar do
     services = Db.Repo.all(Db.Model.Service)
 
-    @service_calendar_file
+    "calendar.txt"
     |> file_path(@app)
     |> File.stream!()
     |> MyParser.parse_stream()
@@ -127,9 +121,11 @@ defmodule Db.Initialize do
         service_id: Enum.find(services, &(&1.code == service_id)).id
       }
     end)
-    |> Enum.each(fn param ->
+    |> Enum.reduce(0, fn param, acc ->
       Db.Repo.insert!(struct(Db.Model.ServiceCalendar, param), on_conflict: :nothing)
+      acc + 1
     end)
+    |> then(&IO.puts("Loaded #{&1} service calendars."))
   end
 
   @doc """
@@ -138,7 +134,7 @@ defmodule Db.Initialize do
   def load_service_exception do
     services = Db.Repo.all(Db.Model.Service)
 
-    @service_exception_file
+    "calendar_dates.txt"
     |> file_path(@app)
     |> File.stream!()
     |> MyParser.parse_stream()
@@ -153,9 +149,11 @@ defmodule Db.Initialize do
       }
     end)
     |> Stream.reject(&(&1.exception_type == "2"))
-    |> Enum.each(fn param ->
+    |> Enum.reduce(0, fn param, acc ->
       Db.Repo.insert!(struct(Db.Model.ServiceException, param), on_conflict: :nothing)
+      acc + 1
     end)
+    |> then(&IO.puts("Loaded #{&1} service exceptions."))
   end
 
   @doc """
@@ -164,7 +162,7 @@ defmodule Db.Initialize do
   def load_route do
     agency = Db.Repo.get_by(Db.Model.Agency, code: "BART")
 
-    @route_file
+    "routes.txt"
     |> file_path(@app)
     |> File.stream!()
     |> MyParser.parse_stream()
@@ -187,16 +185,18 @@ defmodule Db.Initialize do
         agency_id: agency.id
       }
     end)
-    |> Enum.each(fn param ->
+    |> Enum.reduce(0, fn param, acc ->
       Db.Repo.insert!(struct(Db.Model.Route, param), on_conflict: :nothing)
+      acc + 1
     end)
+    |> then(&IO.puts("Loaded #{&1} routes."))
   end
 
   @doc """
   Load stations.
   """
   def load_station do
-    @station_file
+    "stops.txt"
     |> file_path(@app)
     |> File.stream!()
     |> MyParser.parse_stream()
@@ -234,16 +234,18 @@ defmodule Db.Initialize do
         url: stop_url
       }
     end)
-    |> Enum.each(fn param ->
+    |> Enum.reduce(0, fn param, acc ->
       Db.Repo.insert!(struct(Db.Model.Station, param), on_conflict: :nothing)
+      acc + 1
     end)
+    |> then(&IO.puts("Loaded #{&1} stations."))
   end
 
   @doc """
   Load shapes.
   """
   def load_shape do
-    @shape_file
+    "shapes.txt"
     |> file_path(@app)
     |> File.stream!()
     |> MyParser.parse_stream()
@@ -283,8 +285,7 @@ defmodule Db.Initialize do
 
       shapes
     end)
-
-    :ok
+    |> then(&IO.puts("Loaded #{Enum.count(&1)} shapes."))
   end
 
   @doc """
@@ -295,7 +296,7 @@ defmodule Db.Initialize do
     services = Db.Repo.all(Db.Model.Service)
     shapes = Db.Repo.all(Db.Model.Shape)
 
-    @trip_file
+    "trips.txt"
     |> file_path(@app)
     |> File.stream!()
     |> MyParser.parse_stream()
@@ -334,9 +335,11 @@ defmodule Db.Initialize do
         shape_id: Enum.find(shapes, &(&1.code == shape_id)).id
       }
     end)
-    |> Enum.each(fn param ->
+    |> Enum.reduce(0, fn param, acc ->
       Db.Repo.insert!(struct(Db.Model.Trip, param), on_conflict: :nothing)
+      acc + 1
     end)
+    |> then(&IO.puts("Loaded #{&1} trips."))
   end
 
   @doc """
@@ -348,7 +351,7 @@ defmodule Db.Initialize do
 
     stations = Db.Repo.all(Db.Model.Station)
 
-    @schedule_file
+    "stop_times.txt"
     |> file_path(@app)
     |> File.stream!()
     |> MyParser.parse_stream()
@@ -382,9 +385,11 @@ defmodule Db.Initialize do
           [sched | acc]
       end
     end)
-    |> Enum.each(fn param ->
+    |> Enum.reduce(0, fn param, acc ->
       Db.Repo.insert!(struct(Db.Model.Schedule, param), on_conflict: :nothing)
+      acc + 1
     end)
+    |> then(&IO.puts("Loaded #{&1} schedules."))
   end
 
   defp priv_dir(app), do: "#{:code.priv_dir(app)}"
